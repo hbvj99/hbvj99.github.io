@@ -1,1 +1,180 @@
-let chart_data={animationEnabled:!0,exportEnabled:!0,exportFileName:"Phora Durbar Live AQI",animationDuration:1400,zoomEnabled:!0,zoomType:"xy",theme:"light1",interactivityEnabled:!0,toolTip:{content:"Date: {label}<br/>Data: {y}"},axisX:{},axisY:{title:"AQI",valueFormatString:"#"},title:{text:"AQI"},subtitles:[{text:"Phora Durbar, Kathmandu"}],data:[{type:"column",dataPoints:[]}]},phora_pm2="https://dosairnowdata.org/dos/RSS/PhoraDurbarKathmandu/PhoraDurbarKathmandu-PM2.5.xml",emb_pm2="https://dosairnowdata.org/dos/RSS/EmbassyKathmandu/EmbassyKathmandu-PM2.5.xml";function getLocUrl(e){return url="Lazimpat Kathmandu"===e?phora_pm2:"US Embassy Kathmandu"===e?emb_pm2:phora_pm2,url}function changeLocation(e){chart_data.subtitles[0].text=e;let t=$("#chartType option:selected").val(),a=getLocUrl(e),o=$("#air_properties option:selected").val();chartRenderer(a,chart_data,t,o)}function changeType(e){let t=$("#loc_nm option:selected").val();chart_data.subtitles[0].text=t;let a=$("#air_properties option:selected").val();chartRenderer(getLocUrl(t),chart_data,e,a)}function onchangeConc(e){let t=$("#air_properties option:selected").val(),a=$("#chartType option:selected").val(),o=$("#loc_nm option:selected").val();chart_data.title.text=t,chart_data.axisY.title=t,chartRenderer(getLocUrl(o),chart_data,a,t)}function chartRenderer(e,t,a,o){let r=new CanvasJS.Chart("chartContainer",t),i=[],n=[];$.get(e,function(e){$(e).find("item").each(function(){let e=jQuery(this),t=new Date(e.find("ReadingDateTime").text()).toLocaleString("en-US",{month:"short",day:"numeric",hour:"numeric",hour12:!0,minute:"numeric"}),a=e.find(o).text();i.push({label:t,y:parseFloat(a),color:aqiColor(parseInt(a))}),n.push(t)}),t.data[0].type=a,t.data[0].dataPoints=i;let s=i.slice(-1),l=healthMessage(parseInt(s[0].y));document.getElementById("health_message").innerHTML=l,r.render()})}function aqiColor(e){return e<=0?"#fff":e>=0&&e<=50?"#34e400":e>=51&&e<=100?"#fcff00":e>=101&&e<=150?"#f77e01":e>=151&&e<=200?"#f61802":e>=201&&e<=300?"#8f3f97":e>=301?"#7e0623":void 0}function healthMessage(e){return e<=0?"<div class='text-uppercase'>Error!</div><br/>No data was received from the station":e>=0&&e<=50?"<div class='text-uppercase'>Good</div><br/>Air quality is considered satisfactory, and air pollution poses little or no risk.":e>=51&&e<=100?"<div class='text-uppercase'>Moderate</div><br/>Air quality is acceptable; however, for some pollutants there may be a moderate health concern for a very small number of people who are unusually sensitive to air pollution. Active children and adults, and people with respiratory disease, such as asthma, should limit prolonged outdoor exertion.":e>=101&&e<=150?"<div class='text-uppercase'>Unhealthy for Sensitive Groups</div><br/>Members of sensitive groups may experience health effects. The general public is not likely to be affected. Active children and adults, and people with respiratory disease, such as asthma, should limit prolonged outdoor exertion.":e>=151&&e<=200?"<div class='text-uppercase'>Unhealthy</div><br/>Everyone may begin to experience health effects; members of sensitive groups may experience more serious health effects. Active children and adults, and people with respiratory disease, such as asthma, should avoid prolonged outdoor exertion; everyone else, especially children, should limit prolonged outdoor exertion.":e>=201&&e<=300?"<div class='text-uppercase'>Very Unhealthy</div><br/>Health warnings of emergency conditions. The entire population is more likely to be affected. Active children and adults, and people with respiratory disease, such as asthma, should avoid all outdoor exertion; everyone else, especially children, should limit outdoor exertion.":e>=301?"<div class='text-uppercase'>Hazardous</div><br/>Health alert: everyone may experience more serious health effects. Everyone should avoid all outdoor exertion.":void 0}window.onload=function(){chartRenderer(phora_pm2,chart_data,"column","AQI")};
+let chart_data = {
+    animationEnabled: true,
+    exportEnabled: true,
+    exportFileName: "Phora Durbar Live AQI",
+    animationDuration: 1400,
+    zoomEnabled: true,
+    zoomType: "xy",
+    theme: "light1", //"light1", "dark1", "dark2"
+    interactivityEnabled: true,
+    // backgroundColor: "#F5DEB3",
+    // dataPointMaxWidth: 50,
+    // dataPointMinWidth: 20,
+    // dataPointWidth: 70,
+
+    toolTip: {
+        content: "Date: {label}<br/>Data: {y}"
+    },
+
+    axisX: {
+        // interval: 1,
+        // titleFontSize: 21,
+        // labelFormatter: label
+    },
+    axisY: {
+        title: "AQI",
+        valueFormatString: "#",
+        // titleFontSize: 21,
+        // includeZero: false,
+        // titleFontColor: "red"
+    },
+    title: {
+        text: "AQI",
+    },
+
+    subtitles: [{
+        text: "Phora Durbar, Kathmandu"
+    }],
+    data: [{
+        // lineColor: "red", //**Change the color here
+        type: 'column',
+        // color: "red",
+        // indexLabel: "{y}",
+        dataPoints: []
+    }]
+
+}
+
+let phora_pm2 = 'https://dosairnowdata.org/dos/RSS/PhoraDurbarKathmandu/PhoraDurbarKathmandu-PM2.5.xml';
+let emb_pm2 = 'https://dosairnowdata.org/dos/RSS/EmbassyKathmandu/EmbassyKathmandu-PM2.5.xml';
+
+window.onload = function () {
+    chartRenderer(phora_pm2,
+        chart_data, 'column', 'AQI')
+}
+
+
+function getLocUrl(name) {
+    if (name === 'Lazimpat Kathmandu') {
+        url = phora_pm2
+    } else if (name === 'US Embassy Kathmandu') {
+        url = emb_pm2
+    } else {
+        url = phora_pm2
+    }
+    return url
+}
+
+function changeLocation(location_name) {
+
+    chart_data.subtitles[0].text = location_name
+
+
+    let charType = $("#chartType option:selected").val();
+    let url = getLocUrl(location_name)
+
+    let airProperties = $("#air_properties option:selected").val();
+
+
+    chartRenderer(url, chart_data, charType, airProperties)
+}
+
+function changeType(type) {
+
+
+    let location_name = $("#loc_nm option:selected").val();
+
+    chart_data.subtitles[0].text = location_name
+
+    let airProperties = $("#air_properties option:selected").val();
+
+    let url = getLocUrl(location_name)
+    chartRenderer(url, chart_data, type, airProperties)
+}
+
+function onchangeConc(Concdata) {
+    let airProperties = $("#air_properties option:selected").val();
+
+    let charType = $("#chartType option:selected").val();
+
+    let location_nm = $("#loc_nm option:selected").val();
+
+
+    chart_data.title.text = airProperties
+    chart_data.axisY.title = airProperties
+    let url = getLocUrl(location_nm)
+    chartRenderer(url, chart_data, charType, airProperties)
+}
+
+function chartRenderer(url, chartData, chartType, airDataType) {
+    let chart = new CanvasJS.Chart("chartContainer", chartData)
+    let dataPoints = []
+    let labels_ = []
+    let now_cast_con = []
+    let conc = []
+
+    $.get(url, function (data) {
+        $(data).find("item").each(function () {
+            let $dataPoint = jQuery(this);
+
+            let label = new Date($dataPoint.find("ReadingDateTime").text()).toLocaleString('en-US', {
+                month: 'short',
+                day: 'numeric',
+                hour: 'numeric',
+                hour12: true,
+                minute: 'numeric'
+            });
+            let y = $dataPoint.find(airDataType).text();
+            dataPoints.push({label: label, y: parseFloat(y), color: aqiColor(parseInt(y))});
+            labels_.push(label)
+
+        });
+        chartData.data[0].type = chartType
+        chartData.data[0].dataPoints = dataPoints
+
+        let health_aqi = dataPoints.slice(-1)
+        let z = parseInt(health_aqi[0].y)
+
+        let message = healthMessage(z)
+
+        document.getElementById("health_message").innerHTML = message
+
+        chart.render()
+    });
+}
+
+function aqiColor(y) {
+    if (y <= 0) {
+        return "#fff"
+    } else if (y >= 0 && y <= 50) {
+        return "#34e400"
+    } else if (y >= 51 && y <= 100) {
+        return "#fcff00"
+    } else if (y >= 101 && y <= 150) {
+        return "#f77e01"
+    } else if (y >= 151 && y <= 200) {
+        return "#f61802"
+    } else if (y >= 201 && y <= 300) {
+        return "#8f3f97"
+    } else if (y >= 301) {
+        return "#7e0623"
+    }
+}
+
+function healthMessage(y) {
+    if (y <= 0) {
+        return "<div class='text-uppercase'>Error!</div><br/>No data was received from the station";
+    } else if (y >= 0 && y <= 50) {
+        return "<div class='text-uppercase'>Good</div><br/>The AQI value is between 0 and 50. Air quality is satisfactory and poses little or no health risk.";
+    } else if (y >= 51 && y <= 100) {
+        return "<div class='text-uppercase'>Moderate</div><br/>The AQI is between 51 and 100. Air quality is acceptable; however, pollution in this range may pose a moderate health concern for a very small number of individuals. People who are unusually sensitive to ozone or particle pollution may experience respiratory symptoms.";
+    } else if (y >= 101 && y <= 150) {
+        return "<div class='text-uppercase'>Unhealthy for Sensitive Groups</div><br/>When AQI values are between 101 and 150, members of sensitive groups may experience health effects, but the general public is unlikely to be affected.<br><b>Ozone:</b> People with lung disease, children, older adults, and people who are active outdoors are considered sensitive and therefore at greater risk.<br><b>Particle pollution:</b> People with heart or lung disease, older adults, and children are considered sensitive and therefore at greater risk.";
+    } else if (y >= 151 && y <= 200) {
+        return "<div class='text-uppercase'>Unhealthy</div><br/>Everyone may begin to experience health effects when AQI values are between 151 and 200. Members of sensitive groups may experience more serious health effects.";
+    } else if (y >= 201 && y <= 300) {
+        return "<div class='text-uppercase'>Very Unhealthy</div><br/>AQI values between 201 and 300 trigger a health alert, meaning everyone may experience more serious health effects.";
+    } else if (y >= 301) {
+        return "<div class='text-uppercase'>Hazardous</div><br/><b>Health alert:</b> AQI values over 300 trigger health warnings of emergency conditions. The entire population is even more likely to be affected by serious health effects."
+    }
+}
