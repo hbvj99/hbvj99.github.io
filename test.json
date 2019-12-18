@@ -10,7 +10,6 @@
             "schema": {
                 "fields": [
                     {
-                        "format": "default",
                         "name": "Date",
                         "type": "date"
                     },
@@ -33,12 +32,10 @@
             "schema": {
                 "fields": [
                     {
-                        "format": "default",
                         "name": "Date",
                         "type": "date"
                     },
                     {
-                        "format": "default",
                         "name": "Price",
                         "type": "number"
                     }
