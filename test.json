@@ -19,6 +19,9 @@
                         "name": "price",
                         "type": "number"
                     }
+                ],
+                "missingValues": [
+                    ""
                 ]
             }
         },
@@ -31,7 +34,6 @@
                 "fields": [
                     {
                         "format": "default",
-
                         "name": "date",
                         "type": "date"
                     },
@@ -40,6 +42,9 @@
                         "name": "price",
                         "type": "number"
                     }
+                ],
+                "missingValues": [
+                    ""
                 ]
             }
         }
