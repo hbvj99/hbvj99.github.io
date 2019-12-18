@@ -10,10 +10,12 @@
             "schema": {
                 "fields": [
                     {
+                        "format": "default",
                         "name": "date",
                         "type": "date"
                     },
                     {
+                        "format": "default",
                         "name": "price",
                         "type": "number"
                     }
@@ -28,12 +30,15 @@
             "schema": {
                 "fields": [
                     {
+                        "format": "default",
+
                         "name": "date",
                         "type": "date"
                     },
                     {
+                        "format": "default",
                         "name": "price",
-                        "type": "float"
+                        "type": "number"
                     }
                 ]
             }
