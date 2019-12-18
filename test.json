@@ -26,29 +26,6 @@
             }
         },
         {
-            "path": "data/price_weekly.csv",
-            "format": "csv",
-            "mediatype": "text/csv",
-            "name": "daily",
-            "schema": {
-                "fields": [
-                    {
-                        "format": "default",
-                        "name": "Week",
-                        "type": "date"
-                    },
-                    {
-                        "format": "default",
-                        "name": "Price",
-                        "type": "number"
-                    }
-                ],
-        "missingValues": [
-          ""
-        ]
-            }
-        },
-        {
             "path": "data/price_montly.csv",
             "format": "csv",
             "mediatype": "text/csv",
@@ -58,29 +35,6 @@
                     {
                         "format": "default",
                         "name": "Date",
-                        "type": "date"
-                    },
-                    {
-                        "format": "default",
-                        "name": "Price",
-                        "type": "number"
-                    }
-                ],
-        "missingValues": [
-          ""
-        ]
-            }
-        },
-        {
-            "path": "data/price_annual.csv",
-            "format": "csv",
-            "mediatype": "text/csv",
-            "name": "daily",
-            "schema": {
-                "fields": [
-                    {
-                        "format": "default",
-                        "name": "Year",
                         "type": "date"
                     },
                     {
