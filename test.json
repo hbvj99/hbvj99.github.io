@@ -1,5 +1,5 @@
 {
-    "name": "natural gas prices",
+    "name": "Natural Gas prices",
     "title": "Henry Hub Natural Gas Spot prices at https://www.eia.gov/dnav/ng/hist/rngwhhdm.htm",
     "resources": [
         {
@@ -10,11 +10,11 @@
             "schema": {
                 "fields": [
                     {
-                        "name": "Date",
+                        "name": "date",
                         "type": "date"
                     },
                     {
-                        "name": "Price",
+                        "name": "price",
                         "type": "number"
                     }
                 ],
@@ -31,11 +31,11 @@
             "schema": {
                 "fields": [
                     {
-                        "name": "Date",
+                        "name": "date",
                         "type": "date"
                     },
                     {
-                        "name": "Price",
+                        "name": "price",
                         "type": "number"
                     }
                 ],
