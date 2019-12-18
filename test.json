@@ -1,6 +1,7 @@
 {
+    "profile": "tabular-data-package",
     "name": "Natural Gas prices",
-    "title": "Henry Hub Natural Gas Spot prices",
+    "title": "Henry Hub Natural Gas Spot prices at https://www.eia.gov/dnav/ng/hist/rngwhhdm.htm",
     "resources": [
         {
             "path": "data/price_daily.csv",
