@@ -14,7 +14,6 @@
                         "type": "date"
                     },
                     {
-                        "format": "default",
                         "name": "Price",
                         "type": "number"
                     }
