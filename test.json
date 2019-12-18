@@ -1,12 +1,13 @@
 {
+    "profile": "tabular-data-package",
     "name": "Natural Gas prices",
-    "title": "Henry Hub Natural Gas Spot prices",
+    "title": "Henry Hub Natural Gas Spot prices at https://www.eia.gov/dnav/ng/hist/rngwhhdm.htm",
     "resources": [
         {
+            "name": "price_daily",
             "path": "data/price_daily.csv",
             "format": "csv",
             "mediatype": "text/csv",
-            "name": "price_daily",
             "schema": {
                 "fields": [
                     {
@@ -24,10 +25,10 @@
             }
         },
         {
+            "name": "montly",
             "path": "data/price_montly.csv",
             "format": "price_montly",
             "mediatype": "text/csv",
-            "name": "montly",
             "schema": {
                 "fields": [
                     {
