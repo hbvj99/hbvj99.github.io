@@ -8,7 +8,7 @@ author_profile: true
 classes: wide
 ---
 
-## Hello,
+# Hello,
 <i class="fas fa-code"></i> I’m Vijay Pathak - interested in automation, data science and software development.
 
 <i class="fas fa-graduation-cap"></i> I studied Computing and graduted in 2019 from London Met, I wouldn't say I spend most of time learing new tech but rather learn-through-experience or fantasizing the next big discovery - it didn't happen of course.
