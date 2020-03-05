@@ -50,4 +50,4 @@ Finally, we create a simple block of html and name the ID ```detectIE``` for the
 
 This might be the most realiable way to detect IE browser if you wish to accomplish small tasks such as displaying alert message for IE browser users.
 
-You can use tooks like [browser-update](https://browser-update.org/) to notify visitors about their web browser versions in order to use your website.
+You can use similar tools like [browser-update](https://browser-update.org/) to notify visitors about their web browser versions in order to use your web application.
