@@ -18,4 +18,4 @@ I’m Vijay Pathak - interested in Software Development, Data Science.
 
 <i class="fas fa-heart"></i> I believe in open source solutions and digital literacy.
 
-<i class="fas fa-envelope"></i> You can contact me [here](vijaypathak.com.np/contact).
+<i class="fas fa-envelope"></i> You can contact me [here](/contact).
