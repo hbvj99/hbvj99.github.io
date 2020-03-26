@@ -1,5 +1,5 @@
 ---
-title: "Internet Explorer browser detection using javascript"
+title: "Internet Explorer detection using javascript"
 excerpt: "Guide on detecting IE browser and adding custom warning message"
 tags:
   - JavaScript
