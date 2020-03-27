@@ -3,7 +3,7 @@ layout: splash
 title: "About me"
 permalink: /about/
 header:
-  overlay_color: "#4f4d4d"
+  overlay_color: "#116948"
 author_profile: false
 classes: wide
 ---
