@@ -1,4 +1,4 @@
-I"N<h1 id="whitespaces-and-liquid-template">Whitespaces and Liquid template</h1>
+I"O<h1 id="whitespaces-and-liquid-template">Whitespaces and Liquid template</h1>
 
 <p>Whitespaces are common blank spaces that you would see in the HTML document when rendered, it can be horizontal or vertical. You may not have noticed whitespaces when using Jekyll unless you view source, it by default uses <a target="_blank" href="https://jekyllrb.com/docs/liquid/">Liquid</a> templating language to process document like this blog which runs in <a target="_blank" href="https://github.com/mmistakes/minimal-mistakes">minimial-mistakes</a> for Jekyll. Liquid version 4 tags eliminate this behavior.</p>
 
@@ -15,6 +15,7 @@
 
 <p>Output:</p>
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="n">h3</span> <span class="k">class</span><span class="o">=</span><span class="s2">"archive__subtitle"</span><span class="o">&gt;</span><span class="no">Recent</span> <span class="n">posts</span><span class="o">&lt;</span><span class="sr">/h3&gt;
+
 
 
 
