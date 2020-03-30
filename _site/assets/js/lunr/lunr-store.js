@@ -18,4 +18,9 @@ var store = [{
         "excerpt":"Internet Explorer Back in the early days when using Dail-up or ADSL connections, Internet Explorer browser was well liked browser offered by Microsoft to the Windows line of operating systems which were started in 1995. It is still present in most of the Windows Operating System like Windows 10 and...","categories": ["Guides"],
         "tags": ["JavaScript","Browser"],
         "url": "http://localhost:4000/2020/02/internet-explorer-detection-using-javascript.html",
+        "teaser":null},{
+        "title": "Working remotely pros and cons",
+        "excerpt":" ","categories": ["Experiences"],
+        "tags": ["Remote work"],
+        "url": "http://localhost:4000/2020/03/working-remotely-pros-cons.html",
         "teaser":null}]
