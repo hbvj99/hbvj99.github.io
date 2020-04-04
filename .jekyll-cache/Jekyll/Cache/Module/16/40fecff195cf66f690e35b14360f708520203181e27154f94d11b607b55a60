@@ -1,5 +1,14 @@
-I"‚<div class="page__footer-follow">
-  <ul class="social-icons"><br><li><a href="https://twitter.com/hbvj99" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> </a></li><li><a href="mailto:vijay@vijaypathak.com.np" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i> </a></li><li><a href="https://github.com/hbvj99" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> </a></li><li><a href="https://www.linkedin.com/in/hbvj99" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i> </a></li><li><a href="https://instagram.com/hbvj99" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> </a></li><li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> </a></li>
+I"Õ<form style="width: 70%;" action="https://feedburner.google.com/fb/a/mailverify" method="post"
+  target="popupwindow"
+  onsubmit="window.open('https://feedburner.google.com/fb/a/mailverify?uri=VijayPathak', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true">
+  <h3 style="color: #33adb5;">Get notified instantly whenever new post is added!</h3>
+  <p>Your email address:
+    <input style="width: 50%;" type="text" name="email" /> <input type="hidden" value="VijayPathak" name="uri" /><input
+      type="hidden" name="loc" value="en_US" /><input type="submit" value="Subscribe" /></P>
+</form>
+
+<div class="page__footer-follow" >
+  <ul class="social-icons"><br><li><a href="https://twitter.com/hbvj99" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i> </a></li><li><a href="mailto:vijay@vijaypathak.com.np" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-envelope" aria-hidden="true"></i> </a></li><li><a href="https://github.com/hbvj99" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> </a></li><li><a href="https://www.linkedin.com/in/hbvj99" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i> </a></li><li><a href="https://instagram.com/hbvj99" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> </a></li><li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> </a></li>
   </ul>
 </div>
 

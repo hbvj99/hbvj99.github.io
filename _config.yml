@@ -107,7 +107,7 @@ analytics:
 # Site Author
 author:
   name             : "Vijay Pathak"
-  avatar           : "/assets/image/avatar-vijay.jpeg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  avatar           : "/assets/image/vijay-pathak.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "Hey there! lets go social"
   # location         : "Kathmandu, NP"
   links:
@@ -131,7 +131,7 @@ author:
       url: "https://www.linkedin.com/in/hbvj99/"
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
-      url: "https://instagram.com/hbvj99"
+      url: #"https://instagram.com/hbvj99"
     # - label: "Feed"
     #   icon: "fas fa-fw fa-rss-square"
     #   url: "../feed.xml"
@@ -140,13 +140,13 @@ author:
 footer:
   links:
     - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
+      icon: "fab fa-fw fa-twitter"
       url: "https://twitter.com/hbvj99"
     - label: "Facebook"
       icon: "fab fa-fw fa-facebook-square"
       # url:
     - label: "Email"
-      icon: "fas fa-fw fa-envelope-square"
+      icon: "fas fa-fw fa-envelope"
       url: mailto:vijay@vijaypathak.com.np
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
@@ -311,4 +311,5 @@ defaults:
       header:
         overlay_color: "#4f4d4d"
       toc: true
-      classes: wide
+      toc_label: "Contents"
+

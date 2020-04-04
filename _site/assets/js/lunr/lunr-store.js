@@ -19,8 +19,8 @@ var store = [{
         "tags": ["JavaScript","Browser"],
         "url": "http://localhost:4000/2020/02/internet-explorer-detection-using-javascript.html",
         "teaser":null},{
-        "title": "Working remotely pros and cons",
-        "excerpt":" ","categories": ["Experiences"],
-        "tags": ["Remote work"],
-        "url": "http://localhost:4000/2020/03/working-remotely-pros-cons.html",
+        "title": "Working full-time remotely, it is for you?",
+        "excerpt":"Remote worker With the recent trend, distributed teams are growing rapidly and it seems like more companies are changing, adding work from home option. The term “work from home” and “remote work” are different in nature in term of the full-time job though they sound and work similarly. For instance,...","categories": ["Stories"],
+        "tags": ["Remote work","Work from home"],
+        "url": "http://localhost:4000/2020/04/working-full-time-remotely-pros-cons.html",
         "teaser":null}]
