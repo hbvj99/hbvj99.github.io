@@ -9,7 +9,7 @@ categories:
 ---
 
 # Remote worker
-With the recent trend, distributed teams are growing rapidly and it seems like more companies are changing, adding work from home option. The term "work from home" and "remote work" are different in nature in term of the full-time job though they sound and work similarly.
+With the recent trend, distributed teams are growing rapidly and it seems like more companies are changing, adding work from home option. "Work from home" and "remote work" are different in nature in term of the full-time job though they sound and work similarly.
 
 For instance, a remote worker may not always have a physical office near to their location and team can be distributed all over the world - working on a specific domain i.e. software development. While people usually "work from home" for a certain period of time and they probably have a physical office too.
 
