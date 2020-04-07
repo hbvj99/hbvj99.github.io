@@ -309,5 +309,5 @@ defaults:
       share: true
       related: true
       header:
-        overlay_color: "#fff"
+        overlay_color: "#8f8d8c"
 
