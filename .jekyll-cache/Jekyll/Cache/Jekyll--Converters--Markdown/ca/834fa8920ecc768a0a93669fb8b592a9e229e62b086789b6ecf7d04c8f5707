@@ -1,6 +1,6 @@
 I"Ör<p>This is a small project I did when I was in college, the use of open data to create effective air pollution awareness among the community using JQuery. View how the air quality is changing, health effect it offers using chart visualization provided by CanvasJS, save the visualization in image or PDF document.</p>
 
-<h2 id="air-pollution">Air pollution?</h2>
+<h1 id="air-pollution">Air pollution?</h1>
 <p>Emissions is the term used to describe the gases and particles which are suspended or emitted in the air through various sources which results in formation of toxics substances which includes carbon monoxide, nitrous oxides, methane, chlorofluorocarbons gases often harmful to human health when consumed indirectly at Hazardous levels - detrimental to human health and the planet, major factor for <a href="https://www.epa.gov/clean-air-act-overview/air-pollution-current-and-future-challenges#limiting">Climate Change</a>.</p>
 
 <h2 id="how-it-works">How it works?</h2>

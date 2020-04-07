@@ -121,7 +121,6 @@
 </ul>
 </nav>
           </aside><h1 id="whitespaces-and-liquid-template">Whitespaces and Liquid template</h1>
-
 <p>Whitespaces are common blank spaces that you would see in the HTML document when rendered, it can be horizontal or vertical. You may not have noticed whitespaces when using Jekyll unless you view source, it by default uses <a target="_blank" href="https://jekyllrb.com/docs/liquid/">Liquid</a> templating language to process document like this blog which runs in <a target="_blank" href="https://github.com/mmistakes/minimal-mistakes">minimial-mistakes</a> for Jekyll. Liquid version 4 tags eliminate this behavior.</p>
 
 <p>For example, In <code class="highlighter-rouge">_layouts &gt; home.html</code>, we run simple <code class="highlighter-rouge">{{ content }}</code> tag to output whitespaces in HTML.</p>
@@ -143,12 +142,9 @@
 
 
 </span></code></pre></div></div>
-<p><br /></p>
 <h1 id="what-causes-this-issue">What causes this issue?</h1>
-
 <p>The liquid version 3 generates whitespaces between <code class="highlighter-rouge">{{ content }}</code> tag even when any conditional statement might be true or false. There are lots of such statements in <code class="highlighter-rouge">_layouts</code>, <code class="highlighter-rouge">_includes</code> folder which results in occasional whitespaces between any tags used.</p>
 
-<p><br /></p>
 <h1 id="the-fix">The Fix?</h1>
 <p>Liquid 4 has whitespace control to fix this error by updating tags. You are in luck if you already host Jekyll blog in GitHub Pages, its <a target="_blank" href="https://pages.github.com/versions/"> dependency</a> already use liquid version 4.</p>
 
@@ -156,7 +152,6 @@
 
 <p>Push your blog to GitHub pages to see changes or run <code class="highlighter-rouge">update bundler</code>, if your use Jekyll with bundler.</p>
 
-<p><br /></p>
 <h1 id="conclusion">Conclusion</h1>
 <p>The above simple method upgrades your Liquid templating in Jekyll. Your HTML file size decreases by slightly and you would expect to increase performance although the noticeable difference is smaller.</p>
 </section>
