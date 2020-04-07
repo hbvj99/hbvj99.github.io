@@ -4,6 +4,8 @@ excerpt: "Visualize the air pollution in your community using JavaScript and ope
 header:
   teaser: /assets/image/2018/chart_visualization.png
   og_image: /assets/image/2018/chart_visualization.png
+  overlay_image: /assets/image/2018/chart_visualization.png
+  overlay_filter: 0.5
 tags:
   - JavaScript
   - JQuery

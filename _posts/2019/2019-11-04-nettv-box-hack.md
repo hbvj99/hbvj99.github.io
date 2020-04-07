@@ -4,6 +4,9 @@ excerpt: "Install Android TV OS firmware in IPTV box works for Vianet, Worldink 
 header:
   teaser: https://user-images.githubusercontent.com/43197293/66922432-cc735c00-f046-11e9-94fe-32286bb61841.jpg
   og_image: https://user-images.githubusercontent.com/43197293/66922432-cc735c00-f046-11e9-94fe-32286bb61841.jpg
+  overlay_image: https://user-images.githubusercontent.com/43197293/66922432-cc735c00-f046-11e9-94fe-32286bb61841.jpg
+  overlay_filter: 0.5
+
 tags:
   - Firmware
   - OS
