@@ -1,6 +1,9 @@
 ---
 title: "Air Pollution Visualization using Open Data"
 excerpt: "Visualize the air pollution in your community using JavaScript and open-data"
+header:
+  teaser: /assets/image/2018/chart_visualization.png
+  og_image: /assets/image/2018/chart_visualization.png
 tags:
   - JavaScript
   - JQuery
@@ -245,7 +248,8 @@ We have successfully created a visualization graph with a health message for any
 
 The final visualization;
 
-<img src="/assets/image/2018/chart_visualization.png" alt="chart visualization">
+<img src="{{ site.url }}{{ site.baseurl }}/assets/image/2018/chart_visualization.png" alt="Chart visualization" class="full">
+
 
 You can find the source code <a href="https://github.com/hbvj99/kathmandu-air">here</a> or view live <a href="https://vijaypathak.com.np/kathmandu-air">demo</a>.
 
