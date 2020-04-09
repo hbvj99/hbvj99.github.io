@@ -308,6 +308,7 @@ defaults:
       comments: true
       share: true
       related: true
+      toc: true
       header:
         overlay_color: "#8f8d8c"
 
