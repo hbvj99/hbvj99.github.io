@@ -24,16 +24,16 @@ The location doesn't matter although you need to have a stable internet connecti
 > In situations where self-isolation is essential like COVID-19, you are already working from home.
 
 ## Learning opportunities and High productivity
-If you were a beginner like me or the first time, you will love the workforce. The first thing I enjoyed was the team collaboration and pair programming. You will likely get a mentor if you are starting fresh and you might also have a chance to brush your skills through online learnings - usually included.
+If you are a beginner like me or the first time, you will love the workforce. The first thing I enjoyed was the team collaboration and pair programming. You will likely get a mentor if you are starting fresh and you might also have a chance to brush your skills through online learnings - usually included.
 
-Likewise, you will make friends that will help you and vice versa. Apart from the work, you will also have an opportunity to travel and join meetups or events happening around you. 
+Likewise, you will make friends that will help you and vice versa. Apart from the work, you will also have an opportunity to travel and join meetups or events happening around the world. 
 
 In my opinion, after working for a few weeks, you will soon realize your level of skill. You will likely improve your weakness and look for suggestion and you will work harder, this is because you are directly connected to high skills workers around you. Moreover, it will also help you to increase your soft skills such as communication, time management. 
 
 ## Save costs and health
 It saves you money; you don't have to spend on the commute, lunch breaks. You can use this time to read a book or play a game or do something that would de-stress you. For me, I started writing a blog.
 
-When you are not travelling and often working from home, you have time to incorporate physical exercise and when you are sick, staying home allows you to take care of yourself while working together- no more junk foods.
+When you are not travelling and often working from home, you have time to incorporate physical exercises and when you are sick, staying home allows you to take care of yourself while working together- no more junk foods.
 
 # Things you might not like
 ## Social life and technology
@@ -43,12 +43,14 @@ You may think working from home is a great chance to balance work/life but it re
 
 Similarly, working remotely means completely depending upon the technology and having the right tools. If you aren't familiar or comfortable with video conferencing, the rights tools that are used by your colleagues like team management, you might miss out if your employer doesn't provide you with a time frame to learn those stuff or you aren't provided access to those tools.
 
-If you are a type of person who actively loves outdoors activities and meeting new people, you might be anxious not being able to make face-to-face communication, spending more time in one place - I remember, one of my colleagues dropping out because of this very reason. On the other hand, this could be plus point for introverts.
+If you are a type of person who actively loves outdoors activities and meeting new people, you might be anxious not being able to make face-to-face communication, spending more time in one place - I remember, one of my colleagues dropping out because of this very reason. On the other hand, this could be a plus point for others.
 
 ## Language barrier and open-mind
 This is the most important of all, proficiency in the second language is a must if your native language is not English. Without right and clear communication with the team members, there is really nothing you can do. I would say slightly above intermediate to fluent is good, you need to also practise listening dialogues, slangs and different accents for improvements.
 
-In spite of working with the right tools, there is a high chance that you will miss something in the team meetings if you don't ask questions. Having friends, helpful people is also important if you got stuck somewhere - they are the one to help you. You are constantly talking with new peoples when video conferencing, and you need to understand them quickly and brushing English skills is important, listening podcasts, reading books helps a lot. Let's be honest here, we sometimes don't understand and get nervous when dealing with client and the ability to redirect the question to another team member that he/she could handle it, that's the skill we need to master.
+In spite of working with the right tools, there is a high chance that you will miss something in the team meetings if you don't ask questions. Having friends, helpful people is also important if you got stuck somewhere - they are the one to help you. You are constantly talking with new peoples when video conferencing, and you need to understand them quickly and brushing English skills is important, listening podcasts, reading books helps a lot. Let's be honest here, we sometimes don't understand and get nervous when dealing with clients.
+
+> The ability to redirect the same question to another team member that he/she could answer, that's the skill we need to master.
 
 Learning new things is very important, as you practise there is a chance that you will make mistakes, a lot sometimes. Open to the criticism and improvements are extremely essential, this is the reason you need to work as an open-minded person - your team will like you more.
 
@@ -57,7 +59,7 @@ There are some of the things that you need to have a clear understanding before 
 
 Likewise, when you have a first interview or meeting, always be confident and ask if they are planning to hire for long-time or for a specific period of time and be clear about the benefits that you will get. 
 
-Especially, if the organization don't have a physical office in your city, there is a high chance that you are being recruited by a third party agency to work for them. This is not necessarily a bad thing if you are starting fresh but you need to have a clear idea about the salary and any further plans - usually pays less, many of such partnership keep changing.
+Especially, if the organization don't have a physical office in your city, there is a high chance that you are being recruited by a third party agency to work for them, this is not necessarily a bad thing if you are starting fresh but you need to have a clear idea about further plans - usually pays less, many of such partnership keep changing.
 
 # Final thoughts
 At last, working remotely full-time could be a enjoyable experience, I tried to display my writing in helpful ways as you might have noticed. I believe there are unique factor varies to every organization depending on principal and transparency. If you are considering working remotely, you should definitely give it a try.
