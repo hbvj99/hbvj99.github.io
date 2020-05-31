@@ -24,7 +24,7 @@ The below procedure can also be applied to fix any bricked device. You may requi
 <b>Disclaimer: This is a non-proper guide to install android tv firmware to your NetTv box. It is soley done for educational purposes. I'm not responsible for any physical damage or bricking of your devices that you might encounter. Please proceed on your own risk. thank you
 </b>
 
-<hr>
+# Method 1 : Custom Firmware
 
 ## How it works?
 - Understand your device model number, chipset, specs
@@ -72,8 +72,39 @@ The below procedure can also be applied to fix any bricked device. You may requi
 ![IMG_20190815_143933-01](https://user-images.githubusercontent.com/43197293/67455261-d8fe4280-f64c-11e9-90a0-2e26dff3d147.jpeg)
 ![IMG_20190815_144527-01](https://user-images.githubusercontent.com/43197293/67455263-d8fe4280-f64c-11e9-8720-1433ebc6f303.jpeg)
 
+
+# Method 2: Install on the top of offical NetTv
+
+## Process
+
+[Method 1](#method-1--custom-firmware) is fairly limited and you need to disassemble your device before proceeding, mostly it's done for testing purposes since your official NetTv services won't work after.
+
+This is the solid alternative, let me explain. We are going to bypass and access the hidden [Google play store](https://play.google.com/) to install other Android apps. This is relatively easy and we aren't modifying firmware this time so we can install updates from ISPs in future without a problem. 
+
+> We can do this because NeTv devices are simply an Android TV limited by third party software and we are going to bypass this.
+
+Steps to follow;
+1. First, grab the USB mouse and keyboard and attach both to the device backside USB ports. Disconnect the LAN Ethernet port from the device and connect to your wifi by navigating to net tv settings>network.
+2. Next, press Win(Windows logo key)+b from the keyboard, a browser will appear.
+3. Goto ```https://play.google.com/store/apps``` in browser URL and try to install an app, you will be redirected to Google sign-in page.
+4. After signing, install a [tv launcher](https://play.google.com/store/apps/details?id=ca.dstudio.atvlauncher.free) from play store, after installing press home key from remote and select the new launcher as default.
+5. Make sure you download some apps externally from the browser (we're going to download youtube for android tv app since it is incompatible in play store), the default storage location is internal>Download.
+6. Now you can open play store app and install various apps as you may like, but as I have noticed some firmware versions have disabled installing external apps from storage. We're going to enable this since most of the devices come pre-rooted.
+7. We're going to install a [terminal](https://play.google.com/store/apps/details?id=jackpal.androidterm) from play store first and open.
+8. Next, enable superuser by typing ```su``` as a command.
+9. We are going to enable unknown source apps by typing command ```settings put global install_non_market_apps 1``` This is important for users who cannot access Android settings and manually enable.
+10. Install apps by typing command: ```pm install /storage/emulated/0/Download/your_app_name.apk``` Follow this command to install different apps.
+
+### Image
+
+<img src="{{ site.url }}{{ site.baseurl }}/assets/image/2018/img_tv.jpeg" alt="img tv" class="full">
+
+
+That's it. Your apps will now be available in launcher apps. Please feel free to comment down below if you have any questions?
+
+> Note, you need to connect LAN Ethernet port for accessing official Live TV. Likewise, remove LAN Ethernet port and connect wifi to access installed apps that required active internet
+
+
 ## Contribution
 
 You can modify the content, optimize the guide by sending pull requests <a href="https://github.com/hbvj99/nettv-box/pulls">here</a>.
-
-> I'm getting queries on this a lot. Pleae note that once you install above custom firmware, you will not be able to access the stock Nettv services later.
