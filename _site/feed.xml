@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-04-09T14:35:06+05:45</updated><id>http://localhost:4000/feed.xml</id><title type="html">Vijay Pathak</title><subtitle>This is a personal webpage of Vijay's where he share his research and interest in general.</subtitle><author><name>Vijay Pathak</name></author><entry><title type="html">Working full-time remotely, it is for you?</title><link href="http://localhost:4000/2020/04/working-full-time-remotely-pros-cons.html" rel="alternate" type="text/html" title="Working full-time remotely, it is for you?" /><published>2020-04-03T00:00:00+05:45</published><updated>2020-04-03T00:00:00+05:45</updated><id>http://localhost:4000/2020/04/working-full-time-remotely-pros-cons</id><content type="html" xml:base="http://localhost:4000/2020/04/working-full-time-remotely-pros-cons.html">&lt;h1 id=&quot;remote-worker&quot;&gt;Remote worker&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-05-31T15:13:38+05:45</updated><id>http://localhost:4000/feed.xml</id><title type="html">Vijay Pathak</title><subtitle>This is a personal webpage of Vijay's where he share his research and interest in general.</subtitle><author><name>Vijay Pathak</name></author><entry><title type="html">Deploy Django application in AWS EC2 with Nginx</title><link href="http://localhost:4000/2020/05/deploy-django-application-in-amazon-aws-ec2-with-nginx.html" rel="alternate" type="text/html" title="Deploy Django application in AWS EC2 with Nginx" /><published>2020-05-25T00:00:00+05:45</published><updated>2020-05-25T00:00:00+05:45</updated><id>http://localhost:4000/2020/05/deploy-django-application-in-amazon-aws-ec2-with-nginx</id><content type="html" xml:base="http://localhost:4000/2020/05/deploy-django-application-in-amazon-aws-ec2-with-nginx.html"></content><author><name>Vijay Pathak</name></author><category term="AWS" /><category term="Django" /><category term="Deployment" /><summary type="html">A guide on to make django project go live in amazon aws ec2 using Nginx server with elastic IP</summary></entry><entry><title type="html">Working full-time remotely, it is for you?</title><link href="http://localhost:4000/2020/04/working-full-time-remotely-pros-cons.html" rel="alternate" type="text/html" title="Working full-time remotely, it is for you?" /><published>2020-04-03T00:00:00+05:45</published><updated>2020-04-03T00:00:00+05:45</updated><id>http://localhost:4000/2020/04/working-full-time-remotely-pros-cons</id><content type="html" xml:base="http://localhost:4000/2020/04/working-full-time-remotely-pros-cons.html">&lt;h1 id=&quot;remote-worker&quot;&gt;Remote worker&lt;/h1&gt;
 &lt;p&gt;With the recent trend, distributed teams are growing rapidly and it seems like more companies are changing, adding work from home option. “Work from home” and “remote work” are different in nature in term of the full-time job though they sound and work similarly.&lt;/p&gt;
 
 &lt;p&gt;For instance, a remote worker may not always have a physical office near to their location and team can be distributed all over the world - working on a specific domain i.e. software development. While people usually “work from home” for a certain period of time and they probably have a physical office too.&lt;/p&gt;
@@ -16,16 +16,16 @@
 &lt;/blockquote&gt;
 
 &lt;h2 id=&quot;learning-opportunities-and-high-productivity&quot;&gt;Learning opportunities and High productivity&lt;/h2&gt;
-&lt;p&gt;If you were a beginner like me or the first time, you will love the workforce. The first thing I enjoyed was the team collaboration and pair programming. You will likely get a mentor if you are starting fresh and you might also have a chance to brush your skills through online learnings - usually included.&lt;/p&gt;
+&lt;p&gt;If you are a beginner like me or the first time, you will love the workforce. The first thing I enjoyed was the team collaboration and pair programming. You will likely get a mentor if you are starting fresh and you might also have a chance to brush your skills through online learnings - usually included.&lt;/p&gt;
 
-&lt;p&gt;Likewise, you will make friends that will help you and vice versa. Apart from the work, you will also have an opportunity to travel and join meetups or events happening around you.&lt;/p&gt;
+&lt;p&gt;Likewise, you will make friends that will help you and vice versa. Apart from the work, you will also have an opportunity to travel and join meetups or events happening around the world.&lt;/p&gt;
 
 &lt;p&gt;In my opinion, after working for a few weeks, you will soon realize your level of skill. You will likely improve your weakness and look for suggestion and you will work harder, this is because you are directly connected to high skills workers around you. Moreover, it will also help you to increase your soft skills such as communication, time management.&lt;/p&gt;
 
 &lt;h2 id=&quot;save-costs-and-health&quot;&gt;Save costs and health&lt;/h2&gt;
 &lt;p&gt;It saves you money; you don’t have to spend on the commute, lunch breaks. You can use this time to read a book or play a game or do something that would de-stress you. For me, I started writing a blog.&lt;/p&gt;
 
-&lt;p&gt;When you are not travelling and often working from home, you have time to incorporate physical exercise and when you are sick, staying home allows you to take care of yourself while working together- no more junk foods.&lt;/p&gt;
+&lt;p&gt;When you are not travelling and often working from home, you have time to incorporate physical exercises and when you are sick, staying home allows you to take care of yourself while working together- no more junk foods.&lt;/p&gt;
 
 &lt;h1 id=&quot;things-you-might-not-like&quot;&gt;Things you might not like&lt;/h1&gt;
 &lt;h2 id=&quot;social-life-and-technology&quot;&gt;Social life and technology&lt;/h2&gt;
@@ -35,12 +35,16 @@
 
 &lt;p&gt;Similarly, working remotely means completely depending upon the technology and having the right tools. If you aren’t familiar or comfortable with video conferencing, the rights tools that are used by your colleagues like team management, you might miss out if your employer doesn’t provide you with a time frame to learn those stuff or you aren’t provided access to those tools.&lt;/p&gt;
 
-&lt;p&gt;If you are a type of person who actively loves outdoors activities and meeting new people, you might be anxious not being able to make face-to-face communication, spending more time in one place - I remember, one of my colleagues dropping out because of this very reason. On the other hand, this could be plus point for introverts.&lt;/p&gt;
+&lt;p&gt;If you are a type of person who actively loves outdoors activities and meeting new people, you might be anxious not being able to make face-to-face communication, spending more time in one place - I remember, one of my colleagues dropping out because of this very reason. On the other hand, this could be a plus point for others.&lt;/p&gt;
 
 &lt;h2 id=&quot;language-barrier-and-open-mind&quot;&gt;Language barrier and open-mind&lt;/h2&gt;
 &lt;p&gt;This is the most important of all, proficiency in the second language is a must if your native language is not English. Without right and clear communication with the team members, there is really nothing you can do. I would say slightly above intermediate to fluent is good, you need to also practise listening dialogues, slangs and different accents for improvements.&lt;/p&gt;
 
-&lt;p&gt;In spite of working with the right tools, there is a high chance that you will miss something in the team meetings if you don’t ask questions. Having friends, helpful people is also important if you got stuck somewhere - they are the one to help you. You are constantly talking with new peoples when video conferencing, and you need to understand them quickly and brushing English skills is important, listening podcasts, reading books helps a lot. Let’s be honest here, we sometimes don’t understand and get nervous when dealing with client and the ability to redirect the question to another team member that he/she could handle it, that’s the skill we need to master.&lt;/p&gt;
+&lt;p&gt;In spite of working with the right tools, there is a high chance that you will miss something in the team meetings if you don’t ask questions. Having friends, helpful people is also important if you got stuck somewhere - they are the one to help you. You are constantly talking with new peoples when video conferencing, and you need to understand them quickly and brushing English skills is important, listening podcasts, reading books helps a lot. Let’s be honest here, we sometimes don’t understand and get nervous when dealing with clients.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;The ability to redirect the same question to another team member that he/she could answer, that’s the skill we need to master.&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;p&gt;Learning new things is very important, as you practise there is a chance that you will make mistakes, a lot sometimes. Open to the criticism and improvements are extremely essential, this is the reason you need to work as an open-minded person - your team will like you more.&lt;/p&gt;
 
@@ -49,7 +53,7 @@
 
 &lt;p&gt;Likewise, when you have a first interview or meeting, always be confident and ask if they are planning to hire for long-time or for a specific period of time and be clear about the benefits that you will get.&lt;/p&gt;
 
-&lt;p&gt;Especially, if the organization don’t have a physical office in your city, there is a high chance that you are being recruited by a third party agency to work for them. This is not necessarily a bad thing if you are starting fresh but you need to have a clear idea about the salary and any further plans - usually pays less, many of such partnership keep changing.&lt;/p&gt;
+&lt;p&gt;Especially, if the organization don’t have a physical office in your city, there is a high chance that you are being recruited by a third party agency to work for them, this is not necessarily a bad thing if you are starting fresh but you need to have a clear idea about further plans - usually pays less, many of such partnership keep changing.&lt;/p&gt;
 
 &lt;h1 id=&quot;final-thoughts&quot;&gt;Final thoughts&lt;/h1&gt;
 &lt;p&gt;At last, working remotely full-time could be a enjoyable experience, I tried to display my writing in helpful ways as you might have noticed. I believe there are unique factor varies to every organization depending on principal and transparency. If you are considering working remotely, you should definitely give it a try.&lt;/p&gt;
@@ -138,7 +142,7 @@
 &lt;p&gt;&lt;b&gt;Disclaimer: This is a non-proper guide to install android tv firmware to your NetTv box. It is soley done for educational purposes. I’m not responsible for any physical damage or bricking of your devices that you might encounter. Please proceed on your own risk. thank you
 &lt;/b&gt;&lt;/p&gt;
 
-&lt;hr /&gt;
+&lt;h1 id=&quot;method-1--custom-firmware&quot;&gt;Method 1 : Custom Firmware&lt;/h1&gt;
 
 &lt;h2 id=&quot;how-it-works&quot;&gt;How it works?&lt;/h2&gt;
 &lt;ul&gt;
@@ -188,6 +192,42 @@
 &lt;img src=&quot;https://user-images.githubusercontent.com/43197293/67455260-d865ac00-f64c-11e9-97fe-28fb19f8025c.jpeg&quot; alt=&quot;IMG_20190815_143723-01&quot; /&gt;
 &lt;img src=&quot;https://user-images.githubusercontent.com/43197293/67455261-d8fe4280-f64c-11e9-90a0-2e26dff3d147.jpeg&quot; alt=&quot;IMG_20190815_143933-01&quot; /&gt;
 &lt;img src=&quot;https://user-images.githubusercontent.com/43197293/67455263-d8fe4280-f64c-11e9-8720-1433ebc6f303.jpeg&quot; alt=&quot;IMG_20190815_144527-01&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;method-2-install-on-the-top-of-offical-nettv&quot;&gt;Method 2: Install on the top of offical NetTv&lt;/h1&gt;
+
+&lt;h2 id=&quot;process&quot;&gt;Process&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;#method-1--custom-firmware&quot;&gt;Method 1&lt;/a&gt; is fairly limited and you need to disassemble your device before proceeding, mostly it’s done for testing purposes since your official NetTv services won’t work after.&lt;/p&gt;
+
+&lt;p&gt;This is the solid alternative, let me explain. We are going to bypass and access the hidden &lt;a href=&quot;https://play.google.com/&quot;&gt;Google play store&lt;/a&gt; to install other Android apps. This is relatively easy and we aren’t modifying firmware this time so we can install updates from ISPs in future without a problem.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;We can do this because NeTv devices are simply an Android TV limited by third party software and we are going to bypass this.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Steps to follow;&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;First, grab the USB mouse and keyboard and attach both to the device backside USB ports. Disconnect the LAN Ethernet port from the device and connect to your wifi by navigating to net tv settings&amp;gt;network.&lt;/li&gt;
+  &lt;li&gt;Next, press Win(Windows logo key)+b from the keyboard, a browser will appear.&lt;/li&gt;
+  &lt;li&gt;Goto &lt;code class=&quot;highlighter-rouge&quot;&gt;https://play.google.com/store/apps&lt;/code&gt; in browser URL and try to install an app, you will be redirected to Google sign-in page.&lt;/li&gt;
+  &lt;li&gt;After signing, install a &lt;a href=&quot;https://play.google.com/store/apps/details?id=ca.dstudio.atvlauncher.free&quot;&gt;tv launcher&lt;/a&gt; from play store, after installing press home key from remote and select the new launcher as default.&lt;/li&gt;
+  &lt;li&gt;Make sure you download some apps externally from the browser (we’re going to download youtube for android tv app since it is incompatible in play store), the default storage location is internal&amp;gt;Download.&lt;/li&gt;
+  &lt;li&gt;Now you can open play store app and install various apps as you may like, but as I have noticed some firmware versions have disabled installing external apps from storage. We’re going to enable this since most of the devices come pre-rooted.&lt;/li&gt;
+  &lt;li&gt;We’re going to install a &lt;a href=&quot;https://play.google.com/store/apps/details?id=jackpal.androidterm&quot;&gt;terminal&lt;/a&gt; from play store first and open.&lt;/li&gt;
+  &lt;li&gt;Next, enable superuser by typing &lt;code class=&quot;highlighter-rouge&quot;&gt;su&lt;/code&gt; as a command.&lt;/li&gt;
+  &lt;li&gt;We are going to enable unknown source apps by typing command &lt;code class=&quot;highlighter-rouge&quot;&gt;settings put global install_non_market_apps 1&lt;/code&gt; This is important for users who cannot access Android settings and manually enable.&lt;/li&gt;
+  &lt;li&gt;Install apps by typing command: &lt;code class=&quot;highlighter-rouge&quot;&gt;pm install /storage/emulated/0/Download/your_app_name.apk&lt;/code&gt; Follow this command to install different apps.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;image&quot;&gt;Image&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/image/2018/img_tv.jpeg&quot; alt=&quot;img tv&quot; class=&quot;full&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;That’s it. Your apps will now be available in launcher apps. Please feel free to comment down below if you have any questions?&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Note, you need to connect LAN Ethernet port for accessing official Live TV. Likewise, remove LAN Ethernet port and connect wifi to access installed apps that required active internet&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;h2 id=&quot;contribution&quot;&gt;Contribution&lt;/h2&gt;
 

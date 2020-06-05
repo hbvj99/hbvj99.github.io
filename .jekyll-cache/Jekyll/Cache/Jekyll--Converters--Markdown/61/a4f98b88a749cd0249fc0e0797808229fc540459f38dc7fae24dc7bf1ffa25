@@ -1,4 +1,4 @@
-I"|<h1 id="nettv-iptv-box-easy-hack">NetTv IPTV box easy hack</h1>
+I"V <h1 id="nettv-iptv-box-easy-hack">NetTv IPTV box easy hack</h1>
 
 <p>This is a simple guide to install stock(ish) android tv firmware to NetTv devices. You will be able to use the android platform into your televison after sucessfully flashing the <b>proper</b> firmware. NetTv interface is basically a custom or limited software that runs on the top of any Android TV Box. It requires device disassemble to find the correct model number.</p>
 
@@ -7,7 +7,7 @@
 <p><b>Disclaimer: This is a non-proper guide to install android tv firmware to your NetTv box. It is soley done for educational purposes. I’m not responsible for any physical damage or bricking of your devices that you might encounter. Please proceed on your own risk. thank you
 </b></p>
 
-<hr />
+<h1 id="method-1--custom-firmware">Method 1 : Custom Firmware</h1>
 
 <h2 id="how-it-works">How it works?</h2>
 <ul>
@@ -57,6 +57,42 @@
 <img src="https://user-images.githubusercontent.com/43197293/67455260-d865ac00-f64c-11e9-97fe-28fb19f8025c.jpeg" alt="IMG_20190815_143723-01" />
 <img src="https://user-images.githubusercontent.com/43197293/67455261-d8fe4280-f64c-11e9-90a0-2e26dff3d147.jpeg" alt="IMG_20190815_143933-01" />
 <img src="https://user-images.githubusercontent.com/43197293/67455263-d8fe4280-f64c-11e9-8720-1433ebc6f303.jpeg" alt="IMG_20190815_144527-01" /></p>
+
+<h1 id="method-2-install-on-the-top-of-offical-nettv">Method 2: Install on the top of offical NetTv</h1>
+
+<h2 id="process">Process</h2>
+
+<p><a href="#method-1--custom-firmware">Method 1</a> is fairly limited and you need to disassemble your device before proceding, mostly its done for testing purposes since your offical NetTv services won’t work after.</p>
+
+<p>This is the solid alternative, let me explain. We are going to bypass and access the hidden <a href="https://play.google.com/">Google play store</a> to install other Android apps. This is relatively easy and we aren’t modifying firmware this time so we can install updates from ISPs in future without a problem.</p>
+
+<blockquote>
+  <p>We can do this because NeTv devices are simply a Android TV limited by third party softwares and we are going to bypass this.</p>
+</blockquote>
+
+<p>Steps to follow;</p>
+<ol>
+  <li>First grab USB mouse and keyboard and attach both to the device backside USB ports. Disconnect the LAN Ethernet port from the device and connect to your wifi by navigating to nettv settings&gt;network.</li>
+  <li>Next, press Win(Windows logo key)+b from keyboard, a browser will appear.</li>
+  <li>Goto <code class="highlighter-rouge">https://play.google.com/store/apps</code> in browser URL and try to install a app, you will be redirected to google signin page.</li>
+  <li>After signin, install a <a href="https://play.google.com/store/apps/details?id=ca.dstudio.atvlauncher.free">tv launcher</a> from playstore, after installing press home key from remote and select the new launcher as default.</li>
+  <li>Make sure you download some apps externally from browser (we’re going to download youtube for android tv app since it is incompatible in playstore), the default storage location is internal&gt;Download.</li>
+  <li>Now you can open playstore app and install various apps as you may like, but as I have noticed some firmware versions have disabled installing external apps from storage. We’re going to enable this since most of the devices comes pre-rooted.</li>
+  <li>We’re going to install a <a href="https://play.google.com/store/apps/details?id=jackpal.androidterm">terminal</a> from playstore first and open.</li>
+  <li>Next, enable superuser by typing <code class="highlighter-rouge">su</code> as command.</li>
+  <li>We are going to enable unkown source apps by typing command <code class="highlighter-rouge">settings put global install_non_market_apps 1</code> This is important for users who cannot access Android settings and manually enable.</li>
+  <li>Install apps by typing command: <code class="highlighter-rouge">pm install /storage/emulated/0/Download/your_app_name.apk</code> Follow this command to install different apps.</li>
+</ol>
+
+<h3 id="image">Image</h3>
+
+<p><img src="http://localhost:4000/assets/image/2018/img_tv.jpeg" alt="img tv" class="full" /></p>
+
+<p>That’s it. Your apps will now be available in launcher apps. Please feel free to comment down below if you have any questions?</p>
+
+<blockquote>
+  <p>Note, you need to connect LAN Ethernet port for accessing offical Live TV. Likewise, remove LAN Ethernet port and connect wifi to access installed apps that required active internet</p>
+</blockquote>
 
 <h2 id="contribution">Contribution</h2>
 

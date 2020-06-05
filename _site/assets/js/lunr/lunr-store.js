@@ -23,4 +23,9 @@ var store = [{
         "excerpt":"Remote worker With the recent trend, distributed teams are growing rapidly and it seems like more companies are changing, adding work from home option. “Work from home” and “remote work” are different in nature in term of the full-time job though they sound and work similarly. For instance, a remote...","categories": ["Stories"],
         "tags": ["Remote work","Work from home"],
         "url": "http://localhost:4000/2020/04/working-full-time-remotely-pros-cons.html",
+        "teaser":null},{
+        "title": "Deploy Django application in AWS EC2 with Nginx",
+        "excerpt":" ","categories": ["Guides"],
+        "tags": ["AWS","Django","Deployment"],
+        "url": "http://localhost:4000/2020/05/deploy-django-application-in-amazon-aws-ec2-with-nginx.html",
         "teaser":null}]

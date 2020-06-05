@@ -17,11 +17,11 @@ categories:
 
 # NetTv IPTV box easy hack 
 
-This is a simple guide to install stock(ish) android tv firmware to NetTv devices. You will be able to use the android platform into your televison after sucessfully flashing the <b>proper</b> firmware. NetTv interface is basically a custom or limited software that runs on the top of any Android TV Box. It requires device disassemble to find the correct model number.
+This is a simple guide to install stock(ish) android tv firmware to NetTv devices. You will be able to use the android platform into your televison after sucessfully flashing the <b>proper</b> firmware. NetTv interface is basically a custom or limited software that runs on the top of any Android TV OS skin Box. It requires device disassemble to find the correct model number.
 
 The below procedure can also be applied to fix any bricked device. You may require to short NAND pins if your device won't boot. Most of the firmwares are available pre-rooted.
 
-<b>Disclaimer: This is a non-proper guide to install android tv firmware to your NetTv box. It is soley done for educational purposes. I'm not responsible for any physical damage or bricking of your devices that you might encounter. Please proceed on your own risk. thank you
+> <b>Disclaimer: This is a non-proper guide to install android tv firmware to your NetTv box. It is soley done for educational purposes. I'm not responsible for any physical damage or bricking of your devices that you might encounter. Please proceed on your own risk. thank you
 </b>
 
 # Method 1 : Custom Firmware
@@ -81,7 +81,7 @@ The below procedure can also be applied to fix any bricked device. You may requi
 
 This is the solid alternative, let me explain. We are going to bypass and access the hidden [Google play store](https://play.google.com/) to install other Android apps. This is relatively easy and we aren't modifying firmware this time so we can install updates from ISPs in future without a problem. 
 
-> We can do this because NeTv devices are simply an Android TV limited by third party software and we are going to bypass this.
+> We can do this because NeTv devices are simply an Android TV OS skin limited by third party software and we are going to bypass this.
 
 Steps to follow;
 1. First, grab the USB mouse and keyboard and attach both to the device backside USB ports. Disconnect the LAN Ethernet port from the device and connect to your wifi by navigating to net tv settings>network.
@@ -97,12 +97,11 @@ Steps to follow;
 
 ### Image
 
-<img src="{{ site.url }}{{ site.baseurl }}/assets/image/2018/img_tv.jpeg" alt="img tv" class="full">
+![IMG_20200603_181154__01](https://user-images.githubusercontent.com/43197293/83907736-a5a89800-a785-11ea-8cbf-7a5f5ec4e26d.jpg)
 
+> Note, you need to connect LAN Ethernet port to access official Live TV. Likewise, remove LAN Ethernet port and connect through wifi to run apps that required active internet connection.
 
 That's it. Your apps will now be available in launcher apps. Please feel free to comment down below if you have any questions?
-
-> Note, you need to connect LAN Ethernet port for accessing official Live TV. Likewise, remove LAN Ethernet port and connect wifi to access installed apps that required active internet
 
 
 ## Contribution
