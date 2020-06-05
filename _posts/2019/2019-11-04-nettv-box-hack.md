@@ -1,6 +1,6 @@
 ---
 title: "NetTv Box Easy Hack"
-excerpt: "Install Android TV OS firmware in IPTV box works for Vianet, Worldink User."
+excerpt: "A guide on to install a Android TV OS skin/bypass restrictions in NetTv IPTV devices. Tested in Vianet, WorldLink ISPs."
 header:
   teaser: https://user-images.githubusercontent.com/43197293/66922432-cc735c00-f046-11e9-94fe-32286bb61841.jpg
   og_image: https://user-images.githubusercontent.com/43197293/66922432-cc735c00-f046-11e9-94fe-32286bb61841.jpg
@@ -17,7 +17,7 @@ categories:
 
 # NetTv IPTV box easy hack 
 
-This is a simple guide to install stock(ish) android tv firmware to NetTv devices. You will be able to use the android platform into your televison after sucessfully flashing the <b>proper</b> firmware. NetTv interface is basically a custom or limited software that runs on the top of any Android TV OS skin Box. It requires device disassemble to find the correct model number.
+This is a simple guide to install Android TV OS skin/bypass restrictions on NetTv devices. You will be able to use the android platform into your televison after sucessfully flashing the <b>proper</b> firmware. NetTv interface is basically a custom or limited software that runs on the top of any Android TV OS skin Box. It requires device disassemble to find the correct model number.
 
 The below procedure can also be applied to fix any bricked device. You may require to short NAND pins if your device won't boot. Most of the firmwares are available pre-rooted.
 
