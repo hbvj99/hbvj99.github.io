@@ -1,6 +1,6 @@
 ---
 title: "NetTv Box Easy Hack"
-excerpt: "A guide on to install a Android TV OS skin/bypass restrictions in NetTv IPTV devices. Tested in Vianet, WorldLink ISPs."
+excerpt: "A guide to install a Android TV OS skin/bypass restrictions in NetTv IPTV devices. Tested in Vianet, WorldLink ISPs."
 header:
   teaser: https://user-images.githubusercontent.com/43197293/66922432-cc735c00-f046-11e9-94fe-32286bb61841.jpg
   og_image: https://user-images.githubusercontent.com/43197293/66922432-cc735c00-f046-11e9-94fe-32286bb61841.jpg
