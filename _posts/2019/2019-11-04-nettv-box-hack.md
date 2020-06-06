@@ -92,6 +92,7 @@ Steps to follow;
 8. Next, enable superuser by typing ```su``` as a command.
 9. We are going to enable unknown source apps by typing command ```settings put global install_non_market_apps 1``` This is important for users who cannot access Android settings and manually enable.
 10. Install apps by typing command: ```pm install /storage/emulated/0/Download/your_app_name.apk``` Follow this command to install different apps.
+
 ---
 
 ### Image
