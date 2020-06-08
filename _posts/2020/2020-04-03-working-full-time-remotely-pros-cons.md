@@ -24,7 +24,7 @@ The location doesn't matter although you need to have a stable internet connecti
 > In situations where self-isolation is essential like COVID-19, you are already working from home.
 
 ## Learning opportunities and High productivity
-If you are a beginner like me or the first time, you will love the workforce. The first thing I enjoyed was the team collaboration and pair programming. You will likely get a mentor if you are starting fresh and you might also have a chance to brush your skills through online learnings - usually included.
+If you are a beginner or the first time, you will love the workforce. The first thing I enjoyed was the team collaboration and pair programming. You will likely get a mentor if you are starting fresh and you might also have a chance to brush your skills through online learnings - usually included.
 
 Likewise, you will make friends that will help you and vice versa. Apart from the work, you will also have an opportunity to travel and join meetups or events happening around the world. 
 
@@ -50,7 +50,7 @@ This is the most important of all, proficiency in the second language is a must 
 
 In spite of working with the right tools, there is a high chance that you will miss something in the team meetings if you don't ask questions. Having friends, helpful people is also important if you got stuck somewhere - they are the one to help you. You are constantly talking with new peoples when video conferencing, and you need to understand them quickly and brushing English skills is important, listening podcasts, reading books helps a lot. Let's be honest here, we sometimes don't understand and get nervous when dealing with clients.
 
-> The ability to redirect the same question to another team member that he/she could answer, that's the skill we need to master.
+> The ability to precisely redirect the same queries to other team member that he/she could definately answer, that's the skill we need to master.
 
 Learning new things is very important, as you practise there is a chance that you will make mistakes, a lot sometimes. Open to the criticism and improvements are extremely essential, this is the reason you need to work as an open-minded person - your team will like you more.
 
