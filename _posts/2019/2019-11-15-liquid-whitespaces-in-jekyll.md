@@ -14,7 +14,7 @@ Whitespaces are common blank spaces that you would see in the HTML document when
 
 For example, In ```_layouts > home.html```, we run simple {% raw %}```{{ content }}```{% endraw %} tag to output whitespaces in HTML.
 
-Code:
+Input:
 {% raw %}```
   {{ content }}
   <h3 class="archive__subtitle">{{ site.data.ui-text[site.locale].recent_posts | default: "Recent Posts" }}</h3>
@@ -36,12 +36,12 @@ Output:
 
 ```
 # What causes this issue?
-The liquid version 3 generates whitespaces between {% raw %}```{{ content }}```{% endraw %} tag even when any conditional statements are true or false. There are lots of such statements in ```_layouts```, ```_includes``` folder which results in occasional whitespaces between any tags used.
+The liquid version 3 generates white spaces between {% raw %}```{{ content }}```{% endraw %} tag even when any conditional statements are true or false. There are lots of such statements in ```_layouts```, ```_includes``` folder which results in occasional white spaces between any tags used.
 
 # The Fix?
 Liquid 4 has whitespace control to fix this error by updating tags. You are in luck if you already host Jekyll blog in GitHub Pages, its <a target="_blank" href="https://pages.github.com/versions/"> dependency</a> already use liquid version 4.
 
-To fix this issue, Simply update all older liquid 3 tags ```{% content %}``` to ```{%- content -%}``` which is liquid tags version 4 inside ```_layouts```, ```_includes``` folder. You can use, find in folder option and replace all old tags with new one if your are using Visual Studio Code referring <a target="_blank" href="https://shopify.github.io/liquid/basics/whitespace/"> whitespace control</a> docs. 
+To fix this issue, Simply update all older liquid 3 tags {% raw %}```{% content %}``` to ```{%- content -%}```{% endraw %} which is liquid tags version 4 inside ```_layouts```, ```_includes``` folder. You can use, find in folder option and replace all old tags with new one if your are using Visual Studio Code referring <a target="_blank" href="https://shopify.github.io/liquid/basics/whitespace/"> whitespace control</a> docs. 
 
 Push your blog to GitHub pages to see changes or run ```update bundler```, if your use Jekyll with bundler.
 
