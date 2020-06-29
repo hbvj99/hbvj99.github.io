@@ -1,4 +1,12 @@
-.jekyll-cache-Jekyll
-.sass-cache
-.jekyll-metadata
+# Ruby Gem
+*.gem
+.bundle
 Gemfile.lock
+
+# Jekyll generated files
+.sass-cache
+.jekyll-cache-Jekyll
+.jekyll-cache
+.jekyll-metadata
+_asset_bundler_cache
+_site
