@@ -3,7 +3,7 @@ layout: single
 title: "Contact"
 permalink: /contact/
 header:
-  overlay_color: "#8f493b"
+  overlay_color: "#0092ca"
 author_profile: true
 ---
 

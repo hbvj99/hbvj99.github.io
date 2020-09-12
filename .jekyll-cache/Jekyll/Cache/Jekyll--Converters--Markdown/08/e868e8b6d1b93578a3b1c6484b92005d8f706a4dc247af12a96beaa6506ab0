@@ -1,0 +1,44 @@
+I"�<h1 id="internet-explorer">Internet Explorer</h1>
+<p>Back in the early days when using Dail-up or ADSL connections, Internet Explorer browser was well liked browser offered by Microsoft to the Windows line of operating systems which were started in 1995. It is still present in most of the Windows Operating System like Windows 10 and now replaced by Edge browser which is the sucessor to IE.</p>
+
+<h2 id="modern-applications-and-ie">Modern applications and IE</h2>
+<p>Most of the present-day application relays on JavaScript frameworks like Angular or React for better UI/UX handling and to minimize the load time to the server. Also your modern app/website will likely to work in IE, but with the catch that some of the design or features might not operate as your client wish. To fix this issue, we could include Conditional <a href="https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/compatibility/ms537512(v=vs.85)?redirectedfrom=MSDN#examples">comments</a> that only IE can understand and are ignored by any other modern browsers like Google Chrome, Safari, Firefox. However, using such conditional comments is <a href="https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/compatibility/hh801214(v=vs.85)?redirectedfrom=MSDN">not supported</a> by all IE <a href="https://en.wikipedia.org/wiki/Internet_Explorer_version_history">versions</a>, it works in IE &lt;= 9 but version 10 and 11 aren’t supported. This is the reason why our <code class="highlighter-rouge">code</code> targeted to IE browsers doesn’t work.</p>
+
+<p>We need to detect specific features of the browsers to display custom message to each browser. To do this, we could use browser <a href="https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/samples/hh273397(v=vs.85)?redirectedfrom=MSDN">feature detection</a> using JavaScript.</p>
+
+<h1 id="browser-detection">Browser detection</h1>
+
+<p>There are various ways to detect browser through features, user agent or even prefix detection which all have limations that isn’t reliable. For instance, you could disable user agent through browser plugins or extension, detecting WebKit engine version to specify browser isn’t reliable either beacause Chrome, Safari, and Opera are <a href="https://en.wikipedia.org/wiki/List_of_web_browsers">WebKit-based</a>.</p>
+
+<blockquote>
+  <p>“If it walks like a duck, swims like a duck, and quacks like a duck, then it probably is a duck.”</p>
+</blockquote>
+
+<p>We could relay on something like <a href="https://devopedia.org/duck-typing">Duck Typing</a> for browser detection which works on all versions of IE, i.e 6-11. The idea is very simple, in duck typing, an object’s suitability is determined by the presence of certain methods and properties. We will detect certian feature that are unqiue to the browser.</p>
+
+<h1 id="development">Development</h1>
+
+<p>To start, we can simply use  <code class="highlighter-rouge">isIE = /*@cc_on!@*/false</code>, this will set  <code class="highlighter-rouge">isIE</code> to <code class="highlighter-rouge">false</code> in all browser and they will ignore it as a comment beacause only IE detects <code class="highlighter-rouge">!</code> (negation) in the conditional comment. The IE would sees it as; <code class="highlighter-rouge">isIE=!false</code> which the statment will be true, explained in book JavaScript Pattern by Stoyan Stefanov <a href="https://books.google.com.np/books?id=WTZqecc9olUC&amp;pg=PA206&amp;lpg=PA206&amp;dq=isIE+%3D+/*@cc_on!@*/false&amp;source=bl&amp;ots=KcKmYhpNUu&amp;sig=ACfU3U0DcTj7kvOjtp1TaiEJKJ1mQmcTJA&amp;hl=en&amp;sa=X&amp;ved=2ahUKEwiOnc27trPnAhXQyjgGHWbJBBUQ6AEwBHoECAoQAQ#v=onepage&amp;q=isIE%20%3D%20%2F*%40cc_on!%40*%2Ffalse&amp;f=false">section</a>.</p>
+
+<p>We change the <code class="highlighter-rouge">display</code> property to <code class="highlighter-rouge">block</code> and whenever IE browser is detected through duck typing, this way the <code class="highlighter-rouge">div</code> block holding browser message appears in block style.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kd">function</span> <span class="nx">checkIE</span><span class="p">()</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">isIE</span> <span class="o">=</span> <span class="cm">/*@cc_on!@*/</span><span class="kc">false</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">detectIE</span><span class="dl">"</span><span class="p">).</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">block</span><span class="dl">"</span><span class="p">;</span>
+      <span class="p">}</span>
+</code></pre></div></div>
+
+<p>Finally, we create a simple block of html and name the ID <code class="highlighter-rouge">detectIE</code> for the main div container. Then we simply add CSS style <code class="highlighter-rouge">display</code> property to <code class="highlighter-rouge">none</code>, this will disable message for other browsers.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"detectIE"</span> <span class="na">style=</span><span class="s">"display: none;"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;h2&gt;</span>Browser is not supported<span class="nt">&lt;/h2&gt;</span>
+      <span class="nt">&lt;p&gt;</span>{Your browser is not supported by Energidata Portal (EDP). This may mean that there are important features that you do not have access to. We recommend using one of the following browsers: Google Chrome, Microsoft Edge, Apple Safari, Morzilla Firefox.<span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+</code></pre></div></div>
+
+<h1 id="at-last">At last</h1>
+
+<p>This might be the most realiable way to detect IE browser if you wish to accomplish small tasks such as displaying alert message for IE browser users.</p>
+
+<p>You can use similar tools like <a href="https://browser-update.org/">browser-update</a> to notify visitors about their web browser versions in order to use your web application.</p>
+:ET

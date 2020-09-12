@@ -5,7 +5,7 @@ var store = [{
         "url": "http://localhost:4000/2019/01/air-pollution-visualization-using-open-data.html",
         "teaser":"http://localhost:4000/assets/image/2018/chart_visualization.png"},{
         "title": "NetTv Box Easy Hack",
-        "excerpt":"NetTv IPTV box easy hack This is a simple guide to install stock(ish) android tv firmware to NetTv devices. You will be able to use the android platform into your televison after sucessfully flashing the proper firmware. NetTv interface is basically a custom or limited software that runs on the...","categories": ["Hacks"],
+        "excerpt":"NetTv IPTV box easy hack This is a simple guide to install Android TV OS skin/bypass restrictions on NetTv devices. You will be able to use the Android platform into your television after successfully flashing the proper firmware. NetTv interface is basically a custom or limited software that runs on...","categories": ["Hacks"],
         "tags": ["Firmware","OS"],
         "url": "http://localhost:4000/2019/11/nettv-box-hack.html",
         "teaser":"https://user-images.githubusercontent.com/43197293/66922432-cc735c00-f046-11e9-94fe-32286bb61841.jpg"},{
@@ -23,9 +23,4 @@ var store = [{
         "excerpt":"Remote worker With the recent trend, distributed teams are growing rapidly and it seems like more companies are changing, adding work from home option. “Work from home” and “remote work” are different in nature in term of the full-time job though they sound and work similarly. For instance, a remote...","categories": ["Stories"],
         "tags": ["Remote work","Work from home"],
         "url": "http://localhost:4000/2020/04/working-full-time-remotely-pros-cons.html",
-        "teaser":null},{
-        "title": "Deploy Django application in AWS EC2 with Nginx",
-        "excerpt":" ","categories": ["Guides"],
-        "tags": ["AWS","Django","Deployment"],
-        "url": "http://localhost:4000/2020/05/deploy-django-application-in-amazon-aws-ec2-with-nginx.html",
         "teaser":null}]
