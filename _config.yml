@@ -310,5 +310,5 @@ defaults:
       related: true
       toc: true
       header:
-        overlay_color: "#8f8d8c"
+        overlay_color: "#3c4e61"
 
