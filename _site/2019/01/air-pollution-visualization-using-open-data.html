@@ -167,7 +167,7 @@
 </ul>
 
 <h2 id="how-it-works-1">How it works?</h2>
-<p>Lets first create a simple CanvasJS, enable some of the useful features like animation, theme, interactive, tooltip, subtitles inside <code class="highlighter-rouge">chart_data</code></p>
+<p>Lets first create a simple CanvasJS, enable some of the useful features like animation, theme, interactive, tooltip, subtitles inside <code class="language-plaintext highlighter-rouge">chart_data</code></p>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">chart_data</span> <span class="o">=</span> <span class="p">{</span>
     <span class="na">animationEnabled</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
@@ -197,14 +197,14 @@
 
 <span class="p">}</span>
 </code></pre></div></div>
-<p>Next, we’ll define empty Array <code class="highlighter-rouge">dataPoints</code> in <code class="highlighter-rouge">chart_data</code></p>
+<p>Next, we’ll define empty Array <code class="language-plaintext highlighter-rouge">dataPoints</code> in <code class="language-plaintext highlighter-rouge">chart_data</code></p>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">data</span><span class="p">:</span> <span class="p">[{</span>
      <span class="na">dataPoints</span><span class="p">:</span> <span class="p">[]</span>
 <span class="p">}]</span>
 </code></pre></div></div>
 
-<p>We are creating a visualization for realtime emission - <a href="https://www.epa.gov/">EPA</a> has physical stations in the various cities to measure air pollution levels and also keep record for historical data. We’ll simply use the <a href="https://www.airnow.gov/index.cfm?action=airnow.global_summary">data</a> available globally, collect the RSS feed available for your city and add URL to object. <code class="highlighter-rouge">window.onload</code> function is used to render the data first whenever CanvasJS is loaded.</p>
+<p>We are creating a visualization for realtime emission - <a href="https://www.epa.gov/">EPA</a> has physical stations in the various cities to measure air pollution levels and also keep record for historical data. We’ll simply use the <a href="https://www.airnow.gov/index.cfm?action=airnow.global_summary">data</a> available globally, collect the RSS feed available for your city and add URL to object. <code class="language-plaintext highlighter-rouge">window.onload</code> function is used to render the data first whenever CanvasJS is loaded.</p>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">phora_pm2</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">https://dosairnowdata.org/dos/RSS/PhoraDurbarKathmandu/PhoraDurbarKathmandu-PM2.5.xml</span><span class="dl">'</span><span class="p">;</span>
 
@@ -216,7 +216,7 @@
 
 <p>We also need an AQI references where people would be able to distinguish the air pollution levels. It is divided into different color ranges and health messages.</p>
 
-<p>Function <code class="highlighter-rouge">aqiColor</code> returns color code where AQI is input, add <code class="highlighter-rouge">healthMessage</code> to generate health message for AQI value <code class="highlighter-rouge">y</code>. The value range, color code and health message all can be found in the AQI Basics <a href="https://airnow.gov/index.cfm?action=aqibasics.aqi">doc</a>.</p>
+<p>Function <code class="language-plaintext highlighter-rouge">aqiColor</code> returns color code where AQI is input, add <code class="language-plaintext highlighter-rouge">healthMessage</code> to generate health message for AQI value <code class="language-plaintext highlighter-rouge">y</code>. The value range, color code and health message all can be found in the AQI Basics <a href="https://airnow.gov/index.cfm?action=aqibasics.aqi">doc</a>.</p>
 
 <p><b>Note: You can change the chart type column to supported <a href="https://www.chartjs.org/docs/latest/charts/">Charts</a> by modifying chart_data when window.onload is initiated.</b></p>
 
@@ -258,7 +258,7 @@
 <span class="p">}</span>
 </code></pre></div></div>
 
-<p>Finally, add function <code class="highlighter-rouge">chartRenderer</code> and include empty Arrays for <code class="highlighter-rouge">dataPoints</code> <code class="highlighter-rouge">lables_</code>. We use JQuery to fetch <a href="https://dosairnowdata.org/dos/RSS/PhoraDurbarKathmandu/PhoraDurbarKathmandu-PM2.5.xml">XML</a> data using <code class="highlighter-rouge">chartRenderer</code> function.</p>
+<p>Finally, add function <code class="language-plaintext highlighter-rouge">chartRenderer</code> and include empty Arrays for <code class="language-plaintext highlighter-rouge">dataPoints</code> <code class="language-plaintext highlighter-rouge">lables_</code>. We use JQuery to fetch <a href="https://dosairnowdata.org/dos/RSS/PhoraDurbarKathmandu/PhoraDurbarKathmandu-PM2.5.xml">XML</a> data using <code class="language-plaintext highlighter-rouge">chartRenderer</code> function.</p>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">chartRenderer</span><span class="p">(</span><span class="nx">url</span><span class="p">,</span> <span class="nx">chartData</span><span class="p">,</span> <span class="nx">chartType</span><span class="p">,</span> <span class="nx">airDataType</span><span class="p">)</span> <span class="p">{</span>
     <span class="kd">let</span> <span class="nx">chart</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">CanvasJS</span><span class="p">.</span><span class="nx">Chart</span><span class="p">(</span><span class="dl">"</span><span class="s2">chartContainer</span><span class="dl">"</span><span class="p">,</span> <span class="nx">chartData</span><span class="p">)</span>
@@ -294,7 +294,7 @@
         <span class="nx">chart</span><span class="p">.</span><span class="nx">render</span><span class="p">()</span>
     <span class="p">});</span>
 </code></pre></div></div>
-<p>If you refer to XML <a href="#xml-tree-structure">structure</a>, we are interested in XML <code class="highlighter-rouge">item</code> element where reading date, AQI and description are found. In <code class="highlighter-rouge">dataPoints</code>, <code class="highlighter-rouge">label</code> represents the time sequence in Month-Day-Time in 24hr format, <code class="highlighter-rouge">y</code> is AQI value in float data type, <code class="highlighter-rouge">aqiColor</code> fetch color code for every AQI, each feed from station may consists of 24 hours of data and interval of 1 hour update time. Later, the slicing is done to get the latest feed and generate health messages. Use <code class="highlighter-rouge">chart.render()</code> to visualize the chart. And don’t forget to add document.getElementById() method for <code class="highlighter-rouge">health_message</code> to render in HTML document.</p>
+<p>If you refer to XML <a href="#xml-tree-structure">structure</a>, we are interested in XML <code class="language-plaintext highlighter-rouge">item</code> element where reading date, AQI and description are found. In <code class="language-plaintext highlighter-rouge">dataPoints</code>, <code class="language-plaintext highlighter-rouge">label</code> represents the time sequence in Month-Day-Time in 24hr format, <code class="language-plaintext highlighter-rouge">y</code> is AQI value in float data type, <code class="language-plaintext highlighter-rouge">aqiColor</code> fetch color code for every AQI, each feed from station may consists of 24 hours of data and interval of 1 hour update time. Later, the slicing is done to get the latest feed and generate health messages. Use <code class="language-plaintext highlighter-rouge">chart.render()</code> to visualize the chart. And don’t forget to add document.getElementById() method for <code class="language-plaintext highlighter-rouge">health_message</code> to render in HTML document.</p>
 
 <h3 id="xml-tree-structure">Xml tree structure</h3>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">.</span>

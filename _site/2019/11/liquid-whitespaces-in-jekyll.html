@@ -93,7 +93,7 @@
 </div>
 <div class="initial-content">
       <div class="page__hero--overlay"
-  style="background-color: #8f8d8c;background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url('');"
+  style="background-color: #8f8d8c;background-image:url('');"
 ><div class="wrapper">
       <h1 id="page-title" class="page__title" itemprop="headline">Liquid Whitespaces in Jekyll
 </h1><p class="page__lead">Guide on removing extra whitespaces in Jekyll
@@ -132,10 +132,10 @@
           </aside><h1 id="whitespaces-and-liquid-template">Whitespaces and Liquid template</h1>
 <p>Whitespaces are common blank spaces that you would see in the HTML document when rendered, it can be horizontal or vertical. You may not have noticed whitespaces when using Jekyll unless you view source, it by default uses <a target="_blank" href="https://jekyllrb.com/docs/liquid/">Liquid</a> templating language to process document like this blog which runs in <a target="_blank" href="https://github.com/mmistakes/minimal-mistakes">minimial-mistakes</a> for Jekyll. Liquid version 4 tags eliminate this behavior.</p>
 
-<p>For example, In <code class="highlighter-rouge">_layouts &gt; home.html</code>, we run simple <code class="highlighter-rouge">{{ content }}</code> tag to output whitespaces in HTML.</p>
+<p>For example, In <code class="language-plaintext highlighter-rouge">_layouts &gt; home.html</code>, we run simple <code class="language-plaintext highlighter-rouge">{{ content }}</code> tag to output whitespaces in HTML.</p>
 
 <p>Input:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  {{ content }}
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  {{ content }}
   &lt;h3 class="archive__subtitle"&gt;{{ site.data.ui-text[site.locale].recent_posts | default: "Recent Posts" }}&lt;/h3&gt;
   {% for post in paginator.posts %}
     {% include archive-single.html %}
@@ -152,14 +152,14 @@
 
 </span></code></pre></div></div>
 <h1 id="what-causes-this-issue">What causes this issue?</h1>
-<p>The liquid version 3 generates white spaces between <code class="highlighter-rouge">{{ content }}</code> tag even when any conditional statements are true or false. There are lots of such statements in <code class="highlighter-rouge">_layouts</code>, <code class="highlighter-rouge">_includes</code> folder which results in occasional white spaces between any tags used.</p>
+<p>The liquid version 3 generates white spaces between <code class="language-plaintext highlighter-rouge">{{ content }}</code> tag even when any conditional statements are true or false. There are lots of such statements in <code class="language-plaintext highlighter-rouge">_layouts</code>, <code class="language-plaintext highlighter-rouge">_includes</code> folder which results in occasional white spaces between any tags used.</p>
 
 <h1 id="the-fix">The Fix?</h1>
 <p>Liquid 4 has whitespace control to fix this error by updating tags. You are in luck if you already host Jekyll blog in GitHub Pages, its <a target="_blank" href="https://pages.github.com/versions/"> dependency</a> already use liquid version 4.</p>
 
-<p>To fix this issue, Simply update all older liquid 3 tags <code class="highlighter-rouge">{% content %}</code> to <code class="highlighter-rouge">{%- content -%}</code> which is liquid tags version 4 inside <code class="highlighter-rouge">_layouts</code>, <code class="highlighter-rouge">_includes</code> folder. You can use, find in folder option and replace all old tags with new one if your are using Visual Studio Code referring <a target="_blank" href="https://shopify.github.io/liquid/basics/whitespace/"> whitespace control</a> docs.</p>
+<p>To fix this issue, Simply update all older liquid 3 tags <code class="language-plaintext highlighter-rouge">{% content %}</code> to <code class="language-plaintext highlighter-rouge">{%- content -%}</code> which is liquid tags version 4 inside <code class="language-plaintext highlighter-rouge">_layouts</code>, <code class="language-plaintext highlighter-rouge">_includes</code> folder. You can use, find in folder option and replace all old tags with new one if your are using Visual Studio Code referring <a target="_blank" href="https://shopify.github.io/liquid/basics/whitespace/"> whitespace control</a> docs.</p>
 
-<p>Push your blog to GitHub pages to see changes or run <code class="highlighter-rouge">update bundler</code>, if your use Jekyll with bundler.</p>
+<p>Push your blog to GitHub pages to see changes or run <code class="language-plaintext highlighter-rouge">update bundler</code>, if your use Jekyll with bundler.</p>
 
 <h1 id="conclusion">Conclusion</h1>
 <p>The above simple method upgrades your Liquid templating in Jekyll. Your HTML file size decreases by slightly and you would expect to increase performance although the noticeable difference is smaller.</p>

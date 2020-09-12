@@ -93,7 +93,7 @@
 </div>
 <div class="initial-content">
       <div class="page__hero--overlay"
-  style="background-color: #8f8d8c;background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url('');"
+  style="background-color: #8f8d8c;background-image:url('');"
 ><div class="wrapper">
       <h1 id="page-title" class="page__title" itemprop="headline">Internet Explorer detection using javascript
 </h1><p class="page__lead">Guide on detecting IE browser and adding custom warning message
@@ -137,7 +137,7 @@
 <p>Back in the early days when using Dail-up or ADSL connections, Internet Explorer browser was well liked browser offered by Microsoft to the Windows line of operating systems which were started in 1995. It is still present in most of the Windows Operating System like Windows 10 and now replaced by Edge browser which is the sucessor to IE.</p>
 
 <h2 id="modern-applications-and-ie">Modern applications and IE</h2>
-<p>Most of the present-day application relays on JavaScript frameworks like Angular or React for better UI/UX handling and to minimize the load time to the server. Also your modern app/website will likely to work in IE, but with the catch that some of the design or features might not operate as your client wish. To fix this issue, we could include Conditional <a href="https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/compatibility/ms537512(v=vs.85)?redirectedfrom=MSDN#examples">comments</a> that only IE can understand and are ignored by any other modern browsers like Google Chrome, Safari, Firefox. However, using such conditional comments is <a href="https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/compatibility/hh801214(v=vs.85)?redirectedfrom=MSDN">not supported</a> by all IE <a href="https://en.wikipedia.org/wiki/Internet_Explorer_version_history">versions</a>, it works in IE &lt;= 9 but version 10 and 11 aren’t supported. This is the reason why our <code class="highlighter-rouge">code</code> targeted to IE browsers doesn’t work.</p>
+<p>Most of the present-day application relays on JavaScript frameworks like Angular or React for better UI/UX handling and to minimize the load time to the server. Also your modern app/website will likely to work in IE, but with the catch that some of the design or features might not operate as your client wish. To fix this issue, we could include Conditional <a href="https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/compatibility/ms537512(v=vs.85)?redirectedfrom=MSDN#examples">comments</a> that only IE can understand and are ignored by any other modern browsers like Google Chrome, Safari, Firefox. However, using such conditional comments is <a href="https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/compatibility/hh801214(v=vs.85)?redirectedfrom=MSDN">not supported</a> by all IE <a href="https://en.wikipedia.org/wiki/Internet_Explorer_version_history">versions</a>, it works in IE &lt;= 9 but version 10 and 11 aren’t supported. This is the reason why our <code class="language-plaintext highlighter-rouge">code</code> targeted to IE browsers doesn’t work.</p>
 
 <p>We need to detect specific features of the browsers to display custom message to each browser. To do this, we could use browser <a href="https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/samples/hh273397(v=vs.85)?redirectedfrom=MSDN">feature detection</a> using JavaScript.</p>
 
@@ -153,9 +153,9 @@
 
 <h1 id="development">Development</h1>
 
-<p>To start, we can simply use  <code class="highlighter-rouge">isIE = /*@cc_on!@*/false</code>, this will set  <code class="highlighter-rouge">isIE</code> to <code class="highlighter-rouge">false</code> in all browser and they will ignore it as a comment beacause only IE detects <code class="highlighter-rouge">!</code> (negation) in the conditional comment. The IE would sees it as; <code class="highlighter-rouge">isIE=!false</code> which the statment will be true, explained in book JavaScript Pattern by Stoyan Stefanov <a href="https://books.google.com.np/books?id=WTZqecc9olUC&amp;pg=PA206&amp;lpg=PA206&amp;dq=isIE+%3D+/*@cc_on!@*/false&amp;source=bl&amp;ots=KcKmYhpNUu&amp;sig=ACfU3U0DcTj7kvOjtp1TaiEJKJ1mQmcTJA&amp;hl=en&amp;sa=X&amp;ved=2ahUKEwiOnc27trPnAhXQyjgGHWbJBBUQ6AEwBHoECAoQAQ#v=onepage&amp;q=isIE%20%3D%20%2F*%40cc_on!%40*%2Ffalse&amp;f=false">section</a>.</p>
+<p>To start, we can simply use  <code class="language-plaintext highlighter-rouge">isIE = /*@cc_on!@*/false</code>, this will set  <code class="language-plaintext highlighter-rouge">isIE</code> to <code class="language-plaintext highlighter-rouge">false</code> in all browser and they will ignore it as a comment beacause only IE detects <code class="language-plaintext highlighter-rouge">!</code> (negation) in the conditional comment. The IE would sees it as; <code class="language-plaintext highlighter-rouge">isIE=!false</code> which the statment will be true, explained in book JavaScript Pattern by Stoyan Stefanov <a href="https://books.google.com.np/books?id=WTZqecc9olUC&amp;pg=PA206&amp;lpg=PA206&amp;dq=isIE+%3D+/*@cc_on!@*/false&amp;source=bl&amp;ots=KcKmYhpNUu&amp;sig=ACfU3U0DcTj7kvOjtp1TaiEJKJ1mQmcTJA&amp;hl=en&amp;sa=X&amp;ved=2ahUKEwiOnc27trPnAhXQyjgGHWbJBBUQ6AEwBHoECAoQAQ#v=onepage&amp;q=isIE%20%3D%20%2F*%40cc_on!%40*%2Ffalse&amp;f=false">section</a>.</p>
 
-<p>We change the <code class="highlighter-rouge">display</code> property to <code class="highlighter-rouge">block</code> and whenever IE browser is detected through duck typing, this way the <code class="highlighter-rouge">div</code> block holding browser message appears in block style.</p>
+<p>We change the <code class="language-plaintext highlighter-rouge">display</code> property to <code class="language-plaintext highlighter-rouge">block</code> and whenever IE browser is detected through duck typing, this way the <code class="language-plaintext highlighter-rouge">div</code> block holding browser message appears in block style.</p>
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kd">function</span> <span class="nx">checkIE</span><span class="p">()</span> <span class="p">{</span>
       <span class="k">if</span> <span class="p">(</span><span class="nx">isIE</span> <span class="o">=</span> <span class="cm">/*@cc_on!@*/</span><span class="kc">false</span><span class="p">)</span> <span class="p">{</span>
@@ -163,7 +163,7 @@
       <span class="p">}</span>
 </code></pre></div></div>
 
-<p>Finally, we create a simple block of html and name the ID <code class="highlighter-rouge">detectIE</code> for the main div container. Then we simply add CSS style <code class="highlighter-rouge">display</code> property to <code class="highlighter-rouge">none</code>, this will disable message for other browsers.</p>
+<p>Finally, we create a simple block of html and name the ID <code class="language-plaintext highlighter-rouge">detectIE</code> for the main div container. Then we simply add CSS style <code class="language-plaintext highlighter-rouge">display</code> property to <code class="language-plaintext highlighter-rouge">none</code>, this will disable message for other browsers.</p>
 
 <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"detectIE"</span> <span class="na">style=</span><span class="s">"display: none;"</span><span class="nt">&gt;</span>
       <span class="nt">&lt;h2&gt;</span>Browser is not supported<span class="nt">&lt;/h2&gt;</span>
