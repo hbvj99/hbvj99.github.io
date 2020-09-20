@@ -99,7 +99,7 @@ Steps to follow;
 
 ![IMG_20200603_181154__01](https://user-images.githubusercontent.com/43197293/83907736-a5a89800-a785-11ea-8cbf-7a5f5ec4e26d.jpg)
 
-> Note, you need to connect LAN Ethernet port to access official Live TV. Likewise, remove LAN Ethernet port and connect through wifi to run apps that require active internet connection.
+> Note: If you are having connection issues, you can remove LAN Ethernet port and connect through wifi to run apps that require an active internet connection.
 
 That's it. Your apps will now be available in launcher apps. Please feel free to comment down below if you have any questions?
 
