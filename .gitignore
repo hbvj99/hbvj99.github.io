@@ -10,6 +10,11 @@
 _asset_bundler_cache
 _site/
 
+# Bundler
+Gemfile.lock
+/vendor
+.bundle/
+
 # Vscode
 *.[Cc]ache
 !?*.[Cc]ache/
