@@ -48,4 +48,4 @@ Push your blog to GitHub pages to see changes or run ```update bundler```, if yo
 # Conclusion
 The above simple method upgrades your Liquid templating in Jekyll. Your HTML file size decreases by slightly and you would expect to increase performance although the noticeable difference is smaller.
 
-Alternative method; according to [Michael](https://github.com/mmistakes/minimal-mistakes/pull/2608), it is better to get rid of whitespaces through minifying/third-party plugin. This simple hack won't get incluced in the [master](https://github.com/mmistakes/minimal-mistakes) branch anytime soon!
+If you are using [Minimal Mistakes](https://github.com/mmistakes/minimal-mistakes) theme like this blog; according to [Michael](https://github.com/mmistakes/minimal-mistakes/pull/2608), it is better to get rid of whitespaces through minifying/third-party plugin. This simple hack won't get incluced in the [master](https://github.com/mmistakes/minimal-mistakes/tree/master) branch anytime soon!
