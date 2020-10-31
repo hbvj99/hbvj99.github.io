@@ -32,7 +32,7 @@ We will be using [Circus](https://circus.readthedocs.io/en/latest/) to manager s
 # Setup SSH on local
 
 Once you download the PEM key after creating an instance from AWS console, move it to the ```/home/user/.ssh``` and add config for quick connect;
-```
+```bash
 cat>config
 Host forum # name you prefer
         Hostname 0.0.0.0 # your server IP
@@ -99,7 +99,7 @@ Next we setup a ```server.git``` as bare repo and configure.
 
 Add hooks for post-receive so that we checkout file every time when we do push.
 
-```
+```bash
 cat > hooks/post-receive <<EOF
 #!/bin/sh
 git checkout -f
@@ -130,7 +130,7 @@ Install it using;
 - ```pip install circus chaussette```
 - ```cd conf && cat>circus.ini```
 
-```
+```bash
 [watcher:webapp]
 cmd = chaussette --fd $(circus.sockets.webapp) forum.wsgi.application # Django setting path
 uid=ubuntu
@@ -169,7 +169,7 @@ Refer [here](https://circus.readthedocs.io/en/latest/for-ops/configuration/) for
 ### Config Nginx
 - ```cat>nginx.conf```
 
-```
+```bash
 upstream django_project {
     server 127.0.0.1:8085; # for a web port socket see circus.ini [socket:webapp]
     # server unix:/tmp/django_project;
@@ -313,7 +313,7 @@ Let's pull a Django application from remote Github to local first using;
 git clone https://github.com/hbvj99/forum.git
 ```
 
-Make sure that you have separate .env file and add your new secret key, database, SMTP or other credentials here.
+Make sure that you have separate .env file and add your new secret key, database, SMTP or other credentials here. 
 
 Great, next we set up the remote server in local - [more info](https://git-scm.com/book/en/v2/Git-on-the-Server-Setting-Up-the-Server).
 
@@ -340,7 +340,7 @@ At last, get security analysis of your website on [Mozilla Observatoty](https://
 ### Folder Structure
 
 Here's the Final folder/file structure if you quickly want to check;
-```
+```python
 .
 ├── backend
     └── server.git # repo name
