@@ -172,7 +172,6 @@ Refer [here](https://circus.readthedocs.io/en/latest/for-ops/configuration/) for
 ```bash
 upstream django_project {
     server 127.0.0.1:8085; # for a web port socket see circus.ini [socket:webapp]
-    # server unix:/tmp/django_project;
     # server unix:///path/to/your/mysite/mysite.sock; # for a file socket
 }
 
