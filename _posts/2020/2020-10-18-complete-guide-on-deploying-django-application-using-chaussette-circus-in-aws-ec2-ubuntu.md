@@ -89,13 +89,13 @@ There are many ways on pushing local or remote code to the deployment server i.e
 
 I learned this great approach working for some company - this will only push the latest HEAD changes from your local dev environment. This method is useful when you don't want to directly pull the changes from Git repository into the server.
 
-Let's name our origin as ```server.git``` and set up the standard folder structure.
+Let's name our origin as ```server.git``` and set up the standard folder structure. Appending .git in a directory name helps to quickly identify it as git repository.
 
 - ```mkdir backend && cd backend && mkdir server.git app conf logs media static && cd server.git```
 
-Next we setup a ```server.git``` as bare repo and configure.
+Next we setup a ```server.git``` as bare repo and configure. 
 
-- ```git init --bare && git --bare update-server-info && git config core.bare false && git config receive.denycurrentbranch ignore && git config core.worktree /home/ubuntu/backend/```
+- ```git init --bare && git --bare update-server-info && git config core.bare false && git config receive.denycurrentbranch ignore && git config core.worktree /home/ubuntu/backend/app/```
 
 Add hooks for post-receive so that we checkout file every time when we do push.
 
@@ -103,7 +103,8 @@ Add hooks for post-receive so that we checkout file every time when we do push.
 cat > hooks/post-receive <<EOF
 #!/bin/sh
 git checkout -f
-# other scripts path here
+# sudo supervisorctl reload
+# scripts path here
 EOF
 ```
 
@@ -283,7 +284,7 @@ Install Let's Encrypt SSL (auto-renew/valid for 90days)
 Finally test auto-renewal of SSL;
 - ```sudo certbot renew --dry-run```
 
-## Include this in Djanogo Settings for better Security
+## Include this in Django Settings for better Security
 ### Use HTTPS (SSL)
 ```
 - SESSION_COOKIE_SECURE = True
@@ -316,12 +317,12 @@ Make sure that you have separate .env file and add your new secret key, database
 
 Great, next we set up the remote server in local - [more info](https://git-scm.com/book/en/v2/Git-on-the-Server-Setting-Up-the-Server).
 
-- ```git remote add APP_NAME ubuntu@:/home/ubuntu/backend/server.git/```
+- ```git remote add APP_NAME forum@:/home/ubuntu/backend/server.git/```
 - Check if you successfully set up the remote URL with ```git remote -v```
 
-- ```git push APP_NAME --all``` local branches will pushed on server
+- ```git push APP_NAME --all``` local branches will pushed on server, doesn't require remote as upstream branch
 
-<i class="fa fa-info-circle"></i> **Info:** ```APP_NAME``` can be any name you prefer.
+<i class="fa fa-info-circle"></i> **Info:** ```APP_NAME``` can be any name you prefer. ```forum``` is our ssh name that we set [earlier](#setup-ssh-on-local).
   {: .notice--info}
   {: .text-justify}
 
@@ -335,6 +336,14 @@ Also, don't forget to check official deploy [check list](https://docs.djangoproj
 If you made to here; our site is Live now with a custom domain, SSL, SMTP and following decent security measure.
 
 At last, get security analysis of your website on [Mozilla Observatoty](https://observatory.mozilla.org/).
+
+## Commands
+After you push the latest changes to the server, you need to run
+- ```sudo circusctl reload``` 
+
+<i class="far fa-sticky-note"></i> **Tips:** You can add above command in git hooks ```post-receive``` to auto run when changes is detected.
+  {: .notice--info}
+  {: .text-justify}
 
 ### Folder Structure
 
