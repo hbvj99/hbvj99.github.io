@@ -320,7 +320,7 @@ Great, next we set up the remote server in local - [more info](https://git-scm.c
 - ```git remote add APP_NAME forum@:/home/ubuntu/backend/server.git/```
 - Check if you successfully set up the remote URL with ```git remote -v```
 
-- ```git push APP_NAME --all``` local branches will pushed on server, doesn't require remote as upstream branch
+- ```git push APP_NAME --all``` local branches will be pushed on server, doesn't require remote as upstream branch
 
 <i class="fa fa-info-circle"></i> **Info:** ```APP_NAME``` can be any name you prefer. ```forum``` is our ssh name that we set [earlier](#setup-ssh-on-local).
   {: .notice--info}
