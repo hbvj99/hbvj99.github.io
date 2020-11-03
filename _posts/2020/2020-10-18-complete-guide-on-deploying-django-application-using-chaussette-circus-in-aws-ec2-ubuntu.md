@@ -377,4 +377,4 @@ Here's the Final folder/file structure if you quickly want to check;
     └── venv   
 ```
 
-If you have any confusions or better approach that improve the guide please comment down below.
+If you have any confusions or better approach that helps on improving the guide please comment down below.
