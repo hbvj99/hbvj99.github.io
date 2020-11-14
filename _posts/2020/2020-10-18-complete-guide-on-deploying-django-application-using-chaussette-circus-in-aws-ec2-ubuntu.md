@@ -51,7 +51,7 @@ The first thing after login is to upgrade everything.
 ## Install tools
 Install useful tools that we will be using;
 
-- ```sudo apt install python-dev build-essential links python3-pip python3-cffi python3-wheel python3-setuptools libffi-dev libreadline-gplv2-dev libncursesw5-dev libssl-dev libsqlite3-dev tk-dev libgdbm-dev libc6-dev libbz2-dev libffi-dev virtualenv git```
+- ```sudo apt install python-dev build-essential links python3-pip python3-cffi python3-wheel python3-setuptools libffi-dev libreadline-gplv2-dev libncursesw5-dev libssl-dev libsqlite3-dev tk-dev libgdbm-dev libc6-dev libbz2-dev virtualenv git```
 
 
 ## Nginx
