@@ -101,10 +101,12 @@ Add hooks for post-receive so that we checkout file every time when we do push.
 
 ```bash
 cat > hooks/post-receive <<EOF
-#!/bin/sh
+#!/bin/bash
 git checkout -f
-# sudo supervisorctl reload
-# scripts path here
+source ../venv/bin/activate
+circusctl reload
+deactivate
+# other scripts path here
 EOF
 ```
 
@@ -339,7 +341,7 @@ At last, get security analysis of your website on [Mozilla Observatoty](https://
 
 ## Commands
 After you push the latest changes to the server, you need to run
-- ```sudo circusctl reload``` 
+- ```circusctl reload``` 
 
 <i class="far fa-sticky-note"></i> **Tips:** You can add above command in git hooks ```post-receive``` to auto run when changes is detected.
   {: .notice--info}
