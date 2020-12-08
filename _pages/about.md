@@ -12,6 +12,8 @@ author_profile: false
 
 <i class="fas fa-graduation-cap"></i> I studied Computing and graduted in 2019 from London Met.
 
+<i class="fa fa-briefcase" aria-hidden="true"></i> I currently work as Software Engineer at [Outcode software](https://www.outcodesoftware.com/)
+
 <i class="fas fa-book"></i> In this blog, I try to visualize some of my work/learnings that intrest me, the topic includes software development &#38; guides, research or I occasionally share my stories.
 
 <i class="fas fa-heart"></i> I believe in open source solutions and digital literacy.
