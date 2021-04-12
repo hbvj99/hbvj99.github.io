@@ -279,8 +279,7 @@ Run migration to generate table and relations in the database
 
 Install Let's Encrypt SSL (auto-renew/valid for 90days)
 
-
-- ```sudo apt install software-properties-common && sudo add-apt-repository ppa:certbot/certbot && sudo apt-get update && sudo apt-get install python3-certbot-nginx```
+- ```sudo apt-get install python3-certbot-nginx```
 - ```sudo certbot --nginx``` # run cerbot to get SSL for domain
 
 Finally test auto-renewal of SSL;
