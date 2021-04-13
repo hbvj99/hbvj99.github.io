@@ -241,6 +241,8 @@ Likewise, there are different supported algorithms like IP hash, Least time, Ses
 
 # Final thoughts
 
-In this guide, we learned how to load test APIs, analyse endpoints that are taking more time to load when a high volume of requests are generated. We learned serving the application using load balancing will help on solving the load time/frequent APIs crashes issues. 
+In this guide, we learned how to load test APIs, analyse endpoints that are taking more time to load when a high volume of requests are generated. We learned serving the application using load balancing will help on solving the load time/frequent APIs crashes issues.
+
+Here is the Locust script [repository](https://github.com/hbvj99/locust-test-api/tree/master) if you want to test things out.
 
 If you have any questions or maybe alternative ways to tackle the issue, please let me know.
