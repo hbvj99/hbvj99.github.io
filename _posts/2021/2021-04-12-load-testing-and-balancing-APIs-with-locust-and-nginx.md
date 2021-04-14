@@ -17,14 +17,14 @@ categories:
 
 I have always wondered how the system performs especially when thousand or even millions of users starts using it. I have now realized it's necessary to have a fair idea of how many users your app or APIs endpoint can handle that is freshly built and how to scale over time.
 
-It is also important to understand what types of request are successful and which are failing. To understand this we will be using a lite framework called [Locust](https://locust.io/), even users who are not much familiar with programming will be able to learn and use it.
+It is also important to understand what types of request are successful and which are failing. To understand this we will be using a lite framework called [Locust](https://locust.io/), even users who are not much familiar with Python language will be able to learn and use it.
 
 # What is Locust?
-Locust is simply a testing framework that uses python Scripts that is scalable and widely used as a performance testing/analysis tool. It is powerful and simple to use - you define what type of users, how many and when to swarm your system.
+Locust is a testing framework that uses python Scripts that is scalable and widely used as a performance testing/analysis tool. It is powerful and simple to use - you define what type of users, how many and when to swarm your system.
 
 
 ## What we plan on learning?
-One of the great features of [Locust](https://locust.io/) is that you write all your code in Python. We'll be writing simple test cases to understand REST API that uses JSON Web Token. We will be simulating users in a different time interval and find some interesting results and find a way to tackle the issue. 
+One of the great features of [Locust](https://locust.io/) is that you write all your code in Python. We'll be writing simple test cases to understand REST API that uses JSON Web Token; simulating users in a different time interval and find some interesting results and find a way to tackle the issue. 
 
 Let's fork one of my project [Market API](https://github.com/hbvj99/market-api) for testing.
 
@@ -177,6 +177,8 @@ One of the ways we can resolve the APIs slow down or frequent requests failure i
 Load balancing is the process of distributing incoming traffic across a group of servers. The load balancer sits in front of servers and routs client requests across all servers which are capable of fulfilling those requests efficiently.
 
 ## Writing configs
+
+The default Nginx config files are located at ```/etc/nginx/sites-available/```. You need to open your current active configure file that is serving the main application and include ```upstream``` and ```location```.
 
 ```bash
 http {
