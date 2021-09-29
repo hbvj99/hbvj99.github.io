@@ -288,7 +288,7 @@ pipeline {
     stages {
         stage('Connect server') { 
             steps {
-                // connect server command
+                // connect server
                 sshagent(['522v0e28-ffe0-4f20-bd0f-d7ef7834r38d7']) { // jenkins credential ID
                   sh '''#!/bin/bash
                     // test connect server status
