@@ -45,6 +45,8 @@ The idea is to trigger scripts to auto-run tests, build files whenever a change 
 
 Continuous Delivery (CD) resumes from Continues Integration process, test/builds are verified and deployed to test or staging server as shown in the image above, generally manual/automate browser level tests are carried out by the QA/users at this stage. [Smoke tests](https://www.edureka.co/blog/what-is-smoke-testing/) are done to ensure whether a software feature or bug build that has been delivered is stable.
 
+<img src="{{ site.url }}{{ site.baseurl }}/assets/image/2021/Jenkins-ci-cd-cd.jpeg" alt="Jenkins CD/CD" class="full">
+
 We'll not cover much about Continuous Deployment (CD) in this guide but the idea is pretty straightforward; once the users (usually a client or beta users) test the build and no bugs are reported, the same code is pushed to the production server.
 
 ## Git flow
