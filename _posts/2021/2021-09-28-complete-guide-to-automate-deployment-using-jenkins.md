@@ -5,10 +5,10 @@ header:
   teaser: /assets/image/2021/Jenkins-ci-cd-cd.jpeg
   og_image: /assets/image/2021/Jenkins-ci-cd-cd.jpeg
   overlay_image: /assets/image/2021/Jenkins-ci-cd-cd.jpeg
-  overlay_filter: 0.6
+  overlay_filter: 0.7
 tags:
-  - Continuos integration
-  - Continuos delivery
+  - Continuos Integration
+  - Continuos Delivery
   - Jenkins
 categories:
   - Guides
@@ -75,11 +75,12 @@ It is an open-source automation tool to automate build, test, and deploy project
 
 ## Configure Jenkins
 
-> ***It is recommended to create new server or instance for Jenkins which will be the `master` server, I'll come to this topic later.***
+> ***It is recommended to create new server or instance for Jenkins only which will be the `master` server.***
 
 Let's install Jenkins on Ubuntu20 LTS. Jenkins requires `Java` and `JDK` in order to compile Java code. There is [Open Java Development Kit](https://openjdk.java.net/) (OpenJDK) that we will be using since it required no license for production uses.
 
 Firstly, update the Ubuntu packages using;
+
 ```
 sudo apt update && apt upgrade -y
 ```
@@ -126,7 +127,7 @@ By default, Jenkins runs on port `8080`. You won't be able to access it unless y
 
  `sudo ufw allow 8080`
 
- <i class="far fa-sticky-note"></i> **Hint:** if you are using AWS cloud service, it is recommended to open inbound port directly from AWS security groups for any IP address.
+ <i class="far fa-sticky-note"></i> **Hint:** If you are using AWS cloud service, it is recommended to open inbound port directly from AWS security groups for any IP address.
   {: .notice--info}
   {: .text-justify}
 
@@ -186,7 +187,7 @@ At last, click `Add credentials`, select `SSH Username with private key` as `kin
 
 <img src="{{ site.url }}{{ site.baseurl }}/assets/image/2021/Jenkins-add-remote-server.png" alt="Jenkins add remote server" class="full">
 
-Jenkins will connect to the remote server for deployment which consists of build, run unit tests and deploy - we'll use server private keys and [SSH](https://searchsecurity.techtarget.com/definition/Secure-Shell). Simply, add the instance or server private key to connect Jenkins and remote server.
+Jenkins will connect to the remote server for deployment which consists of build, run unit tests and deploy - we'll use server private keys and [SSH](https://searchsecurity.techtarget.com/definition/Secure-Shell). Simply, add the server private key to connect Jenkins and remote server.
 
  <i class="far fa-sticky-note"></i> **Note:** The private key is not same the as that we created [here](#connect-github-and-jenkins). The server private key is given when the instance is first created and usually named `id_rsa`.
   {: .notice--info}
@@ -207,7 +208,7 @@ Click add webhooks, and provide the webhook URL.
   {: .notice--info}
   {: .text-justify}
 
-Great! At this point, we are done with adding the required credentials to write automation scripts. Let's summarize what we have done so far; we understand the basics of CI/CDs, configure Jenkins, connect remote server and GitHub with SSH, and configured webhooks. I know it's lots of things to take at all, but trust be everything will make sense when automation is created.
+Great! At this point, we are done with adding the credentials required for server authentication. Let's summarize what we have done so far; we understand the basics of CI/CDs, configure Jenkins, connect remote server and GitHub with SSH, and configured webhooks. I know it's lots of things to take at all, but trust be everything will make sense when automation is created.
 
 ## Setup first build job
 
@@ -273,11 +274,11 @@ Let's push one change to the `develop` branch and wait for the auto-build, test,
 
 ### 2. Jenkins Pipelines
 
-This is more mature and suitable for production uses. Each phase is called pipe where one certain task or command is executed and the collection of such tasks is called pipelines. It is similar to running [bash script](#1-execute-shell-script-using-ssh) but can organize complex activities effectively. 
+This is more mature and suitable for production uses. Each phase is called pipe or stage where one certain task or command is executed and the collection of such tasks is called pipelines. It is similar to running [bash script](#1-execute-shell-script-using-ssh) but can organize complex activities effectively. 
 
 This guide will not cover in-depth for pipelines but you can have an idea from here.
 
-The pipeline project has to be selected while creating a new job and you need to write pipeline scripts to execute the same [bash script](#1-execute-shell-script-using-ssh) commands in pipes also known as stages.
+The pipeline project has to be selected while creating a new job, and you need to write pipeline scripts to execute the same [bash script](#1-execute-shell-script-using-ssh) commands in stages.
 
 You can learn more about Jenkins pipelines [here](https://www.jenkins.io/doc/book/pipeline/). Here's one sample pipeline script;
 
@@ -321,6 +322,6 @@ After successfully build you will see the changes in Pipelines structure.
 
 # Final thoughts
 
-We learned to automate deployment with Continuous interaction and continuous delivery from scratch. Let's summarize what we have learned so far. We understand the basics of CI/CDs, configure Jenkins, connect remote server and GitHub with SSH and configured webhooks, learned about credentials and how they work, and finally automate deploy to the server by running bash script and pipelines.
+We learned to automate deployment with Continuous interaction and continuous delivery from scratch. Let's summarize what we have learned so far. We understand the basics of CI/CDs, configure Jenkins, connect remote server and GitHub with SSH and configured webhooks, learned about credentials and how they work, and finally automate deploy to the server by running bash script and pipelines using CI/CD.
 
 If you would like to see similar articles related to DevOps or you face any issues, don't forget to add comments.
