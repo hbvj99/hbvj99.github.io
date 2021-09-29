@@ -270,7 +270,7 @@ Likewise, above is the sample [Django](https://www.djangoproject.com/) applicati
 
 <img src="{{ site.url }}{{ site.baseurl }}/assets/image/2021/Jenkins-shell-script-build.png" alt="Jenkins shell script build" class="full">
 
-Let's push one change to the `develop` branch and wait for the auto-build, test, and deploy process. 
+Let's push one change to the `develop` branch and wait for the auto-build, test, and deploy process. The build is completed as you can see in the image above.
 
 ### 2. Jenkins Pipelines
 
