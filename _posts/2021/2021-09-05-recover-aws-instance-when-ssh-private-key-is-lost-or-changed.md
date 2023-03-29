@@ -17,7 +17,7 @@ A hard day in my work taught me to be extra careful when storing private key pai
 
 # How to recover?
 
-They are different ways to recover your instance private key. When you log in to the console of your EC2 instance, you can right-click and connect in different alternative ways.
+There are different ways to recover your instance private key. When you log in to the console of your EC2 instance, you can right-click and connect in different alternative ways.
 
 <img src="{{ site.url }}{{ site.baseurl }}/assets/image/2021/Instance-connect-type.png" alt=" Instance connect types" class="full">
 
