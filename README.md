@@ -5,7 +5,7 @@ using [Minimal Mistakes](https://mmistakes.github.io/minimal-mistakes/).
 
 ## How to run?
 
-- Build docker with ```docker build -t personal-website-jekyll .```
+- Build docker with ```docker build -t jekyll .```
 - Run using ```docker-compose up```
 
 # LICENSE
