@@ -36,7 +36,7 @@ COPY Gemfile Gemfile.lock ./
 RUN bundle install
 ```
 
-Run command ```docker build -t personal-website-jekyll .``` to build a docker image.
+Run command ```docker build -t jekyll .``` to build a docker image.
 
 ### Add host to the config.
 
