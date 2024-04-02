@@ -107,9 +107,9 @@ analytics:
 
 # Site Author
 author:
-  # name             : "Vijay Pathak"
+  name             : "Vijay Pathak"
   avatar           : "/assets/image/vijay-pathak.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "Vijay Pathak is an experienced software developer with a focus on backend programming, cloud infrastructure, and cybersecurity having a strong commitment to building reliable systems."
+  bio              : "He is an experienced software developer with a focus on backend programming, cloud infrastructure. He is Passionate about cybersecurity and networking."
   # location         : "Kathmandu, NP"
   links:
     - label: "Email"
