@@ -7,12 +7,11 @@
 .sass-cache
 
 # Jekyll generated files
-.sass-cache
-.jekyll-cache-Jekyll
 .jekyll-cache
 .jekyll-metadata
+.sass-cache
 _asset_bundler_cache
-_site/
+_site
 
 # Bundler
 Gemfile.lock
