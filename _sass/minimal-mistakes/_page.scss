@@ -72,6 +72,11 @@
     margin-top: 0;
     line-height: 1;
   
+    a {
+      color: $text-color;
+      text-decoration: none;
+    }
+  
     & + .page__meta {
       margin-top: -0.5em;
     }
@@ -108,7 +113,7 @@
     p,
     li,
     dl {
-      font-size: 0.95em;
+      font-size: 1em;
     }
   
     /* paragraph indents */
@@ -131,6 +136,20 @@
         img {
           box-shadow: 0 0 10px rgba(#000, 0.25);
         }
+      }
+    }
+  
+    :not(pre) > code {
+      padding-top: 0.1rem;
+      padding-bottom: 0.1rem;
+      font-size: 0.8em;
+      background: $code-background-color;
+      border-radius: $border-radius;
+  
+      &::before,
+      &::after {
+        letter-spacing: -0.2em;
+        content: "\00a0"; /* non-breaking space*/
       }
     }
   
@@ -188,7 +207,7 @@
         padding-right: 1em;
   
         @include breakpoint($x-large) {
-          max-width: $max-width;
+          max-width: $x-large;
         }
       }
   
@@ -228,7 +247,7 @@
     padding: 2px 5px;
     color: #fff;
     font-family: $caption-font-family;
-    font-size: $type-size-7;
+    font-size: $type-size-8;
     background: #000;
     text-align: right;
     z-index: 5;
@@ -297,6 +316,12 @@
     margin-bottom: 10px;
     font-size: $type-size-6;
     text-transform: uppercase;
+  }
+  
+  .page__meta-sep::before {
+    content: "\2022";
+    padding-left: 0.5em;
+    padding-right: 0.5em;
   }
   
   /*

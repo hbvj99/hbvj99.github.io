@@ -3,12 +3,12 @@ layout: splash
 title: "About me"
 permalink: /about/
 header:
-  overlay_color: "#116948"
+  overlay_color: "#444444"
 author_profile: false
 ---
 
 # Hi,
-<i class="fas fa-user"></i> I’m Vijay Pathak - interested in Software Development, Data Science.
+<i class="fas fa-user"></i> I’m Vijay Pathak - interested in software development, focused on backend & cloud technology.
 
 <i class="fas fa-graduation-cap"></i> I studied Computing and graduted in 2019 from London Met.
 

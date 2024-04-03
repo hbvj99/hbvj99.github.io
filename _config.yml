@@ -109,18 +109,18 @@ analytics:
 author:
   name             : "Vijay Pathak"
   avatar           : "/assets/image/vijay-pathak.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "He is an experienced software engineer specializing in backend programming and cloud infrastructure, with a passion for networking and cybersecurity."
+  bio              : "He is software engineer, focused on backend & cloud tech, enthusiastic about networking & cybersecurity."
   # location         : "Kathmandu, NP"
   links:
-    - label: "Email"
-      icon: "fas fa-fw fa-envelope"
-      url: mailto:vijay@vijaypathak.com.np
+    # - label: "Email"
+    #   icon: "fas fa-fw fa-envelope"
+    #   url: mailto:vijay@vijaypathak.com.np
     - label: "Website"
       icon: "fas fa-fw fa-link"
       #url: "https://vijaypathak.com.np"
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter"
-      url: "https://twitter.com/hbvj99"
+    # - label: "Twitter"
+    #   icon: "fab fa-fw fa-twitter"
+    #   url: "https://twitter.com/hbvj99"
     - label: "Facebook"
       icon: "fab fa-fw fa-facebook"
       # url: "https://facebook.com/"
@@ -146,9 +146,9 @@ footer:
     - label: "Facebook"
       icon: "fab fa-fw fa-facebook-square"
       # url:
-    - label: "Email"
-      icon: "fas fa-fw fa-envelope"
-      url: mailto:vijay@vijaypathak.com.np
+    # - label: "Email"
+    #   icon: "fas fa-fw fa-envelope"
+    #   url: mailto:vijay@vijaypathak.com.np
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/hbvj99"
