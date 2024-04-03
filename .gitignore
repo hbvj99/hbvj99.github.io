@@ -1,6 +1,10 @@
 # Ruby Gem
 *.gem
 .bundle
+.DS_Store
+.jekyll-cache
+.jekyll-metadata
+.sass-cache
 
 # Jekyll generated files
 .sass-cache
@@ -18,3 +22,6 @@ Gemfile.lock
 # Vscode
 *.[Cc]ache
 !?*.[Cc]ache/
+
+#Others
+.idea
