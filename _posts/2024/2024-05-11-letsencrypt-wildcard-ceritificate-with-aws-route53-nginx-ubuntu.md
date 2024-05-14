@@ -1,6 +1,6 @@
 ---
 title: "Let's Encrypt wildcard certificates with AWS Route53, Nginx and Ubuntu"
-excerpt: "A guide on automatic generation of lets encrypt wildcard certificates using AWS Route53 and Nginx."
+excerpt: "A guide on automatic renewal of lets encrypt wildcard certificates using AWS Route53, Nginx and Ubuntu."
 header:
   overlay_image: "https://images.unsplash.com/photo-1603899122634-f086ca5f5ddd?q=50&w=720&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   overlay_filter: 0.7
