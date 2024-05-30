@@ -107,7 +107,7 @@ aws_access_key_id=YOUR_ACCESS_KEY
 aws_secret_access_key=YOUR_SECRET_ACCESS_KEY
 ```
 
-<i class="far fa-sticky-note"></i> **Note:** If you encounter, unable to locate credential issue when generating certificate. Make sure to move the directory to  `/root` with `sudo mv ~/.aws /root/`.
+<i class="far fa-sticky-note"></i> **Note:** If you encounter, unable to locate credential issue when generating certificate using `sudo`. Make sure to move the directory to  `/root` with `sudo mv ~/.aws /root/`.
 {: .notice--info}
 {: .text-justify}
 
