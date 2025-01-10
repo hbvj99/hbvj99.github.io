@@ -1,10 +1,10 @@
 # Ruby Gem
 *.gem
 .bundle
+
+# OS-specific files
 .DS_Store
-.jekyll-cache
-.jekyll-metadata
-.sass-cache
+Thumbs.db
 
 # Jekyll generated files
 .jekyll-cache
@@ -18,9 +18,14 @@ Gemfile.lock
 /vendor
 .bundle/
 
-# Vscode
+# Node.js (if applicable)
+node_modules/
+
+# Vscode and Editor files
 *.[Cc]ache
 !?*.[Cc]ache/
-
-#Others
 .idea
+
+# Logs and temporary files
+*.log
+*.tmp
