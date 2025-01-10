@@ -120,7 +120,7 @@ The next step is to make sure it renews automatically. We will create a cron jon
 
 Open Linux crontab using;
 - `crontab -e` and paste the code at the last line.
-- `0 23 * * * sudo certbot renew --dns-route53 >> /home/ubuntu/logs/cron_job.log 2>&1`.
+- `0 23 * * * sudo certbot renew --dns-route53 >> /home/ubuntu/logs/cron_job.log 2>&1 && /usr/bin/sudo /bin/systemctl restart nginx`.
 - Above cron will run every day at 23:00 and log the output to the `/home/ubuntu/logs/cron_job.log` directory. Make sure the file exists in the directory.
 
 ## Final thoughts
