@@ -30,7 +30,7 @@ Let's learn the process of configuring and installing certbot.
 
 ## Configuration
 
-### Ububtu Server
+### Ubuntu Server
 [Certbot EEF](https://certbot.eff.org/) website has a guide to installing cerbot on different operating systems, we'll consider [Ubuntu](https://ubuntu.com/download/server), [Nginx](https://www.nginx.com/) on the guide.
 
 1. Install the classic certbot package with `sudo snap install --classic certbot`.
