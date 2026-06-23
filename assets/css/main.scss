@@ -931,6 +931,12 @@ html[data-theme='dark'] {
       margin: 0 !important;
     }
 
+    .fab,
+    .svg-inline--fa {
+      color: #fff !important;
+      fill: #fff !important;
+    }
+
     span {
       display: none !important;
     }
