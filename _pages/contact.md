@@ -34,7 +34,7 @@ You can connect with me through the following channels:
   (function() {
     var link = document.getElementById('email-link');
     if (link) {
-      var encoded = "dmlqYXlAdmlqYXlwYXRoYWsuY29tLm5w"; // base64 encoded vijay@vijaypathak.com.np
+      var encoded = "dmlqYXlAdmlqYXlwYXRoYWsuY29tLm5w";
       
       link.addEventListener('click', function(e) {
         e.preventDefault();
