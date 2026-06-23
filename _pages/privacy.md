@@ -2,13 +2,7 @@
 layout: single
 title: "Privacy Policy"
 permalink: /privacy/
-header:
-  overlay_color: "#444444"
-author_profile: false
 ---
-
-Privacy Policy
-==============
 
 Last updated: April 06, 2024
 

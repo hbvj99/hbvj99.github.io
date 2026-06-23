@@ -27,3 +27,30 @@
     <script src="{{ script | relative_url }}"></script>
   {%- endfor -%}
 {%- endif -%}
+
+<!-- Theme Toggle -->
+<script>
+  (function() {
+    var toggle = document.getElementById('theme-toggle');
+    if (!toggle) return;
+
+    var sunIcon = toggle.querySelector('.icon-sun');
+    var moonIcon = toggle.querySelector('.icon-moon');
+
+    function updateIcons(theme) {
+      sunIcon.style.display = theme === 'dark' ? 'block' : 'none';
+      moonIcon.style.display = theme === 'dark' ? 'none' : 'block';
+    }
+
+    updateIcons(document.documentElement.getAttribute('data-theme') || 'light');
+
+    toggle.addEventListener('click', function() {
+      var current = document.documentElement.getAttribute('data-theme') || 'light';
+      var next = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      updateIcons(next);
+    });
+  })();
+</script>
+

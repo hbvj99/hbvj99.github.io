@@ -2,13 +2,50 @@
 layout: single
 title: "Contact"
 permalink: /contact/
-header:
-  overlay_color: "#444444"
-author_profile: true
+author_profile: false
 ---
 
-Hey there!
+Thanks for stopping by! Whether you have a question, suggestions for my articles, a business query, or just want to discuss system engineering and backend design, feel free to reach out. 
 
-Thanks for reading my articles, I hope you liked it. If you find any suggestions, please don't forget to let me know. If you would like to connect - you can follow me on social medias. 
+You can connect with me through the following channels:
 
-Please write me an email by clicking <a href="mailto:vijay@vijaypathak.com.np">here</a> for any business related queries. thanks!
+<div class="contact-grid">
+  <div class="contact-card">
+    <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+    <h4>Email</h4>
+    <p>
+      <a href="#" id="email-link">Click to reveal</a>
+      <noscript>vijay [at] vijaypathak.com.np</noscript>
+    </p>
+  </div>
+  <div class="contact-card">
+    <div class="contact-icon"><i class="fab fa-linkedin"></i></div>
+    <h4>LinkedIn</h4>
+    <p><a href="https://linkedin.com/in/hbvj99" target="_blank" rel="noopener">in/hbvj99</a></p>
+  </div>
+  <div class="contact-card">
+    <div class="contact-icon"><i class="fab fa-github"></i></div>
+    <h4>GitHub</h4>
+    <p><a href="https://github.com/hbvj99" target="_blank" rel="noopener">github.com/hbvj99</a></p>
+  </div>
+</div>
+
+<script>
+  (function() {
+    var link = document.getElementById('email-link');
+    if (link) {
+      var encoded = "dmlqYXlAdmlqYXlwYXRoYWsuY29tLm5w"; // base64 encoded vijay@vijaypathak.com.np
+      
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        window.location.href = "mailto:" + atob(encoded);
+      });
+      
+      link.addEventListener('mouseover', function() {
+        link.setAttribute('href', 'mailto:' + atob(encoded));
+      });
+      
+      link.innerText = "Send Email";
+    }
+  })();
+</script>

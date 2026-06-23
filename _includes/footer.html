@@ -1,20 +1,23 @@
-<div class="page__footer-follow text-center" >
+<div class="page__footer-follow text-center">
   <ul class="social-icons">
     {%- if site.data.ui-text[site.locale].follow -%}
-      <li><strong>{{ site.data.ui-text[site.locale].follow }}</strong></li>
+    <li><strong>{{ site.data.ui-text[site.locale].follow }}</strong></li>
     {%- endif -%}<br>
 
     {%- if site.footer.links -%}
-      {%- for link in site.footer.links -%}
-        {%- if link.label and link.url -%}
-          <li><a href="{{ link.url }}" rel="nofollow noopener noreferrer"><i class="{{ link.icon | default: 'fas fa-link' }}" aria-hidden="true"></i> </a></li>
-        {%- endif -%}
-      {%- endfor -%}
+    {%- for link in site.footer.links -%}
+    {%- if link.label and link.url -%}
+    <li><a href="{{ link.url }}" rel="nofollow noopener noreferrer"><i class="{{ link.icon | default: 'fas fa-link' }}"
+          aria-hidden="true"></i> </a></li>
+    {%- endif -%}
+    {%- endfor -%}
     {%- endif -%}
 
-    <li><a href="{%- if site.atom_feed.path -%}{{ site.atom_feed.path }}{%- else -%}{{ '/feed.xml' | relative_url }}{%- endif -%}"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].feed }}</a></li>
+    <li><a
+        href="{%- if site.atom_feed.path -%}{{ site.atom_feed.path }}{%- else -%}{{ '/feed.xml' | relative_url }}{%- endif -%}"><i
+          class="fas fa-fw fa-rss-square" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].feed }}</a></li>
   </ul>
 </div>
 
-<div class="page__footer-copyright text-center">&copy; Vijay Pathak {{ site.time | date: '%Y' }} | Build with <a href="https://github.com/mmistakes/minimal-mistakes" rel="nofollow"> minimal-mistakes</a></div>
-<div class="page__footer-copyright text-center"><a href="/privacy" rel="nofollow"> Privacy policy</a></div>
+<div class="page__footer-copyright text-center">&copy; Vijay Pathak {{ site.time | date: '%Y' }} | <a href="/privacy"
+    rel="nofollow">Privacy policy</a></div>
