@@ -5,7 +5,7 @@ author_profile: false
 
 <div class="home-hero" style="margin-top: 1.5rem; margin-bottom: 3.5rem;">
   <h1 class="hero-title" style="font-size: 2.8rem; line-height: 1.15; font-weight: 800; margin-bottom: 0.5rem; background: linear-gradient(135deg, var(--link) 0%, var(--link-hover) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: -0.5px;">Hi, I'm Vijay <span class="wave" style="display: inline-block; -webkit-text-fill-color: initial; animation: wave-animation 2.5s infinite; transform-origin: 70% 70%;">👋</span></h1>
-  <p class="hero-subtitle" style="font-size: 1.35rem; font-weight: 500; color: var(--muted); margin-top: 0; margin-bottom: 1.5rem; letter-spacing: -0.2px;">Backend Architect & Cloud Systems Engineer</p>
+  <p class="hero-subtitle" style="font-size: 1.35rem; font-weight: 500; color: var(--muted); margin-top: 0; margin-bottom: 1.5rem; letter-spacing: -0.2px;">Software Engineer</p>
   
   <p class="hero-bio" style="font-size: 1.1rem; line-height: 1.65; margin-bottom: 2rem; max-width: 680px; color: var(--text);">
     I specialize in designing and building scalable backend architectures, robust APIs, and cloud-native services. Here, I write about systems engineering, cloud automation, and key engineering lessons.
