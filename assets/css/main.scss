@@ -36,26 +36,26 @@
 
 /* Dark mode - warm slate, premium contrast, easy on eyes */
 html[data-theme='dark'] {
-  --bg: #15171e;
-  --text: #e2e8f0;
-  --muted: #94a3b8;
-  --border: #262936;
-  --link: #589df6;
-  --link-hover: #8bb6ff;
-  --code-bg: #1e212b;
-  --footer-bg: #0f1115;
-  --masthead-bg: #15171e;
+  --bg: #0d1117;
+  --text: #c9d1d9;
+  --muted: #8b949e;
+  --border: #21262d;
+  --link: #58a6ff;
+  --link-hover: #79c0ff;
+  --code-bg: #161b22;
+  --footer-bg: #080b10;
+  --masthead-bg: #0d1117;
 
-  /* Dark mode syntax tokens (One Dark style) */
-  --syntax-comment: #7f848e;
-  --syntax-keyword: #c678dd;
-  --syntax-string: #98c379;
-  --syntax-name: #abb2bf;
-  --syntax-number: #d19a66;
-  --syntax-tag: #e06c75;
-  --syntax-variable: #e06c75;
-  --syntax-operator: #56b6c2;
-  --syntax-builtin: #61afef;
+  /* Dark mode syntax tokens (GitHub Dark style) */
+  --syntax-comment: #8b949e;
+  --syntax-keyword: #ff7b72;
+  --syntax-string: #a5d6ff;
+  --syntax-name: #d2a8ff;
+  --syntax-number: #79c0ff;
+  --syntax-tag: #ff7b72;
+  --syntax-variable: #ffa657;
+  --syntax-operator: #ff7b72;
+  --syntax-builtin: #d2a8ff;
 }
 
 /* Typography */
