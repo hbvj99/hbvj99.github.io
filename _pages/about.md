@@ -172,4 +172,4 @@ author_profile: false
 
 ---
 
-<div class="about-cta">Let's connect on <a href="https://linkedin.com/in/hbvj99" target="_blank" rel="noopener"><strong>LinkedIn</strong></a> or check my code on <a href="https://github.com/hbvj99" target="_blank" rel="noopener"><strong>GitHub</strong></a>. Feel free to <a href="/contact/"><strong>reach out</strong></a> to discuss system architecture, backend engineering, or open source!</div>
+<div class="about-cta">Let's connect on <a href="https://linkedin.com/in/hbvj99" target="_blank" rel="noopener">LinkedIn</a> or check my code on <a href="https://github.com/hbvj99" target="_blank" rel="noopener">GitHub</a>. Feel free to <a href="/contact/">reach out</a> to discuss system architecture, backend engineering, or open source!</div>

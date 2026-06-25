@@ -876,6 +876,37 @@ html[data-theme='dark'] {
   }
 }
 
+/* Homepage Stats */
+.home-stats {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin: 2.5rem 0;
+  flex-wrap: wrap;
+}
+
+.home-stat {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.home-stat-number {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--link);
+  line-height: 1.1;
+}
+
+.home-stat-label {
+  font-size: 0.8rem;
+  color: var(--muted);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
 /* Homepage Hero */
 .home-hero {
   margin-top: 1.5rem;
@@ -1313,15 +1344,12 @@ html[data-theme='dark'] {
 .about-cta {
   line-height: 1.65;
   color: var(--muted);
-  padding: 1.25rem 1.5rem;
-  background-color: var(--code-bg);
-  border: 1px solid var(--border);
-  border-radius: 8px;
   margin-top: 0.5rem;
 
   a {
     color: var(--link);
     text-decoration: none;
+    font-weight: 600;
 
     &:hover {
       text-decoration: underline;

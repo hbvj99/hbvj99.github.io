@@ -42,9 +42,17 @@ author_profile: false
 
 <hr style="border: 0; border-top: 1px solid var(--border); margin: 3rem 0;" />
 
+<div class="home-stats">
+  <div class="home-stat"><span class="home-stat-number">6+</span> <span class="home-stat-label">Years Experience</span></div>
+  <div class="home-stat"><span class="home-stat-number">20+</span> <span class="home-stat-label">Projects</span></div>
+  <div class="home-stat"><span class="home-stat-number">{{ site.posts | size }}</span> <span class="home-stat-label">Articles</span></div>
+</div>
+
+<hr style="border: 0; border-top: 1px solid var(--border); margin: 3rem 0;" />
+
 <div class="home-section">
-  <h2 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 1.75rem; border-bottom: none; display: flex; align-items: center; gap: 0.6rem; color: var(--text);">
-    <i class="fas fa-feather-alt" style="color: var(--link); font-size: 1.2rem;"></i> Recent Articles
+  <h2>
+    <i class="fas fa-feather-alt"></i> Recent Articles
   </h2>
   
   <div class="recent-posts-list" style="display: flex; flex-direction: column; gap: 1.25rem;">
