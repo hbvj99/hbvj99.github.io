@@ -682,6 +682,10 @@ html[data-theme='dark'] {
     }
   }
 
+  .greedy-nav__toggle::before {
+    background-color: var(--bg) !important;
+  }
+
   .pagination--pager {
     color: var(--text);
     border-color: var(--border);
