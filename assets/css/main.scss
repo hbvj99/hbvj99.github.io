@@ -1435,10 +1435,10 @@ html[data-theme='dark'] {
   }
 }
 
-/* Spacing adjustments on Post detail page between author sidebar and content */
+/* Spacing adjustments on Post detail page */
 @media (min-width: 64em) {
   .sidebar ~ .page {
-    padding-left: 2rem !important;
+    padding-left: 0 !important;
   }
 }
 
