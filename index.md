@@ -19,23 +19,23 @@ author_profile: false
 
 <hr style="border: 0; border-top: 1px solid var(--border); margin: 3rem 0;" />
 
-<div class="home-section" style="margin-bottom: 3.5rem;">
-  <h2 style="font-size: 1.4rem; font-weight: 700; margin-bottom: 1.5rem; border-bottom: none; display: flex; align-items: center; gap: 0.5rem; color: var(--text);">
-    <i class="fas fa-cubes" style="color: var(--link); font-size: 1.1rem;"></i> Core Focus & Specialties
+<div class="home-section">
+  <h2>
+    <i class="fas fa-cubes"></i> Core Focus & Specialties
   </h2>
 
-  <div class="specialties-grid-minimal" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 1rem;">
-    <div class="specialty-item-minimal" style="display: flex; flex-direction: column; gap: 0.3rem;">
-      <h3 style="margin: 0 0 0.25rem 0; font-size: 0.95rem; font-weight: 700; color: var(--text); border-bottom: none; line-height: 1.3;">System Design</h3>
-      <p style="margin: 0; font-size: 0.82rem; color: var(--muted); line-height: 1.5;">Designing resilient RESTful microservices, event-driven data integration flows, and robust backend APIs optimized for load.</p>
+  <div class="specialties-grid-minimal">
+    <div class="specialty-item-minimal">
+      <h3><i class="fas fa-sitemap"></i> System Design</h3>
+      <p>Designing resilient RESTful microservices, event-driven data integration flows, and robust backend APIs optimized for load.</p>
     </div>
-    <div class="specialty-item-minimal" style="display: flex; flex-direction: column; gap: 0.3rem;">
-      <h3 style="margin: 0 0 0.25rem 0; font-size: 0.95rem; font-weight: 700; color: var(--text); border-bottom: none; line-height: 1.3;">Cloud & Infrastructure</h3>
-      <p style="margin: 0; font-size: 0.82rem; color: var(--muted); line-height: 1.5;">Building secure cloud automations, serverless pipelines, and containerized deployment workflows using AWS, Self hosting.</p>
+    <div class="specialty-item-minimal">
+      <h3><i class="fas fa-cloud"></i> Cloud & Infrastructure</h3>
+      <p>Building secure cloud automations, serverless pipelines, and containerized deployment workflows using AWS, Self hosting.</p>
     </div>
-    <div class="specialty-item-minimal" style="display: flex; flex-direction: column; gap: 0.3rem;">
-      <h3 style="margin: 0 0 0.25rem 0; font-size: 0.95rem; font-weight: 700; color: var(--text); border-bottom: none; line-height: 1.3;">Reliability & Security</h3>
-      <p style="margin: 0; font-size: 0.82rem; color: var(--muted); line-height: 1.5;">Implementing high-performance cache systems, security standards, and load testing pipelines to guarantee system uptime.</p>
+    <div class="specialty-item-minimal">
+      <h3><i class="fas fa-shield-halved"></i> Reliability & Security</h3>
+      <p>Implementing high-performance cache systems, security standards, and load testing pipelines to guarantee system uptime.</p>
     </div>
   </div>
 </div>

@@ -54,3 +54,48 @@
   })();
 </script>
 
+<!-- Copy Code Button Script -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  var codeBlocks = document.querySelectorAll("pre.highlight, div.highlighter-rouge pre, figure.highlight pre");
+  codeBlocks.forEach(function(codeBlock) {
+    if (codeBlock.querySelector(".copy-code-btn")) return;
+    
+    var copyBtn = document.createElement("button");
+    copyBtn.className = "copy-code-btn";
+    copyBtn.type = "button";
+    copyBtn.ariaLabel = "Copy code to clipboard";
+    copyBtn.innerHTML = '<i class="far fa-copy"></i>';
+    
+    codeBlock.style.position = 'relative';
+    codeBlock.appendChild(copyBtn);
+    
+    copyBtn.addEventListener("click", function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      
+      var codeEl = codeBlock.querySelector("code");
+      var codeText = "";
+      if (codeEl) {
+        var clone = codeEl.cloneNode(true);
+        var btn = clone.querySelector(".copy-code-btn");
+        if (btn) btn.remove();
+        codeText = clone.innerText;
+      } else {
+        codeText = codeBlock.innerText;
+        codeText = codeText.replace(/Copy/g, "");
+      }
+      
+      navigator.clipboard.writeText(codeText).then(function() {
+        copyBtn.innerHTML = '<i class="fas fa-check" style="color: #2ec4b6;"></i>';
+        setTimeout(function() {
+          copyBtn.innerHTML = '<i class="far fa-copy"></i>';
+        }, 2000);
+      }).catch(function(err) {
+        console.error("Failed to copy code: ", err);
+      });
+    });
+  });
+});
+</script>
+
