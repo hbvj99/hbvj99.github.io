@@ -686,6 +686,28 @@ html[data-theme='dark'] {
     background-color: var(--bg) !important;
   }
 
+  .pagination {
+    li a {
+      color: var(--text);
+      border-color: var(--border);
+
+      &:hover {
+        color: var(--link);
+      }
+
+      &.current,
+      &.current.disabled {
+        color: #fff;
+        background: var(--link);
+        border-color: var(--link);
+      }
+
+      &.disabled {
+        color: var(--muted);
+      }
+    }
+  }
+
   .pagination--pager {
     color: var(--text);
     border-color: var(--border);
