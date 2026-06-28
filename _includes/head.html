@@ -15,7 +15,9 @@
 
 <!-- For all browsers -->
 <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
-<link rel="stylesheet" href="{{ '/assets/css/all.min.css' | relative_url }}">
+<!-- FontAwesome: non-blocking preload (self-hosted, served via Cloudflare edge) -->
+<link rel="preload" href="{{ '/assets/css/all.min.css' | relative_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="{{ '/assets/css/all.min.css' | relative_url }}"></noscript>
 
 <!--[if IE]>
   <style>
