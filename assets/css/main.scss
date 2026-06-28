@@ -7,6 +7,18 @@
 @import "minimal-mistakes"; // main partials
 
 /* ==========================================================================
+   Root font-size override — reduce Minimal Mistakes' aggressive zoom-in
+   (theme default: 16 → 18 → 20 → 22 px across breakpoints)
+   ========================================================================== */
+
+html {
+  /* Slightly scaled for blog readability — less zoom than theme default (18/20/22px) */
+  @media (min-width: 768px)  { font-size: 17px; }
+  @media (min-width: 1024px) { font-size: 18px; }
+  @media (min-width: 1280px) { font-size: 19px; }
+}
+
+/* ==========================================================================
    Minimal Modern Refinements
    ========================================================================== */
 
