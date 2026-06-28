@@ -5,17 +5,27 @@ permalink: /about/
 author_profile: false
 ---
 
-<div class="about-intro"><div class="about-intro-text">
-<p>Hello, I'm <strong>Vijay Pathak</strong>. I'm a Software Engineer specializing in backend systems and cloud infrastructure, with a keen enthusiasm for networking and cybersecurity.</p>
-<p>I have over six years of experience designing and building robust, scalable systems, and I am particularly interested in open-source development, digital literacy, and cloud automation.</p>
-</div><div class="about-intro-badges"><span class="about-badge"><i class="fas fa-briefcase"></i> 6+ Years Experience</span><span class="about-badge"><i class="fas fa-code-branch"></i> Open Source</span></div></div>
+<div class="about-hero animate-fade-up" style="--delay: 0ms; margin-bottom: 2.5rem;">
+  <div class="about-intro-text">
+    <p>Hello, I'm <strong>Vijay Pathak</strong>. I'm a Software Engineer specializing in backend systems and cloud infrastructure, with a keen enthusiasm for networking and cybersecurity.</p>
+    <p>I have over six years of experience designing and building robust, scalable systems, and I am particularly interested in open-source development, digital literacy, and cloud automation.</p>
+  </div>
+  <div class="about-intro-badges">
+    <span class="about-badge"><i class="fas fa-briefcase"></i> 6+ Years Experience</span>
+    <span class="about-badge"><i class="fas fa-code-branch"></i> Open Source</span>
+    <span class="about-badge"><i class="fas fa-cloud"></i> Cloud Native</span>
+    <span class="about-badge"><i class="fas fa-laptop-code"></i> Available for Freelance</span>
+  </div>
+</div>
 
----
+
+
+<hr style="border: 0; border-top: 1px solid var(--border); margin: 2.5rem 0;" />
 
 ### Core Expertise
 
 <div class="skills-grid-minimal">
-  <div class="skills-group-minimal">
+  <div class="skills-group-minimal animate-fade-up" style="--delay: 0ms">
     <h4><i class="fas fa-code" style="color: var(--link); font-size: 0.95rem;"></i> Languages</h4>
     <div class="skills-list-minimal">
       <span class="skill-tag-minimal">Python</span>
@@ -24,8 +34,8 @@ author_profile: false
       <span class="skill-tag-minimal">Bash</span>
     </div>
   </div>
-  <div class="skills-group-minimal">
-    <h4><i class="fas fa-cloud" style="color: var(--link); font-size: 0.95rem;"></i> Cloud &amp; Infrastructure</h4>
+  <div class="skills-group-minimal animate-fade-up" style="--delay: 80ms">
+    <h4><i class="fas fa-cloud" style="color: var(--link); font-size: 0.95rem;"></i> Cloud & Infrastructure</h4>
     <div class="skills-list-minimal">
       <span class="skill-tag-minimal">AWS</span>
       <span class="skill-tag-minimal">Infra setup</span>
@@ -36,8 +46,8 @@ author_profile: false
       <span class="skill-tag-minimal">Linux Systems</span>
     </div>
   </div>
-  <div class="skills-group-minimal">
-    <h4><i class="fas fa-database" style="color: var(--link); font-size: 0.95rem;"></i> Databases &amp; Caching</h4>
+  <div class="skills-group-minimal animate-fade-up" style="--delay: 160ms">
+    <h4><i class="fas fa-database" style="color: var(--link); font-size: 0.95rem;"></i> Databases & Caching</h4>
     <div class="skills-list-minimal">
       <span class="skill-tag-minimal">PostgreSQL</span>
       <span class="skill-tag-minimal">MySQL</span>
@@ -46,7 +56,7 @@ author_profile: false
       <span class="skill-tag-minimal">Redis</span>
     </div>
   </div>
-  <div class="skills-group-minimal">
+  <div class="skills-group-minimal animate-fade-up" style="--delay: 240ms">
     <h4><i class="fas fa-project-diagram" style="color: var(--link); font-size: 0.95rem;"></i> Architectural Patterns</h4>
     <div class="skills-list-minimal">
       <span class="skill-tag-minimal">RESTful APIs</span>
@@ -57,12 +67,12 @@ author_profile: false
   </div>
 </div>
 
----
+<hr style="border: 0; border-top: 1px solid var(--border); margin: 2.5rem 0;" />
 
 ### Experience
 
 <div class="timeline">
-  <div class="timeline-item">
+  <div class="timeline-item animate-fade-up" style="--delay: 0ms">
     <div class="timeline-marker"></div>
     <div class="timeline-content">
       <div class="timeline-header">
@@ -73,7 +83,7 @@ author_profile: false
       <p>Architecting backend APIs for global cloud integrations, automating marketplace listings, and implementing live broadcast features using AWS IVS.</p>
     </div>
   </div>
-  <div class="timeline-item">
+  <div class="timeline-item animate-fade-up" style="--delay: 80ms">
     <div class="timeline-marker"></div>
     <div class="timeline-content">
       <div class="timeline-header">
@@ -84,7 +94,7 @@ author_profile: false
       <p>Designed patent analysis pipelines and client-facing internal tools for US patent management.</p>
     </div>
   </div>
-  <div class="timeline-item">
+  <div class="timeline-item animate-fade-up" style="--delay: 160ms">
     <div class="timeline-marker"></div>
     <div class="timeline-content">
       <div class="timeline-header">
@@ -97,7 +107,7 @@ author_profile: false
   </div>
 </div>
 
----
+<hr style="border: 0; border-top: 1px solid var(--border); margin: 2.5rem 0;" />
 
 ### Featured Projects
 
@@ -153,7 +163,7 @@ author_profile: false
   </a>
 </div>
 
----
+<hr style="border: 0; border-top: 1px solid var(--border); margin: 2.5rem 0;" />
 
 ### Education
 
@@ -170,6 +180,27 @@ author_profile: false
   </div>
 </div>
 
----
+<hr style="border: 0; border-top: 1px solid var(--border); margin: 2.5rem 0;" />
 
 <div class="about-cta">Let's connect on <a href="https://linkedin.com/in/hbvj99" target="_blank" rel="noopener">LinkedIn</a> or check my code on <a href="https://github.com/hbvj99" target="_blank" rel="noopener">GitHub</a>. Feel free to <a href="/contact/">reach out</a> to discuss system architecture, backend engineering, or open source!</div>
+
+<script>
+(function() {
+  var items = document.querySelectorAll('.animate-fade-up');
+  if (!items.length || !('IntersectionObserver' in window)) {
+    items.forEach(function(el) { el.classList.add('is-visible'); });
+    return;
+  }
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        var el = entry.target;
+        var delay = el.style.getPropertyValue('--delay') || '0ms';
+        setTimeout(function() { el.classList.add('is-visible'); }, parseInt(delay) || 0);
+        observer.unobserve(el);
+      }
+    });
+  }, { threshold: 0.1 });
+  items.forEach(function(el) { observer.observe(el); });
+})();
+</script>

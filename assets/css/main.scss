@@ -1035,6 +1035,97 @@ html[data-theme='dark'] {
   }
 }
 
+/* -----------------------------------------------
+   Scroll-triggered fade-in animation
+   ----------------------------------------------- */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  opacity: 0;
+  transform: translateY(18px);
+
+  &.is-visible {
+    animation: fade-up 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+}
+
+/* Services Section */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+  margin-top: 1rem;
+
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.service-item {
+  background-color: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.25rem 1.1rem;
+  will-change: transform;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+
+  &:hover {
+    transform: translateY(-3px);
+    border-color: var(--link);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+  }
+
+  .service-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: var(--bg);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--link);
+    font-size: 1rem;
+    margin-bottom: 0.85rem;
+    transition: border-color 0.25s ease, background-color 0.25s ease;
+  }
+
+  &:hover .service-icon {
+    border-color: var(--link);
+    background-color: color-mix(in srgb, var(--link) 8%, var(--bg));
+  }
+
+  h3 {
+    margin: 0 0 0.35rem 0 !important;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text);
+    border-bottom: none !important;
+  }
+
+  p {
+    margin: 0;
+    font-size: 0.82rem;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+}
+
+html[data-theme='dark'] {
+  .service-item:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.28);
+  }
+}
+
 /* Recent posts list */
 .recent-posts-list {
   display: flex;
@@ -1519,5 +1610,29 @@ html[data-theme='dark'] {
     background-color: transparent !important;
     color: var(--link) !important;
     font-weight: 700 !important;
+  }
+}
+
+/* Dark mode: fix white background on mobile Follow dropdown */
+html[data-theme='dark'] {
+  .author__urls-wrapper {
+    .author__urls {
+      background-color: var(--bg) !important;
+      border-color: var(--border) !important;
+
+      li a {
+        color: var(--text) !important;
+
+        &:hover {
+          color: var(--link) !important;
+        }
+      }
+    }
+
+    button.btn--inverse {
+      background-color: var(--border) !important;
+      color: var(--text) !important;
+      border-color: var(--border) !important;
+    }
   }
 }
