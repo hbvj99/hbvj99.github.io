@@ -52,7 +52,7 @@ author_profile: false
 
 <div class="home-section">
   <h2>
-    <i class="fas fa-briefcase"></i> Services I Offer
+    <i class="fas fa-briefcase"></i> How I Can Help
   </h2>
 
   <div class="services-grid">

@@ -12,9 +12,8 @@ author_profile: false
   </div>
   <div class="about-intro-badges">
     <span class="about-badge"><i class="fas fa-briefcase"></i> 6+ Years Experience</span>
-    <span class="about-badge"><i class="fas fa-code-branch"></i> Open Source</span>
     <span class="about-badge"><i class="fas fa-cloud"></i> Cloud Native</span>
-    <span class="about-badge"><i class="fas fa-laptop-code"></i> Available for Freelance</span>
+    <span class="about-badge"><i class="fas fa-laptop-code"></i> Open to Projects</span>
   </div>
 </div>
 
@@ -78,9 +77,9 @@ author_profile: false
       <div class="timeline-header">
         <span class="timeline-role">Software Engineer</span>
         <span class="timeline-company">OutCode Software</span>
-        <span class="timeline-date">Present</span>
+        <span class="timeline-date">Jul 2020 – Present</span>
       </div>
-      <p>Architecting backend APIs for global cloud integrations, automating marketplace listings, and implementing live broadcast features using AWS IVS.</p>
+      <p>Lead backend engineer architecting Salesforce data pipelines, live streaming services, and AWS/GCP marketplace integrations.</p>
     </div>
   </div>
   <div class="timeline-item animate-fade-up" style="--delay: 80ms">
@@ -89,9 +88,9 @@ author_profile: false
       <div class="timeline-header">
         <span class="timeline-role">Software Engineer</span>
         <span class="timeline-company">Insight Workshop</span>
-        <span class="timeline-date">2020</span>
+        <span class="timeline-date">Jul 2020 – Oct 2020</span>
       </div>
-      <p>Designed patent analysis pipelines and client-facing internal tools for US patent management.</p>
+      <p>Designed US patent analysis pipelines and built real-time communication systems with Django and Jenkins CI/CD.</p>
     </div>
   </div>
   <div class="timeline-item animate-fade-up" style="--delay: 160ms">
@@ -100,9 +99,20 @@ author_profile: false
       <div class="timeline-header">
         <span class="timeline-role">Software Developer</span>
         <span class="timeline-company">Datopian</span>
-        <span class="timeline-date">2020</span>
+        <span class="timeline-date">Jan 2020 – Mar 2020</span>
       </div>
-      <p>Built open data CKAN portals and developed frontend energy system portals for Danish national transmission system.</p>
+      <p>Built open data CKAN portals and energy system systems for the Danish national transmission grid.</p>
+    </div>
+  </div>
+  <div class="timeline-item animate-fade-up" style="--delay: 240ms">
+    <div class="timeline-marker"></div>
+    <div class="timeline-content">
+      <div class="timeline-header">
+        <span class="timeline-role">Software Developer</span>
+        <span class="timeline-company">Awecode</span>
+        <span class="timeline-date">Oct 2018 – Feb 2019</span>
+      </div>
+      <p>Developed automated web-scraping scripts and pipelines for large-scale data collection.</p>
     </div>
   </div>
 </div>
