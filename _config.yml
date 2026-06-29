@@ -109,7 +109,7 @@ analytics:
 author:
   name             : "Vijay Pathak"
   avatar           : "/assets/image/vijay-pathak.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "He is software engineer, focused on backend & cloud tech, enthusiastic about networking & cybersecurity."
+  bio              : "Software engineer focused on backend and cloud technologies, with a broad interest in systems, infrastructure, and security."
   # location         : "Kathmandu, NP"
   links:
     # - label: "Email"

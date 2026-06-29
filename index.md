@@ -31,11 +31,11 @@ author_profile: false
     </div>
     <div class="specialty-item-minimal animate-fade-up" style="--delay: 100ms">
       <h3><i class="fas fa-cloud"></i> Cloud & Infrastructure</h3>
-      <p>Building secure cloud automations, serverless pipelines, and containerized deployment workflows using AWS, Self hosting.</p>
+      <p>Building secure cloud automation, serverless pipelines, and containerized deployments across AWS and self-hosted environments.</p>
     </div>
     <div class="specialty-item-minimal animate-fade-up" style="--delay: 200ms">
       <h3><i class="fas fa-shield-halved"></i> Reliability & Security</h3>
-      <p>Implementing high-performance cache systems, security standards, and load testing pipelines to guarantee system uptime.</p>
+      <p>Improving performance, security, and system reliability through caching, load testing, and operational best practices.</p>
     </div>
   </div>
 </div>
@@ -58,13 +58,13 @@ author_profile: false
   <div class="services-grid">
     <div class="service-item animate-fade-up" style="--delay: 0ms">
       <div class="service-icon"><i class="fas fa-server"></i></div>
-      <h3>Backend Development</h3>
-      <p>REST & GraphQL APIs, microservices architecture, database design, and performance optimization for production systems.</p>
+      <h3>Development</h3>
+      <p>Production-ready REST and GraphQL APIs, microservices, database design, and performance optimization.</p>
     </div>
     <div class="service-item animate-fade-up" style="--delay: 100ms">
       <div class="service-icon"><i class="fas fa-code"></i></div>
-      <h3>Freelance Consulting</h3>
-      <p>Available for freelance projects — architecture reviews, code audits, system migrations, and technical consulting.</p>
+      <h3>Independent Consulting</h3>
+      <p>Available for architecture reviews, code audits, system migrations, and technical guidance.</p>
     </div>
   </div>
 
