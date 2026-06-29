@@ -7,8 +7,8 @@ author_profile: false
 
 <div class="about-hero animate-fade-up" style="--delay: 0ms; margin-bottom: 2.5rem;">
   <div class="about-intro-text">
-    <p>Hello, I'm <strong>Vijay Pathak</strong>. I'm a Software Engineer specializing in backend systems and cloud infrastructure, with a keen enthusiasm for networking and cybersecurity.</p>
-    <p>I have over six years of experience designing and building robust, scalable systems, and I am particularly interested in open-source development, digital literacy, and cloud automation.</p>
+    <p>Hello, I'm <strong>Vijay Pathak</strong>, a software engineer specializing in backend systems and cloud infrastructure.</p>
+    <p>I have over six years of experience designing and building scalable software systems. My interests include systems engineering, infrastructure, security, open-source development, and cloud automation.</p>
   </div>
   <div class="about-intro-badges">
     <span class="about-badge"><i class="fas fa-briefcase"></i> 6+ Years Experience</span>

@@ -8,7 +8,7 @@ author_profile: false
   <p class="hero-subtitle" style="font-size: 1.35rem; font-weight: 500; color: var(--muted); margin-top: 0; margin-bottom: 1.5rem; letter-spacing: -0.2px;">Software Engineer</p>
   
   <p class="hero-bio" style="font-size: 1.1rem; line-height: 1.65; margin-bottom: 2rem; max-width: 680px; color: var(--text);">
-    I specialize in designing and building scalable backend architectures, robust APIs, and cloud-native services. Here, I write about systems engineering, cloud automation, and key engineering lessons.
+    I specialize in designing and building scalable backend systems, reliable APIs, and cloud-native services. Here, I write about systems engineering, cloud automation, and key engineering lessons.
   </p>
 
   <div class="hero-ctas" style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
@@ -27,15 +27,15 @@ author_profile: false
   <div class="specialties-grid-minimal">
     <div class="specialty-item-minimal animate-fade-up" style="--delay: 0ms">
       <h3><i class="fas fa-sitemap"></i> System Design</h3>
-      <p>Designing resilient RESTful microservices, event-driven data integration flows, and robust backend APIs optimized for load.</p>
+      <p>Designing RESTful services, event-driven integrations, and backend APIs for reliable performance.</p>
     </div>
     <div class="specialty-item-minimal animate-fade-up" style="--delay: 100ms">
       <h3><i class="fas fa-cloud"></i> Cloud & Infrastructure</h3>
-      <p>Building secure cloud automation, serverless pipelines, and containerized deployments across AWS and self-hosted environments.</p>
+      <p>Building cloud automation, serverless pipelines, and containerized deployments across AWS and self-hosted environments.</p>
     </div>
     <div class="specialty-item-minimal animate-fade-up" style="--delay: 200ms">
       <h3><i class="fas fa-shield-halved"></i> Reliability & Security</h3>
-      <p>Improving performance, security, and system reliability through caching, load testing, and operational best practices.</p>
+      <p>Improving performance, reliability, and security through caching, load testing, and sound operational practices.</p>
     </div>
   </div>
 </div>
