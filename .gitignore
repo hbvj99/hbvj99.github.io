@@ -1,31 +1,24 @@
-# Ruby Gem
-*.gem
-.bundle
+# build output
+dist/
 
-# OS-specific files
-.DS_Store
-Thumbs.db
+# generated types
+.astro/
 
-# Jekyll generated files
-.jekyll-cache
-.jekyll-metadata
-.sass-cache
-_asset_bundler_cache
-_site
-
-# Bundler
-Gemfile.lock
-/vendor
-.bundle/
-
-# Node.js (if applicable)
+# dependencies
 node_modules/
 
-# Vscode and Editor files
-*.[Cc]ache
-!?*.[Cc]ache/
-.idea
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
 
-# Logs and temporary files
-*.log
-*.tmp
+# environment variables
+.env
+.env.production
+
+# macOS-specific files
+.DS_Store
+
+# jetbrains setting folder
+.idea/

@@ -1,0 +1,157 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Contact | Vijay Pathak" description="Get in touch with Vijay Pathak. Reach out via email, LinkedIn, or GitHub for system engineering and backend consulting.">
+  <div class="container animate-fade-up">
+    <section class="contact-hero">
+      <h1 class="glow-title">Get In Touch</h1>
+      <p class="contact-intro">
+        Thanks for stopping by! Whether you have a question, suggestions for my articles, a business query, or just want to discuss system engineering and backend design — feel free to reach out.
+      </p>
+    </section>
+
+    <div class="contact-grid">
+      <!-- Email Card -->
+      <div class="contact-card card-glass">
+        <div class="contact-icon-wrap"><i class="fas fa-envelope"></i></div>
+        <h3>Email</h3>
+        <p class="contact-desc">Drop me a message, and I'll get back to you as soon as possible.</p>
+        <p class="contact-link-wrap">
+          <a href="#" id="email-link" class="btn btn--primary">Send Email</a>
+          <noscript>
+            <span class="email-fallback">vijay [at] vijaypathak.com.np</span>
+          </noscript>
+        </p>
+      </div>
+
+      <!-- LinkedIn Card -->
+      <div class="contact-card card-glass">
+        <div class="contact-icon-wrap"><i class="fab fa-linkedin"></i></div>
+        <h3>LinkedIn</h3>
+        <p class="contact-desc">Let's connect professionally and discuss industry topics.</p>
+        <p class="contact-link-wrap">
+          <a href="https://linkedin.com/in/hbvj99" target="_blank" rel="noopener noreferrer" class="btn btn--outline">in/hbvj99</a>
+        </p>
+      </div>
+
+      <!-- GitHub Card -->
+      <div class="contact-card card-glass">
+        <div class="contact-icon-wrap"><i class="fab fa-github"></i></div>
+        <h3>GitHub</h3>
+        <p class="contact-desc">Check out my open-source projects, system labs, and code scripts.</p>
+        <p class="contact-link-wrap">
+          <a href="https://github.com/hbvj99" target="_blank" rel="noopener noreferrer" class="btn btn--outline">github.com/hbvj99</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<script>
+  // Safe email decoding logic
+  (function() {
+    const link = document.getElementById('email-link');
+    if (link) {
+      const encoded = "dmlqYXlAdmlqYXlwYXRoYWsuY29tLm5w"; // base64 for vijay@vijaypathak.com.np
+      
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        window.location.href = "mailto:" + atob(encoded);
+      });
+      
+      link.addEventListener('mouseover', function() {
+        link.setAttribute('href', 'mailto:' + atob(encoded));
+      });
+    }
+  })();
+</script>
+
+<style>
+  .contact-hero {
+    text-align: center;
+    margin-bottom: 3.5rem;
+  }
+
+  .contact-hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .contact-intro {
+    font-size: 1.15rem;
+    color: var(--text-muted);
+    line-height: 1.65;
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  /* Grid Layout */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  @media (min-width: 768px) {
+    .contact-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  /* Cards styling */
+  .contact-card {
+    padding: 2.5rem 1.75rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+  }
+
+  .contact-icon-wrap {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: var(--primary-glow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary);
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(124, 58, 237, 0.25);
+    box-shadow: 0 0 15px rgba(124, 58, 237, 0.1);
+  }
+
+  .contact-card h3 {
+    font-size: 1.35rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .contact-desc {
+    color: var(--text-muted);
+    font-size: 0.92rem;
+    line-height: 1.5;
+    margin: 0 0 2rem 0;
+    flex-grow: 1;
+  }
+
+  .contact-link-wrap {
+    width: 100%;
+    margin: 0;
+  }
+
+  .contact-link-wrap .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .email-fallback {
+    font-size: 0.9rem;
+    color: var(--accent);
+    word-break: break-all;
+  }
+</style>

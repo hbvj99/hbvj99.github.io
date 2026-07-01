@@ -1,0 +1,536 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import { getPostDate, getPostUrl } from '../../utils/post';
+
+const posts = await getCollection('posts');
+const sortedPosts = posts.sort((a, b) => getPostDate(b).getTime() - getPostDate(a).getTime());
+
+// Extract all unique categories and tags
+const allCategories = [...new Set(sortedPosts.flatMap(post => post.data.categories || []))].sort();
+const allTags = [...new Set(sortedPosts.flatMap(post => post.data.tags || []))].sort();
+---
+
+<BaseLayout title="Articles | Vijay Pathak" description="Browse technical articles, backend design system insights, and cloud deployment guides written by Vijay Pathak.">
+  <div class="container">
+    <header class="posts-hero">
+      <h1 class="glow-title" id="page-title">Technical Articles</h1>
+      <p class="posts-subtitle">Sharing research, architectural guides, and lessons learned from systems engineering.</p>
+    </header>
+
+    <!-- Active Filter Info -->
+    <p class="posts-count" id="posts-count" aria-live="polite" aria-atomic="true"></p>
+
+    <div class="posts-layout-grid">
+      <!-- Main Content Area -->
+      <div class="posts-main-content">
+
+        <!-- Posts list -->
+        <div id="posts-list" class="entries-list">
+          {sortedPosts.map((post) => {
+            const postUrl = getPostUrl(post);
+            const pubDate = getPostDate(post).toLocaleDateString('en-US', {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric'
+            });
+
+            const words = post.body.split(/\s+/).length;
+            const readTime = Math.max(1, Math.ceil(words / 200)).toString();
+            const catSlugs = (post.data.categories || []).map(c => c.toLowerCase().replace(/\s+/g, '-')).join(' ');
+            const tagSlugs = (post.data.tags || []).map(t => t.toLowerCase().replace(/\s+/g, '-')).join(' ');
+
+            return (
+              <div 
+                class="post-card-item" 
+                data-categories={catSlugs} 
+                data-tags={tagSlugs}
+              >
+                <a href={postUrl} class="post-item card-glass">
+                  <div class="post-item-content">
+                    <h2 class="post-item-title">{post.data.title}</h2>
+                    {post.data.excerpt && (
+                      <p class="post-item-excerpt">{post.data.excerpt}</p>
+                    )}
+                  </div>
+                  <div class="post-item-footer">
+                    <div class="post-item-meta">
+                      <span class="post-item-date"><i class="far fa-calendar-alt"></i> {pubDate}</span>
+                      <span class="meta-sep">•</span>
+                      <span class="post-item-readtime"><i class="far fa-clock"></i> {readTime} min read</span>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            );
+          })}
+        </div>
+
+        <!-- Empty State -->
+        <div id="no-posts" class="posts-none card-glass" style="display: none;">
+          <i class="far fa-folder-open"></i>
+          <p>No articles match your selected filters.</p>
+        </div>
+
+        <!-- Pagination -->
+        <nav class="pagination" id="posts-pagination" aria-label="Posts pagination">
+          <ul></ul>
+        </nav>
+      </div>
+
+      <!-- Sticky Filters Sidebar -->
+      <aside class="posts-sidebar">
+        <div class="posts-filter card-glass">
+          <div class="filter-header">
+            <span><i class="fas fa-filter"></i> Filter Articles</span>
+          </div>
+          <div class="posts-filter-row">
+            <div class="select-wrap">
+              <i class="fas fa-layer-group select-icon"></i>
+              <select id="category-select" class="posts-filter-select" aria-label="Filter by category">
+                <option value="">All Categories</option>
+                {allCategories.map(category => (
+                  <option value={category.toLowerCase().replace(/\s+/g, '-')}>{category}</option>
+                ))}
+              </select>
+            </div>
+
+            <div class="select-wrap">
+              <i class="fas fa-tags select-icon"></i>
+              <select id="tag-select" class="posts-filter-select" aria-label="Filter by tag">
+                <option value="">All Tags</option>
+                {allTags.map(tag => (
+                  <option value={tag.toLowerCase().replace(/\s+/g, '-')}>{tag}</option>
+                ))}
+              </select>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</BaseLayout>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const PER_PAGE = 5;
+    let page = 1;
+    let cat = "";
+    let tag = "";
+
+    const catEl = document.getElementById("category-select") as HTMLSelectElement | null;
+    const tagEl = document.getElementById("tag-select") as HTMLSelectElement | null;
+    const items = Array.from(document.querySelectorAll(".post-card-item")) as HTMLElement[];
+    const pagWrap = document.getElementById("posts-pagination");
+    const pagList = pagWrap ? pagWrap.querySelector("ul") : null;
+    const noneEl = document.getElementById("no-posts");
+    const countEl = document.getElementById("posts-count");
+
+    function filter() {
+      return items.filter(function(item) {
+        const c = item.getAttribute("data-categories") || "";
+        const tg = item.getAttribute("data-tags") || "";
+        return (!cat || c.split(' ').includes(cat)) &&
+               (!tag || tg.split(' ').includes(tag));
+      });
+    }
+
+    function render() {
+      const matched = filter();
+      const total = matched.length;
+
+      if (total === 0) {
+        if (noneEl) noneEl.style.display = "flex";
+        if (pagWrap) pagWrap.style.display = "none";
+        items.forEach(function(el) { el.style.display = "none"; });
+        if (countEl) countEl.textContent = "";
+        return;
+      }
+      if (noneEl) noneEl.style.display = "none";
+
+      const pages = Math.ceil(total / PER_PAGE);
+      if (page > pages) page = Math.max(1, pages);
+      const start = (page - 1) * PER_PAGE;
+      const end = Math.min(start + PER_PAGE, total);
+
+      items.forEach(function(el) { el.style.display = "none"; });
+      matched.slice(start, end).forEach(function(el) { el.style.display = "block"; });
+
+      if (countEl) {
+        countEl.textContent = "Showing " + (start + 1) + "–" + end + " of " + total + " articles";
+      }
+
+      renderPagination(pages);
+    }
+
+    function renderPagination(pages: number) {
+      if (!pagList || !pagWrap) return;
+      pagList.innerHTML = "";
+      if (pages <= 1) { 
+        pagWrap.style.display = "none"; 
+        return; 
+      }
+      pagWrap.style.display = "flex";
+
+      function add(label: string | number, isActive: boolean, disabled: boolean, fn: () => void) {
+        if (!pagList) return;
+        const li = document.createElement("li");
+        const a = document.createElement("a");
+        a.href = "#";
+        a.innerHTML = String(label);
+        
+        if (isActive) a.classList.add("active");
+        if (disabled) a.classList.add("disabled");
+        
+        if (!disabled && !isActive) {
+          a.addEventListener("click", function(e) { 
+            e.preventDefault(); 
+            fn(); 
+            render(); 
+            scroll(); 
+          });
+        }
+        li.appendChild(a);
+        pagList.appendChild(li);
+      }
+
+      // Prev Button
+      add('<i class="fas fa-chevron-left" style="font-size: 0.75rem; margin-right: 6px;"></i> Prev', false, page === 1, function() { page--; });
+      
+      // Page numbers
+      for (let i = 1; i <= pages; i++) {
+        add(i, i === page, false, function() { page = i; });
+      }
+      
+      // Next Button
+      add('Next <i class="fas fa-chevron-right" style="font-size: 0.75rem; margin-left: 6px;"></i>', false, page === pages, function() { page++; });
+    }
+
+    function scroll() {
+      const el = document.getElementById("page-title");
+      if (el) el.scrollIntoView({ behavior: "smooth" });
+    }
+
+    if (catEl) {
+      catEl.addEventListener("change", function() {
+        cat = this.value;
+        page = 1;
+        render();
+      });
+    }
+
+    if (tagEl) {
+      tagEl.addEventListener("change", function() {
+        tag = this.value;
+        page = 1;
+        render();
+      });
+    }
+
+    render();
+  });
+</script>
+
+<style>
+  .container {
+    max-width: 1040px !important;
+  }
+
+  .posts-hero {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .posts-hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .posts-subtitle {
+    font-size: 1.15rem;
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.5;
+  }
+
+  /* Grid layout with posts list and sticky sidebar */
+  .posts-layout-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    align-items: start;
+  }
+
+  @media (min-width: 1024px) {
+    .posts-layout-grid {
+      grid-template-columns: 3.25fr 1fr;
+      gap: 3.5rem;
+      align-items: start;
+    }
+  }
+
+  .posts-sidebar {
+    display: block;
+  }
+
+  /* Filters styling */
+  .posts-filter {
+    padding: 1.5rem;
+    margin-bottom: 0;
+    position: sticky;
+    top: 90px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .filter-header {
+    font-family: var(--font-title);
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .filter-header i {
+    color: var(--accent);
+  }
+
+  .posts-filter-row {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+  }
+
+  .select-wrap {
+    position: relative;
+    flex: 1;
+  }
+
+  .select-icon {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    pointer-events: none;
+  }
+
+  .posts-filter-select {
+    width: 100%;
+    background-color: var(--bg);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 12px 14px 12px 38px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-family: var(--font-sans);
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    transition: all var(--transition-fast);
+  }
+
+  .posts-filter-select:hover, .posts-filter-select:focus {
+    border-color: var(--primary);
+    outline: none;
+    box-shadow: 0 0 10px var(--primary-glow);
+  }
+
+  /* Count display */
+  .posts-count {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+    padding-left: 4px;
+  }
+
+  .entries-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .post-card-item {
+    display: block;
+  }
+
+  .post-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    padding: 1.5rem 1.75rem;
+    text-decoration: none;
+    transition: all var(--transition-fast);
+  }
+
+  .post-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px var(--primary-glow);
+  }
+
+  .post-item-content {
+    margin-bottom: 1.25rem;
+  }
+
+  .post-item-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--text);
+    margin: 0 0 0.5rem 0;
+    line-height: 1.4;
+    transition: color var(--transition-fast);
+  }
+
+  .post-item:hover .post-item-title {
+    color: var(--primary);
+  }
+
+  .post-item-excerpt {
+    color: var(--text-muted);
+    font-size: 0.92rem;
+    line-height: 1.6;
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .post-item-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    border-top: 1px solid var(--border);
+    padding-top: 0.75rem;
+  }
+
+  .post-item-meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-family: var(--font-sans);
+  }
+
+  .post-item-category-badge {
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: var(--accent);
+    background-color: var(--accent-glow);
+    padding: 1px 6px;
+    border-radius: 4px;
+    border: 1px solid rgba(13, 148, 136, 0.3);
+  }
+
+  .post-item-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .post-item-tag {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    background-color: var(--bg-card);
+    border: 1px solid var(--border);
+    padding: 1px 6px;
+    border-radius: 4px;
+  }
+
+  .meta-sep {
+    color: var(--border);
+  }
+
+  .post-item-date, .post-item-readtime {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  /* Empty state */
+  .posts-none {
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+    gap: 1rem;
+  }
+
+  .posts-none i {
+    font-size: 3rem;
+    color: var(--border);
+  }
+
+  .posts-none p {
+    font-size: 1.1rem;
+    margin: 0;
+  }
+
+  /* Pagination styles - global wrapper for dynamic DOM elements */
+  :global(.pagination) {
+    margin-top: 3rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  :global(.pagination ul) {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 6px;
+  }
+
+  :global(.pagination li a) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 38px;
+    height: 38px;
+    padding: 0 14px;
+    font-family: var(--font-title);
+    font-weight: 600;
+    font-size: 0.9rem;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--text-muted);
+    transition: all var(--transition-fast);
+    background-color: var(--bg-card);
+  }
+
+  :global(.pagination li a:hover:not(.disabled):not(.active)) {
+    border-color: var(--primary);
+    color: var(--text);
+    background-color: var(--primary-glow);
+  }
+
+  :global(.pagination li a.active) {
+    background-color: var(--primary) !important;
+    border-color: var(--primary) !important;
+    color: #fff !important;
+    cursor: default;
+    box-shadow: 0 4px 10px var(--primary-glow);
+  }
+
+  :global(.pagination li a.disabled) {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+</style>

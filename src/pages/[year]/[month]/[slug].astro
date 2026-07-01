@@ -1,0 +1,57 @@
+---
+import { getCollection, render } from 'astro:content';
+import PostLayout from '../../../layouts/PostLayout.astro';
+import { getPostDate } from '../../../utils/post';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('posts');
+  
+  return posts.map(post => {
+    // Jekyll filename format: YYYY-MM-DD-title.md
+    const filename = post.id.split('/').pop() || '';
+    const filenameWithoutExt = filename.replace(/\.md$/, '');
+    const match = filenameWithoutExt.match(/^(\d{4})-(\d{2})-\d{2}-(.+)$/);
+    
+    let year = '';
+    let month = '';
+    let slug = '';
+    
+    if (match) {
+      year = match[1];
+      month = match[2];
+      slug = match[3];
+    } else {
+      // Fallback parser if name pattern differs
+      const postDate = post.data.date ? new Date(post.data.date) : new Date();
+      year = postDate.getFullYear().toString();
+      month = String(postDate.getMonth() + 1).padStart(2, '0');
+      slug = filenameWithoutExt;
+    }
+    
+    return {
+      params: { year, month, slug },
+      props: { post },
+    };
+  });
+}
+
+const { post } = Astro.props;
+const { Content, headings } = await render(post);
+
+// Dynamically compute reading time based on word count (approx. 200 wpm)
+const words = post.body ? post.body.trim().split(/\s+/).length : 0;
+const computedReadTime = Math.max(1, Math.ceil(words / 200)).toString();
+---
+
+<PostLayout
+  title={post.data.title}
+  description={post.data.excerpt || post.data.description}
+  date={getPostDate(post)}
+  tags={post.data.tags}
+  categories={post.data.categories}
+  readTime={computedReadTime}
+  headings={headings}
+  url={Astro.url.href}
+>
+  <Content />
+</PostLayout>

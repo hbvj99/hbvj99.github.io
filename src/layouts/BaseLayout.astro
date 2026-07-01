@@ -1,0 +1,457 @@
+---
+import '../styles/global.css';
+import Search from '../components/Search.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+  url?: string;
+  isArticle?: boolean;
+  publishedTime?: Date | string;
+  image?: string;
+}
+
+const { 
+  title = "Vijay Pathak", 
+  description = "Software engineer focused on backend and cloud technologies, with a broad interest in systems, infrastructure, and security.",
+  url,
+  isArticle = false,
+  publishedTime,
+  image
+} = Astro.props;
+
+const canonicalUrl = url || Astro.url.href;
+const siteUrl = 'https://vijaypathak.com.np';
+const ogImage = image 
+  ? (image.startsWith('http') ? image : `${siteUrl}${image.startsWith('/') ? '' : '/'}${image}`)
+  : `${siteUrl}/assets/image/logo.png`;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    
+    <!-- Primary Meta Tags -->
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:site_name" content="Vijay Pathak" />
+    <meta property="og:type" content={isArticle ? "article" : "website"} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={ogImage} />
+    {isArticle && publishedTime && (
+      <meta property="article:published_time" content={new Date(publishedTime).toISOString()} />
+    )}
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={ogImage} />
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5804708890991571" crossorigin="anonymous"></script>
+
+    <!-- Google Analytics (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VDE5J9NDQB"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-VDE5J9NDQB');
+    </script>
+
+    <!-- Schema.org JSON-LD Structured Data for SEO -->
+    {isArticle ? (
+      <script type="application/ld+json" is:inline set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": title,
+        "description": description,
+        "url": canonicalUrl,
+        "datePublished": publishedTime ? new Date(publishedTime).toISOString() : undefined,
+        "image": "/assets/image/logo.png",
+        "author": {
+          "@type": "Person",
+          "name": "Vijay Pathak"
+        }
+      })} />
+    ) : (
+      <script type="application/ld+json" is:inline set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Vijay Pathak",
+        "url": canonicalUrl,
+        "description": description
+      })} />
+    )}
+
+    <!-- FontAwesome Icon Set (Upgraded to v6.5.2 to ensure x-twitter shows correctly) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png" />
+    <link rel="manifest" href="/assets/icons/site.webmanifest" />
+    <link rel="shortcut icon" href="/assets/icons/favicon.ico" />
+
+    <!-- Inline script to determine and set theme before page loads (prevents flash) -->
+    <script is:inline>
+      const theme = (() => {
+        if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+          return localStorage.getItem('theme');
+        }
+        if (window.matchMedia('(prefers-color-scheme: light)').matches) {
+          return 'light';
+        }
+        return 'dark';
+      })();
+      if (theme === 'light') {
+        document.documentElement.setAttribute('data-theme', 'light');
+      } else {
+        document.documentElement.removeAttribute('data-theme');
+      }
+    </script>
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-container">
+        <nav class="nav-menu" id="nav-menu">
+          <a href="/" class="nav-link">Home</a>
+          <a href="/about/" class="nav-link">About</a>
+          <a href="/posts/" class="nav-link">Posts</a>
+          <a href="/contact/" class="nav-link">Contact</a>
+        </nav>
+
+        <div class="header-actions">
+          <Search />
+          
+          <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme" title="Toggle theme">
+            <i class="fas fa-moon dark-icon"></i>
+            <i class="fas fa-sun light-icon"></i>
+          </button>
+
+          <button class="nav-toggle" aria-label="Toggle menu" id="nav-toggle">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="main-content">
+      <slot />
+    </main>
+
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-left">
+          <p>&copy; {new Date().getFullYear()} Vijay Pathak. All rights reserved.</p>
+        </div>
+        <div class="footer-center">
+          <a href="/privacy/">Privacy Policy</a>
+        </div>
+        <div class="footer-right">
+          <a href="https://x.com/hbvj99" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
+          <a href="https://github.com/hbvj99" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/hbvj99" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="https://instagram.com/hbvj99" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Mobile navbar toggle
+      const toggle = document.getElementById('nav-toggle');
+      const menu = document.getElementById('nav-menu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', () => {
+          menu.classList.toggle('is-active');
+          const icon = toggle.querySelector('i');
+          if (icon) {
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-xmark');
+          }
+        });
+      }
+
+      // Theme toggle click handler
+      const themeToggle = document.getElementById('theme-toggle');
+      if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+          const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+          if (isLight) {
+            document.documentElement.removeAttribute('data-theme');
+            localStorage.setItem('theme', 'dark');
+          } else {
+            document.documentElement.setAttribute('data-theme', 'light');
+            localStorage.setItem('theme', 'light');
+          }
+        });
+      }
+
+      // IntersectionObserver for scroll animations (.animate-fade-up)
+      (function() {
+        const items = document.querySelectorAll('.animate-fade-up');
+        if (!items.length) return;
+        
+        if (!('IntersectionObserver' in window)) {
+          // Fallback: make visible instantly
+          items.forEach(el => el.classList.add('is-visible'));
+          return;
+        }
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const el = entry.target as HTMLElement;
+              const delay = el.style.getPropertyValue('--delay') || '0ms';
+              setTimeout(() => {
+                el.classList.add('is-visible');
+              }, parseInt(delay) || 0);
+              observer.unobserve(el);
+            }
+          });
+        }, { threshold: 0 });
+
+        items.forEach(el => observer.observe(el));
+      })();
+    </script>
+  </body>
+</html>
+
+<style>
+  /* Header Styles */
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    background-color: var(--bg-header, hsla(224, 25%, 10%, 0.75));
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: background-color var(--transition-normal);
+  }
+
+  :global(html[data-theme="light"]) .header {
+    background-color: hsla(220, 20%, 97%, 0.75);
+  }
+
+  .header-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0.85rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  /* Actions container (toggle & search) */
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-left: auto;
+    margin-right: 0;
+  }
+
+  @media (min-width: 768px) {
+    .header-actions {
+      margin-right: 1.5rem;
+    }
+  }
+
+  .theme-toggle {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-fast);
+  }
+
+  .theme-toggle:hover {
+    color: var(--text);
+    background-color: var(--bg-card);
+  }
+
+  /* Show/hide moon & sun icons based on active theme */
+  .theme-toggle .dark-icon { display: none; }
+  .theme-toggle .light-icon { display: block; }
+  
+  :global(html[data-theme="light"]) .theme-toggle .dark-icon { display: block; }
+  :global(html[data-theme="light"]) .theme-toggle .light-icon { display: none; }
+
+  .nav-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    color: var(--text);
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 6px 8px;
+    border-radius: 4px;
+    transition: background-color var(--transition-fast);
+  }
+
+  .nav-toggle:hover {
+    background-color: var(--bg-card);
+  }
+
+  .nav-menu {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .nav-link {
+    font-family: var(--font-title);
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    padding: 6px 4px;
+    position: relative;
+    transition: color var(--transition-fast);
+  }
+
+  .nav-link:hover {
+    color: var(--text);
+  }
+
+  /* Active line indicator on hover */
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary);
+    transition: width var(--transition-fast);
+  }
+
+  .nav-link:hover::after {
+    width: 100%;
+  }
+
+  /* Main Content structure */
+  .main-content {
+    flex: 1;
+    min-height: calc(100vh - 60px - 90px); /* header + footer approximation */
+    padding: 2.5rem 0;
+  }
+
+  /* Footer Styles */
+  .footer {
+    border-top: 1px solid var(--border);
+    background-color: hsla(224, 25%, 8%, 0.9);
+    color: var(--text-muted);
+    font-size: 0.88rem;
+  }
+
+  :global(html[data-theme="light"]) .footer {
+    background-color: hsla(220, 20%, 93%, 0.8);
+  }
+
+  .footer-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 1.75rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+  }
+
+  .footer-left p {
+    margin: 0;
+  }
+
+  .footer-center {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .footer-center a {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: color var(--transition-fast);
+  }
+
+  .footer-center a:hover {
+    color: var(--primary);
+  }
+
+  .footer-right {
+    display: flex;
+    gap: 1.25rem;
+  }
+
+  .footer-right a {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    transition: all var(--transition-fast);
+  }
+
+  .footer-right a:hover {
+    color: var(--primary);
+    transform: translateY(-2px);
+  }
+
+  /* Mobile responsiveness */
+  @media (max-width: 767px) {
+    .nav-toggle {
+      display: block;
+    }
+
+    .nav-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      flex-direction: column;
+      background-color: var(--bg);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 1.5rem;
+      gap: 1rem;
+      box-shadow: 0 10px 15px rgba(0, 0, 0, 0.4);
+    }
+
+    .nav-menu.is-active {
+      display: flex;
+    }
+
+    .nav-link {
+      font-size: 1.05rem;
+      padding: 8px 0;
+      width: 100%;
+    }
+    
+    .nav-link::after {
+      display: none; /* disable desktop link animation */
+    }
+
+    .footer-container {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+</style>

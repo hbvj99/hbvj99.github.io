@@ -1,0 +1,915 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import { getPostDate, getPostUrl } from '../utils/post';
+
+function getPostImage(post: any): string | null {
+  if (post.data.teaser) return post.data.teaser;
+  if (post.data.image) return post.data.image;
+  const imgHtmlMatch = post.body.match(/<img[^>]+src=["']([^"']+)["']/i);
+  if (imgHtmlMatch && imgHtmlMatch[1]) {
+    return imgHtmlMatch[1];
+  }
+  const imgMdMatch = post.body.match(/!\[[^\]]*\]\(([^)]+)\)/);
+  if (imgMdMatch && imgMdMatch[1]) {
+    return imgMdMatch[1];
+  }
+  return null;
+}
+
+interface Props {
+  title: string;
+  description?: string;
+  date: Date | string;
+  tags?: string[];
+  categories?: string[];
+  readTime?: string;
+  headings?: { depth: number; slug: string; text: string }[];
+  url?: string;
+  image?: string;
+  teaser?: string;
+}
+
+const { title, description, date, tags = [], categories = [], readTime, headings = [], url, image, teaser } = Astro.props;
+
+const formattedDate = new Date(date).toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+
+// Format canonical URL for Disqus
+const pageUrl = url || Astro.url.href;
+const disqusIdentifier = pageUrl.replace(/https?:\/\/[^\/]+/, '');
+
+// Related posts calculation
+const allPosts = await getCollection('posts');
+const currentTags = tags || [];
+const currentCategories = categories || [];
+
+const relatedPosts = allPosts
+  .filter(p => p.data.title !== title) // Exclude current article
+  .map(p => {
+    const pTags = p.data.tags || [];
+    const pCats = p.data.categories || [];
+    const sharedTags = pTags.filter(t => currentTags.includes(t)).length;
+    const sharedCats = pCats.filter(c => currentCategories.includes(c)).length;
+    return { post: p, score: sharedTags * 2 + sharedCats };
+  })
+  .filter(item => item.score > 0)
+  .sort((a, b) => b.score - a.score || getPostDate(b.post).getTime() - getPostDate(a.post).getTime())
+  .slice(0, 6)
+  .map(item => item.post);
+
+// Fallback to recent posts if no similar posts found
+const displayPosts = relatedPosts.length > 0 
+  ? relatedPosts 
+  : allPosts
+      .filter(p => p.data.title !== title)
+      .sort((a, b) => getPostDate(b).getTime() - getPostDate(a).getTime())
+      .slice(0, 6);
+
+const currentPost = allPosts.find(p => p.data.title === title);
+const postImageSrc = teaser || image || (currentPost ? getPostImage(currentPost) : null);
+---
+
+<BaseLayout title={`${title} | Vijay Pathak`} description={description || title} url={pageUrl} isArticle={true} publishedTime={date} image={postImageSrc}>
+
+
+  <div class="container post-container">
+    <article class="post-article">
+      <header class="post-header">
+        <h1 class="post-title glow-title">{title}</h1>
+
+        <div class="post-header-meta">
+          <div class="post-meta">
+            <span><i class="far fa-calendar-alt"></i> {formattedDate}</span>
+            {readTime && (
+              <>
+                <span class="meta-separator">|</span>
+                <span><i class="far fa-clock"></i> {readTime} min read</span>
+              </>
+            )}
+          </div>
+        </div>
+      </header>
+
+      <hr class="post-divider" />
+
+      <div class="post-layout-grid">
+        <!-- Main Content -->
+        <div class="post-content-wrap">
+          <div class="markdown-content">
+            <slot />
+          </div>
+
+          <!-- Bottom Categories & Tags -->
+          {(categories.length > 0 || tags.length > 0) && (
+            <div class="post-footer-meta">
+              {tags.length > 0 && (
+                <div class="post-meta-row">
+                  <span class="meta-label"><i class="fas fa-tags"></i> Tags:</span>
+                  <div class="meta-values">
+                    {tags.map(tag => (
+                      <span class="meta-value-badge">{tag}</span>
+                    ))}
+                  </div>
+                </div>
+              )}
+              {categories.length > 0 && (
+                <div class="post-meta-row">
+                  <span class="meta-label"><i class="fas fa-folder"></i> Categories:</span>
+                  <div class="meta-values">
+                    {categories.map(cat => (
+                      <span class="meta-value-badge">{cat}</span>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          )}
+
+          <!-- Share buttons -->
+          <div class="share-box card-glass">
+            <h4 class="share-title">Share this article</h4>
+            <div class="share-links">
+            <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(pageUrl)}`} target="_blank" rel="noopener noreferrer" aria-label="Share on X" title="Share on X"><i class="fab fa-x-twitter"></i></a>
+            <a href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(pageUrl)}`} target="_blank" rel="noopener noreferrer" aria-label="Share on Facebook" title="Share on Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(pageUrl)}`} target="_blank" rel="noopener noreferrer" aria-label="Share on LinkedIn" title="Share on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href={`https://www.reddit.com/submit?url=${encodeURIComponent(pageUrl)}&title=${encodeURIComponent(title)}`} target="_blank" rel="noopener noreferrer" aria-label="Share on Reddit" title="Share on Reddit"><i class="fab fa-reddit-alien"></i></a>
+            <button id="share-copy-btn" aria-label="Copy link" title="Copy link"><i class="fas fa-link"></i></button>
+          </div>
+          </div>
+
+          <!-- Disqus Comments -->
+          <div class="comments-section card-glass">
+            <h3 class="comments-title"><i class="far fa-comments"></i> Discussions</h3>
+            <div id="disqus_thread"></div>
+          </div>
+
+          <!-- Similar Articles -->
+          {displayPosts.length > 0 && (
+            <div class="related-posts-section">
+              <h3 class="related-title"><i class="fas fa-link"></i> Similar Articles</h3>
+              <div class="related-slider-wrap">
+                <button class="slider-btn slider-btn--left" id="slider-prev" aria-label="Scroll left">
+                  <i class="fas fa-chevron-left"></i>
+                </button>
+                <div class="related-posts-grid">
+                  {displayPosts.map(p => {
+                    const url = getPostUrl(p);
+                    const dateStr = getPostDate(p).toLocaleDateString('en-US', {
+                      year: 'numeric',
+                      month: 'long',
+                      day: 'numeric'
+                    });
+                    const imgSrc = getPostImage(p);
+                    return (
+                      <div class="related-post-card card-glass animate-fade-up">
+                        {imgSrc && (
+                          <img src={imgSrc} alt="" class="related-post-img" loading="lazy" />
+                        )}
+                        <span class="related-post-date"><i class="far fa-calendar-alt"></i> {dateStr}</span>
+                        <h4><a href={url}>{p.data.title}</a></h4>
+                        {p.data.excerpt && <p>{p.data.excerpt}</p>}
+                      </div>
+                    );
+                  })}
+                </div>
+                <button class="slider-btn slider-btn--right" id="slider-next" aria-label="Scroll right">
+                  <i class="fas fa-chevron-right"></i>
+                </button>
+              </div>
+            </div>
+          )}
+        </div>
+
+        <!-- Sidebar / Table of Contents -->
+        {headings && headings.filter(h => h.depth <= 3).length > 0 && (
+          <aside class="post-sidebar">
+            <div class="toc-wrap card-glass">
+              <h4 class="toc-title"><i class="fas fa-list-ul"></i> On this page</h4>
+              <nav class="toc-nav">
+                <ul>
+                  {headings.filter(h => h.depth <= 3).map(h => (
+                    <li class={`toc-item depth-${h.depth}`}>
+                      <a href={`#${h.slug}`}>{h.text}</a>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            </div>
+          </aside>
+        )}
+      </div>
+    </article>
+
+    <!-- Bottom Navigation -->
+    <div class="post-footer-nav">
+      <a href="/posts/" class="btn btn--outline"><i class="fas fa-arrow-left"></i> Back to Articles</a>
+    </div>
+  </div>
+</BaseLayout>
+
+
+
+<!-- Share Copy Link Script -->
+<script>
+  (function() {
+    const shareCopyBtn = document.getElementById('share-copy-btn');
+    if (shareCopyBtn) {
+      shareCopyBtn.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(window.location.href);
+          shareCopyBtn.innerHTML = '<i class="fas fa-check"></i>';
+          setTimeout(() => {
+            shareCopyBtn.innerHTML = '<i class="fas fa-link"></i>';
+          }, 2000);
+        } catch (err) {
+          console.error('Failed to copy link: ', err);
+        }
+      });
+    }
+  })();
+</script>
+
+<!-- Code Copier Script -->
+<script>
+  (function() {
+    const codeBlocks = document.querySelectorAll('.markdown-content pre');
+    codeBlocks.forEach(block => {
+      // Create copy button
+      const button = document.createElement('button');
+      button.className = 'copy-code-btn';
+      button.innerHTML = '<i class="far fa-copy"></i>';
+      button.setAttribute('aria-label', 'Copy code');
+      button.setAttribute('title', 'Copy code');
+      
+      // Ensure block is relative positioned
+      block.style.position = 'relative';
+      block.appendChild(button);
+      
+      button.addEventListener('click', async () => {
+        const code = block.querySelector('code');
+        if (!code) return;
+        
+        try {
+          await navigator.clipboard.writeText(code.innerText);
+          button.innerHTML = '<i class="fas fa-check"></i>';
+          button.classList.add('copied');
+          
+          setTimeout(() => {
+            button.innerHTML = '<i class="far fa-copy"></i>';
+            button.classList.remove('copied');
+          }, 2000);
+        } catch (err) {
+          console.error('Failed to copy text: ', err);
+        }
+      });
+    });
+  })();
+</script>
+
+<!-- Disqus Configuration Script -->
+<script is:inline define:vars={{ pageUrl, disqusIdentifier }}>
+  var disqus_config = function () {
+    this.page.url = pageUrl;
+    this.page.identifier = disqusIdentifier;
+  };
+  (function() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://vijaypathak.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+
+<!-- Table of Contents Scroll-Spy Script -->
+<script>
+  (function() {
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px 0px -60% 0px',
+      threshold: 0
+    };
+
+    const activeIds = new Set();
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        const id = entry.target.getAttribute('id');
+        if (!id) return;
+
+        if (entry.isIntersecting) {
+          activeIds.add(id);
+        } else {
+          activeIds.delete(id);
+        }
+      });
+
+      const headings = Array.from(document.querySelectorAll('.markdown-content h1, .markdown-content h2, .markdown-content h3'));
+      let currentActiveId = null;
+
+      for (const heading of headings) {
+        const id = heading.getAttribute('id');
+        if (id && activeIds.has(id)) {
+          currentActiveId = id;
+          break;
+        }
+      }
+
+      if (!currentActiveId) {
+        const scrollPosition = window.scrollY || document.documentElement.scrollTop;
+        for (let i = headings.length - 1; i >= 0; i--) {
+          const heading = headings[i];
+          const rect = heading.getBoundingClientRect();
+          const topPosition = rect.top + scrollPosition;
+          if (topPosition < scrollPosition + 200) {
+            currentActiveId = heading.getAttribute('id');
+            break;
+          }
+        }
+      }
+
+      document.querySelectorAll('.toc-item a').forEach(link => {
+        const href = link.getAttribute('href');
+        if (href === `#${currentActiveId}`) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      });
+    }, observerOptions);
+
+    const headings = document.querySelectorAll('.markdown-content h1, .markdown-content h2, .markdown-content h3');
+    headings.forEach(heading => observer.observe(heading));
+  })();
+</script>
+
+<!-- Similar Articles Slider Navigation Script -->
+<script>
+  (function() {
+    const prevBtn = document.getElementById('slider-prev');
+    const nextBtn = document.getElementById('slider-next');
+    const grid = document.querySelector('.related-posts-grid');
+    if (!prevBtn || !nextBtn || !grid) return;
+
+    prevBtn.addEventListener('click', () => {
+      grid.scrollBy({ left: -300, behavior: 'smooth' });
+    });
+
+    nextBtn.addEventListener('click', () => {
+      grid.scrollBy({ left: 300, behavior: 'smooth' });
+    });
+
+    function updateButtons() {
+      const scrollLeft = grid.scrollLeft;
+      const maxScroll = grid.scrollWidth - grid.clientWidth;
+      
+      if (scrollLeft <= 5) {
+        prevBtn.style.opacity = '0';
+        prevBtn.style.pointerEvents = 'none';
+      } else {
+        prevBtn.style.opacity = '1';
+        prevBtn.style.pointerEvents = 'auto';
+      }
+
+      if (scrollLeft >= maxScroll - 5) {
+        nextBtn.style.opacity = '0';
+        nextBtn.style.pointerEvents = 'none';
+      } else {
+        nextBtn.style.opacity = '1';
+        nextBtn.style.pointerEvents = 'auto';
+      }
+    }
+
+    grid.addEventListener('scroll', updateButtons);
+    setTimeout(updateButtons, 100);
+    window.addEventListener('resize', updateButtons);
+  })();
+</script>
+
+<style is:global>
+  /* Copy Code Button */
+  .copy-code-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    padding: 6px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    opacity: 0;
+    transition: all var(--transition-fast);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    font-size: 0.82rem;
+  }
+  
+  .markdown-content pre:hover .copy-code-btn {
+    opacity: 1;
+  }
+  
+  .copy-code-btn:hover {
+    background-color: var(--border);
+    color: var(--text);
+  }
+
+  .copy-code-btn.copied {
+    border-color: var(--accent) !important;
+    color: var(--accent) !important;
+  }
+
+  /* Markdown styling overrides inside PostLayout */
+  .markdown-content {
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: var(--text);
+  }
+  .markdown-content h2 {
+    font-size: 1.6rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.35rem;
+  }
+  .markdown-content h3 {
+    font-size: 1.3rem;
+    margin-top: 1.75rem;
+    margin-bottom: 0.75rem;
+  }
+  .markdown-content p {
+    margin-bottom: 1.25rem;
+  }
+  .markdown-content ul, .markdown-content ol {
+    margin-bottom: 1.25rem;
+    padding-left: 1.5rem;
+  }
+  .markdown-content li {
+    margin-bottom: 0.4rem;
+  }
+  .markdown-content code {
+    background-color: var(--bg-code);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: monospace;
+    font-size: 0.9em;
+    border: 1px solid var(--border);
+  }
+  .markdown-content pre {
+    background-color: var(--bg-pre);
+    padding: 1rem;
+    border-radius: 8px;
+    overflow-x: auto;
+    border: 1px solid var(--border);
+    margin-bottom: 1.5rem;
+  }
+  .markdown-content pre code {
+    background: transparent;
+    padding: 0;
+    border: none;
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+  .markdown-content blockquote {
+    border-left: 4px solid var(--primary);
+    padding: 0.5rem 1rem;
+    margin: 1.5rem 0;
+    background: var(--bg-card);
+    border-radius: 0 8px 8px 0;
+    color: var(--text-muted);
+  }
+  .markdown-content blockquote p {
+    margin-bottom: 0;
+  }
+  .markdown-content img {
+    max-width: 100%;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    margin: 1.5rem 0;
+  }
+</style>
+
+<style>
+  .post-container {
+    padding-top: 1rem;
+    max-width: 1040px !important;
+  }
+
+  .post-header-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .post-footer-meta {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px dashed var(--border);
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+  }
+
+  .post-meta-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .meta-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    min-width: 140px;
+    flex-shrink: 0;
+  }
+
+  .meta-label i {
+    font-size: 0.9rem;
+    width: 16px;
+    text-align: center;
+  }
+
+  .meta-values {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .meta-value-badge {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    background-color: transparent;
+    border: 1px solid var(--border);
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: all var(--transition-fast);
+  }
+
+  .meta-value-badge:hover {
+    color: var(--text);
+    border-color: var(--primary);
+    background-color: var(--bg-card);
+  }
+
+  .post-footer-nav {
+    margin-top: 3.5rem;
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid var(--border);
+    padding-top: 2rem;
+  }
+
+  .post-article {
+    width: 100%;
+  }
+
+  .post-header {
+    margin-bottom: 1.5rem;
+  }
+
+  .post-categories {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 0;
+  }
+
+  .post-category-badge {
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: var(--accent);
+    background-color: var(--accent-glow);
+    padding: 3px 8px;
+    border-radius: 4px;
+    border: 1px solid rgba(13, 148, 136, 0.4);
+  }
+
+  .post-title {
+    font-size: 2.2rem;
+    line-height: 1.2;
+    margin-bottom: 0.75rem;
+  }
+
+  .post-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 0;
+  }
+
+  .meta-separator {
+    color: var(--border);
+  }
+
+  .post-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .post-tag {
+    font-size: 0.75rem;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border);
+    padding: 3px 8px;
+    border-radius: 12px;
+    color: var(--text-muted);
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .post-divider {
+    border: 0;
+    border-top: 1px solid var(--border);
+    margin: 1.5rem 0 2rem 0;
+  }
+
+  /* Grid layout with content and TOC sidebar */
+  .post-layout-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  @media (min-width: 1024px) {
+    .post-layout-grid {
+      grid-template-columns: 3.5fr 1fr;
+      gap: 4rem;
+    }
+  }
+
+  .post-content-wrap {
+    min-width: 0; /* Prevents layout overflow for pre tags */
+  }
+
+  /* Share Box styles */
+  .share-box {
+    margin-top: 3rem;
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .share-title {
+    margin: 0;
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  .share-links {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .share-links a, .share-links button {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border);
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-fast);
+    cursor: pointer;
+    font-family: inherit;
+    padding: 0;
+  }
+
+  .share-links a:hover, .share-links button:hover {
+    background-color: var(--primary);
+    border-color: var(--primary);
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px var(--primary-glow);
+  }
+
+  /* Comments */
+  .comments-section {
+    margin-top: 2rem;
+    padding: 1.5rem;
+  }
+
+  .comments-title {
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+  }
+
+  /* Sidebar/TOC styles */
+  .post-sidebar {
+    display: none;
+  }
+
+  @media (min-width: 1024px) {
+    .post-sidebar {
+      display: block;
+    }
+  }
+
+  .toc-wrap {
+    padding: 1.25rem;
+    position: sticky;
+    top: 90px;
+    max-height: calc(100vh - 120px);
+    overflow-y: auto;
+  }
+
+  .toc-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: var(--text);
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .toc-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .toc-item a {
+    color: var(--text-muted);
+    font-size: 0.88rem;
+    transition: color var(--transition-fast);
+    display: block;
+    line-height: 1.3;
+  }
+
+  .toc-item a:hover {
+    color: var(--text);
+  }
+
+  .toc-item a.active {
+    color: var(--primary) !important;
+    font-weight: 600;
+  }
+
+  .toc-item.depth-2 {
+    padding-left: 0;
+  }
+
+  .toc-item.depth-3 {
+    padding-left: 0.75rem;
+    border-left: 1px solid var(--border);
+  }
+
+  /* Related Posts styling */
+  .related-posts-section {
+    margin-top: 3rem;
+    border-top: 1px solid var(--border);
+    padding-top: 2rem;
+  }
+
+  .related-title {
+    font-size: 1.15rem;
+    margin-bottom: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-title);
+  }
+
+  .related-title i {
+    color: var(--primary);
+  }
+
+  .related-slider-wrap {
+    position: relative;
+    width: 100%;
+  }
+
+  .slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    transition: all var(--transition-fast);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .slider-btn:hover {
+    background: var(--bg-card-hover);
+    color: var(--primary);
+    border-color: var(--primary);
+  }
+
+  .slider-btn--left {
+    left: -19px;
+  }
+
+  .slider-btn--right {
+    right: -19px;
+  }
+
+  @media (max-width: 1024px) {
+    .slider-btn--left {
+      left: -8px;
+    }
+    .slider-btn--right {
+      right: -8px;
+    }
+  }
+
+  .related-posts-grid {
+    display: flex;
+    gap: 1.25rem;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+
+  .related-posts-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .related-post-card {
+    flex: 0 0 280px;
+    scroll-snap-align: start;
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .related-post-img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 0.75rem;
+    background-color: var(--bg-pre);
+  }
+
+  .related-post-card h4 {
+    font-size: 1.05rem;
+    margin: 0.5rem 0 0.5rem 0;
+    line-height: 1.35;
+    font-weight: 700;
+  }
+
+  .related-post-card h4 a {
+    color: var(--text);
+  }
+
+  .related-post-card h4 a:hover {
+    color: var(--primary);
+  }
+
+  .related-post-card p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin: 0;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .related-post-date {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+  }
+</style>
