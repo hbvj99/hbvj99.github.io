@@ -73,7 +73,7 @@ const currentPost = allPosts.find(p => p.data.title === title);
 const postImageSrc = teaser || image || (currentPost ? getPostImage(currentPost) : null);
 ---
 
-<BaseLayout title={`${title} | Vijay Pathak`} description={description || title} url={pageUrl} isArticle={true} publishedTime={date} image={postImageSrc}>
+<BaseLayout title={`${title} - Vijay Pathak`} description={description || title} url={pageUrl} isArticle={true} publishedTime={date} image={postImageSrc}>
 
 
   <div class="container post-container">
@@ -94,7 +94,11 @@ const postImageSrc = teaser || image || (currentPost ? getPostImage(currentPost)
         </div>
       </header>
 
-      <hr class="post-divider" />
+      {postImageSrc && (
+        <div class="post-hero-image-container animate-fade-up">
+          <img src={postImageSrc} alt={title} class="post-hero-image" />
+        </div>
+      )}
 
       <div class="post-layout-grid">
         <!-- Main Content -->
@@ -111,7 +115,7 @@ const postImageSrc = teaser || image || (currentPost ? getPostImage(currentPost)
                   <span class="meta-label"><i class="fas fa-tags"></i> Tags:</span>
                   <div class="meta-values">
                     {tags.map(tag => (
-                      <span class="meta-value-badge">{tag}</span>
+                      <a href={`/posts/?tag=${encodeURIComponent(tag)}`} class="meta-value-badge">{tag}</a>
                     ))}
                   </div>
                 </div>
@@ -121,7 +125,7 @@ const postImageSrc = teaser || image || (currentPost ? getPostImage(currentPost)
                   <span class="meta-label"><i class="fas fa-folder"></i> Categories:</span>
                   <div class="meta-values">
                     {categories.map(cat => (
-                      <span class="meta-value-badge">{cat}</span>
+                      <a href={`/posts/?category=${encodeURIComponent(cat)}`} class="meta-value-badge">{cat}</a>
                     ))}
                   </div>
                 </div>
@@ -554,6 +558,8 @@ const postImageSrc = teaser || image || (currentPost ? getPostImage(currentPost)
     padding: 4px 10px;
     border-radius: 6px;
     font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
     transition: all var(--transition-fast);
   }
 
@@ -911,5 +917,23 @@ const postImageSrc = teaser || image || (currentPost ? getPostImage(currentPost)
   .related-post-date {
     font-size: 0.75rem;
     color: var(--text-muted);
+  }
+
+  .post-hero-image-container {
+    width: 100%;
+    margin-bottom: 2rem;
+    border-radius: 8px;
+    overflow: hidden;
+    height: 320px;
+    border: 1px solid var(--border);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  .post-hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
   }
 </style>

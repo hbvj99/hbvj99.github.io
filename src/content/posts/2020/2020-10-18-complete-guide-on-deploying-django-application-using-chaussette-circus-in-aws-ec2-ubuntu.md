@@ -12,6 +12,7 @@ tags:
   - Git server
 categories:
   - Guides
+teaser: https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1491&q=30
 ---
 
 A guide on deploying Django application using Chaussette WSGI Server, Circus as process and socket manager in AWS Ubuntu 20 LTS EC2 instance.

@@ -7,6 +7,7 @@ tags:
 categories:
   - Guides
   - Security
+teaser: https://images.unsplash.com/photo-1605379399843-5870eea9b74e?q=50&w=1920&h=480&fit=crop
 ---
 
 The protection of sensitive data, avoidance of unwanted access, and defence against potential cyber-attacks and data breaches make secure application development extremely important.

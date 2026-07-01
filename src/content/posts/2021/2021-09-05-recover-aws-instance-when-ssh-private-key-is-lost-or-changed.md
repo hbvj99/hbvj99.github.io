@@ -7,7 +7,7 @@ tags:
   - AWS
 categories:
   - Guides
-teaser: /assets/image/2021/Instance-connect-type.png
+teaser: https://images.unsplash.com/photo-1586661615438-349a276d098b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=50
 ---
 
 A hard day in my work taught me to be extra careful when storing private key pairs and not to lose or replace them accidentally. This can be really frustrating situation and I feel like my experience can help someone someday. Luckily if you lose access to your private key or somehow it got replaced, this guide is for you and can be restored with an AWS console without much trouble.

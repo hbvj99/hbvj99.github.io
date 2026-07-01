@@ -11,11 +11,11 @@ const allCategories = [...new Set(sortedPosts.flatMap(post => post.data.categori
 const allTags = [...new Set(sortedPosts.flatMap(post => post.data.tags || []))].sort();
 ---
 
-<BaseLayout title="Articles | Vijay Pathak" description="Browse technical articles, backend design system insights, and cloud deployment guides written by Vijay Pathak.">
+<BaseLayout title="Posts - Vijay Pathak" description="Browse technical articles, backend design system insights, and cloud deployment guides written by Vijay Pathak.">
   <div class="container">
     <header class="posts-hero">
-      <h1 class="glow-title" id="page-title">Technical Articles</h1>
-      <p class="posts-subtitle">Sharing research, architectural guides, and lessons learned from systems engineering.</p>
+      <h1 class="glow-title" id="page-title">Posts</h1>
+      <p class="posts-subtitle">Sharing research, architectural guides, and experiences.</p>
     </header>
 
     <!-- Active Filter Info -->
@@ -114,17 +114,32 @@ const allTags = [...new Set(sortedPosts.flatMap(post => post.data.tags || []))].
 <script>
   document.addEventListener("DOMContentLoaded", function() {
     const PER_PAGE = 5;
-    let page = 1;
-    let cat = "";
-    let tag = "";
+    const urlParams = new URLSearchParams(window.location.search);
+    let cat = (urlParams.get("category") || "").toLowerCase().trim().replace(/\s+/g, '-');
+    let tag = (urlParams.get("tag") || "").toLowerCase().trim().replace(/\s+/g, '-');
+    let page = parseInt(urlParams.get("page") || "1", 10);
+    if (isNaN(page) || page < 1) page = 1;
 
     const catEl = document.getElementById("category-select") as HTMLSelectElement | null;
     const tagEl = document.getElementById("tag-select") as HTMLSelectElement | null;
+
+    if (cat && catEl) catEl.value = cat;
+    if (tag && tagEl) tagEl.value = tag;
     const items = Array.from(document.querySelectorAll(".post-card-item")) as HTMLElement[];
     const pagWrap = document.getElementById("posts-pagination");
     const pagList = pagWrap ? pagWrap.querySelector("ul") : null;
     const noneEl = document.getElementById("no-posts");
     const countEl = document.getElementById("posts-count");
+
+    function updateUrl() {
+      const params = new URLSearchParams();
+      if (cat) params.set("category", cat);
+      if (tag) params.set("tag", tag);
+      if (page > 1) params.set("page", String(page));
+      
+      const newRelativePathQuery = window.location.pathname + (params.toString() ? '?' + params.toString() : '');
+      window.history.replaceState(null, '', newRelativePathQuery);
+    }
 
     function filter() {
       return items.filter(function(item) {
@@ -139,10 +154,12 @@ const allTags = [...new Set(sortedPosts.flatMap(post => post.data.tags || []))].
       const matched = filter();
       const total = matched.length;
 
+      updateUrl();
+
       if (total === 0) {
         if (noneEl) noneEl.style.display = "flex";
         if (pagWrap) pagWrap.style.display = "none";
-        items.forEach(function(el) { el.style.display = "none"; });
+        items.forEach(function(el) { el.style.display = "none"; el.classList.remove('is-visible'); });
         if (countEl) countEl.textContent = "";
         return;
       }
@@ -153,8 +170,16 @@ const allTags = [...new Set(sortedPosts.flatMap(post => post.data.tags || []))].
       const start = (page - 1) * PER_PAGE;
       const end = Math.min(start + PER_PAGE, total);
 
-      items.forEach(function(el) { el.style.display = "none"; });
-      matched.slice(start, end).forEach(function(el) { el.style.display = "block"; });
+      items.forEach(function(el) { 
+        el.style.display = "none"; 
+        el.classList.remove('is-visible');
+      });
+      matched.slice(start, end).forEach(function(el, i) { 
+        el.style.display = "block"; 
+        setTimeout(function() {
+          el.classList.add('is-visible');
+        }, i * 55);
+      });
 
       if (countEl) {
         countEl.textContent = "Showing " + (start + 1) + "–" + end + " of " + total + " articles";
@@ -360,6 +385,15 @@ const allTags = [...new Set(sortedPosts.flatMap(post => post.data.tags || []))].
 
   .post-card-item {
     display: block;
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1), 
+                transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .post-card-item.is-visible {
+    opacity: 1;
+    transform: translateY(0);
   }
 
   .post-item {

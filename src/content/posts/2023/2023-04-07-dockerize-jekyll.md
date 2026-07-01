@@ -6,6 +6,7 @@ tags:
   - Jekyll
 categories:
     - Guides
+teaser: https://images.unsplash.com/photo-1646627927863-19874c27316b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1980&q=40&h=1080
 ---
 
 If you are running a static webpage generator that is built by Ruby and Jekyll, chances are you might have faced issues

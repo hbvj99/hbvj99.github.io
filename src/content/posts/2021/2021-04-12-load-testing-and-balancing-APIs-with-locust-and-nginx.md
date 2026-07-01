@@ -9,7 +9,7 @@ tags:
   - Nginx
 categories:
   - Guides
-teaser: /assets/image/2020/locust-dashboard.png
+teaser: https://images.unsplash.com/photo-1445109673451-c511bb51bd17?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=980&q=50
 ---
 
 I have always wondered how the system performs especially when thousand or even millions of users starts using it. I have now realized it's necessary to have a fair idea of how many users your app or APIs endpoint can handle that is freshly built and how to scale over time.
