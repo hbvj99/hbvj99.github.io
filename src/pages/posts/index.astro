@@ -15,7 +15,6 @@ const allTags = [...new Set(sortedPosts.flatMap(post => post.data.tags || []))].
   <div class="container">
     <header class="posts-hero">
       <h1 class="glow-title" id="page-title">Posts</h1>
-      <p class="posts-subtitle">Sharing research, architectural guides, and experiences.</p>
     </header>
 
     <!-- Active Filter Info -->
@@ -262,7 +261,7 @@ const allTags = [...new Set(sortedPosts.flatMap(post => post.data.tags || []))].
   }
 
   .posts-hero {
-    text-align: center;
+    text-align: left;
     margin-bottom: 3rem;
   }
 
@@ -275,7 +274,7 @@ const allTags = [...new Set(sortedPosts.flatMap(post => post.data.tags || []))].
     font-size: 1.15rem;
     color: var(--text-muted);
     max-width: 600px;
-    margin: 0 auto;
+    margin: 0;
     line-height: 1.5;
   }
 

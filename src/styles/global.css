@@ -135,7 +135,7 @@ a:hover {
   border: 1px solid transparent;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  border-radius: 6px;
+  border-radius: 12px;
   transition: all var(--transition-normal);
 }
 
